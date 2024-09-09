@@ -24,6 +24,7 @@ fetch("http://localhost:5678/api/works")
 //--------------------------------------------------
 //--------------------------------------------------
 // tentative de bouton de tri
+//identifier les images pour accéder aux !==tes catégories
 function filterImages() {
   const imagesContainer = document.querySelector(".gallery");
   imagesContainer.innerHTML = ""; // vide le container des images
@@ -45,4 +46,5 @@ menuDeCategories.addEventListener("click", () => {
   return work.category.name;
   console.log(tri);
 });
+
 */
