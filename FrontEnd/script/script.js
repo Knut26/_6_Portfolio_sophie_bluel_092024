@@ -14,7 +14,20 @@ fetch("http://localhost:5678/api/works")
       figure.appendChild(figCaption);
       gallery.appendChild(figure);
       figure.insertAdjacentHTML("beforeend", nomPhotos);
-      console.log(work.imageUrl);
+      //console.log(work.imageUrl);
+      //console.log(data);
+      //console.table(work.category.name);
     });
   })
   .catch((error) => console.error(error));
+//
+//
+//
+// tentative de bouton de tri
+const menuDeCategories = document.getElementById("menu-de-categories");
+
+menuDeCategories.addEventListener("click", () => {
+  const tri = Array.from(work.category.name);
+  return work.category.name;
+  console.log(tri);
+});
