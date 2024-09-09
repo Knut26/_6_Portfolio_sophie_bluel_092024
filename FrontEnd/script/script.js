@@ -10,8 +10,10 @@ fetch("http://localhost:5678/api/works")
       const figCaption = document.createElement("figcaption");
       img.src = listPhotos;
       img.alt = "image";
-      gallery.appendChild(img);
-      gallery.insertAdjacentHTML("beforeend", nomPhotos);
+      figure.appendChild(img);
+      figure.appendChild(figCaption);
+      gallery.appendChild(figure);
+      figure.insertAdjacentHTML("beforeend", nomPhotos);
       console.log(work.imageUrl);
     });
   })
