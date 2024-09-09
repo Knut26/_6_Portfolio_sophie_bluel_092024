@@ -52,8 +52,13 @@
       </section>
       <section id="portfolio">
         <h2>Mes Projets</h2>
-        <!-- ajout du bouton menu de catégories -->
-        <button id="menu-de-categories">Menu de catégories</button>
+        <!-- ajout du menu déroulant de catégories -->
+        <label for="menu-de-catégories">Choix de catégories : </label>
+        <select id="selection" onchange="filterImages(this.value)">
+          <option value="1">objets</option>
+          <option value="2">appartements</option>
+          <option value="3">hôtels et restaurants</option>
+        </select>
         <!-- ajout d'une div gallery -->
         <div class="gallery">
           <!-- ajout img src pour récup abatjour -->

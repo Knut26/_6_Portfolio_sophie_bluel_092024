@@ -20,14 +20,29 @@ fetch("http://localhost:5678/api/works")
     });
   })
   .catch((error) => console.error(error));
-//
-//
-//
+//--------------------------------------------------
+//--------------------------------------------------
+//--------------------------------------------------
 // tentative de bouton de tri
-const menuDeCategories = document.getElementById("menu-de-categories");
+function filterImages() {
+  const imagesContainer = document.querySelector(".gallery");
+  imagesContainer.innerHTML = ""; // vide le container des images
+  imagesContainer.forEach((image) => {
+    if (image.gallery.category.name === "objets") {
+      const imagesElements = document.createElement("img");
+      imagesElements.src = work.category.imageUrl;
+      imagesElements.alt = `work.category.name${filterImages}`;
+      imagesElements.classList.add("image-container");
+      imagesElements.style.display = "Block";
+      imagesContainer.appendChild(imagesElements);
+    }
+  });
+}
 
+/*
 menuDeCategories.addEventListener("click", () => {
   const tri = Array.from(work.category.name);
   return work.category.name;
   console.log(tri);
 });
+*/
