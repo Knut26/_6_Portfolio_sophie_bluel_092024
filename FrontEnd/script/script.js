@@ -17,6 +17,28 @@ fetch("http://localhost:5678/api/works")
       //console.log(work.imageUrl);
       //console.log(data);
       //console.table(work.category.name);
+      //--------------------------------------------------
+      //--------------------------------------------------
+      //--------------------------------------------------
+      //intégration menu de catégories
+      function filterImages() {
+        for (i = 0; i < work.category.name; i++) {
+          const imagesContainer = document.querySelector(".gallery");
+          imagesContainer.innerHTML = ""; // vide le container des images
+          imagesContainer.forEach((image) => {
+            if (image.gallery.category.name === "objets") {
+              const imagesElements = document.createElement("img");
+              imagesElements.src = work.category.imageUrl;
+              imagesElements.alt = `work.category.name${filterImages}`;
+              imagesElements.classList.add("image-container");
+              imagesElements.style.display = "Block";
+              imagesContainer.appendChild(imagesElements);
+            }
+          });
+        }
+        filterImages(i);
+      }
+      //console.log(work.category.name);
     });
   })
   .catch((error) => console.error(error));
@@ -25,20 +47,6 @@ fetch("http://localhost:5678/api/works")
 //--------------------------------------------------
 // tentative de bouton de tri
 //identifier les images pour accéder aux !==tes catégories
-function filterImages() {
-  const imagesContainer = document.querySelector(".gallery");
-  imagesContainer.innerHTML = ""; // vide le container des images
-  imagesContainer.forEach((image) => {
-    if (image.gallery.category.name === "objets") {
-      const imagesElements = document.createElement("img");
-      imagesElements.src = work.category.imageUrl;
-      imagesElements.alt = `work.category.name${filterImages}`;
-      imagesElements.classList.add("image-container");
-      imagesElements.style.display = "Block";
-      imagesContainer.appendChild(imagesElements);
-    }
-  });
-}
 
 /*
 menuDeCategories.addEventListener("click", () => {
