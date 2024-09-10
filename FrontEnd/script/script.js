@@ -29,27 +29,38 @@ const btnObjets = document.getElementById("2");
 const btnAppartements = document.getElementById("3");
 const btnHotelsEtAppartements = document.getElementById("4");
 
+async function getObjets() {
+  // création fonction asynchrone pour la démarrer en attendant le retour de la promesse qui retourne le tableau "category"
+  const tri1 = await fetch("http://localhost:5678/api/categories"); // attente de la résolution de la promesse qu(on passe en const "tri1")
+  return await tri1.json(); // on convertit la const "a" en format .json pour être lisible par l'ordi avec await
+}
+getObjets();
+
 btnObjets.addEventListener("click", () => {
-  fetch("http://localhost:5678/api/categories")
-    .then((response) => response.json)
-    .then((data) => {
-      const gallery = document.querySelector(".gallery");
-      data.forEach((category) => {
-        const listObjets = category.imageUrl;
-        const nomPhotos = category.name;
-        const figure = document.createElement("figure");
-        const img = document.createElement("img");
-        const figCaption = document.createElement("figcaption");
-        img.src = listPhotos;
-        img.alt = "image";
-        figure.appendChild(listObjets);
-        figure.appendChild(img);
-        figure.appendChild(figCaption);
-        gallery.appendChild(figure);
-        figure.insertAdjacentHTML("beforeend", nomPhotos);
-      });
-    });
+  getObjets();
 });
+
+// btnObjets.addEventListener("click", () => {
+//   fetch("http://localhost:5678/api/categories")
+//     .then((response) => response.json)
+//     .then((data) => {
+//       const gallery = document.querySelector(".gallery");
+//       data.forEach((category) => {
+//         const listObjets = category.imageUrl;
+//         const nomPhotos = category.name;
+//         const figure = document.createElement("figure");
+//         const img = document.createElement("img");
+//         const figCaption = document.createElement("figcaption");
+//         img.src = listPhotos;
+//         img.alt = "image";
+//         figure.appendChild(listObjets);
+//         figure.appendChild(img);
+//         figure.appendChild(figCaption);
+//         gallery.appendChild(figure);
+//         figure.insertAdjacentHTML("beforeend", nomPhotos);
+//       });
+//     });
+
 //   btnObjets.addEventListener("click", () => {
 //     const nomCategorieRecherche = "objets";
 //     const objetsFiltres = work.category.name.filter(
