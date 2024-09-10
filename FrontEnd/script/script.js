@@ -14,27 +14,61 @@ fetch("http://localhost:5678/api/works")
       figure.appendChild(figCaption);
       gallery.appendChild(figure);
       figure.insertAdjacentHTML("beforeend", nomPhotos);
-      //console.log(work.imageUrl);
-      //console.log(data);
-      //console.table(work.category.name);
-      //--------------------------------------------------
-      //--------------------------------------------------
-      //--------------------------------------------------
-      //intégration menu de catégories
-      const tous = document.getElementById("1");
-      const objets = document.getElementById("2");
-      const appartements = document.getElementById("3");
-      const hotelsEtAppartements = document.getElementById("4");
-
-      objets.addEventListener("click", () => {
-        const projetsObjets = work.category;
-        gallery.innerHTML = projetsObjets;
-        console.log(work.category.name);
-      });
-      //console.log(work.category.name);
     });
-  })
-  .catch((error) => console.error(error));
+  });
+//console.log(work.imageUrl);
+//console.log(data);
+//console.table(work.category.name);
+//--------------------------------------------------
+//--------------------------------------------------
+//--------------------------------------------------
+//intégration menu de catégories
+const projets = document.getElementById("projets");
+const btnTous = document.getElementById("1");
+const btnObjets = document.getElementById("2");
+const btnAppartements = document.getElementById("3");
+const btnHotelsEtAppartements = document.getElementById("4");
+
+btnObjets.addEventListener("click", () => {
+  fetch("http://localhost:5678/api/categories")
+    .then((response) => response.json)
+    .then((data) => {
+      const gallery = document.querySelector(".gallery");
+      data.forEach((category) => {
+        const listObjets = category.imageUrl;
+        const nomPhotos = category.name;
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        const figCaption = document.createElement("figcaption");
+        img.src = listPhotos;
+        img.alt = "image";
+        figure.appendChild(listObjets);
+        figure.appendChild(img);
+        figure.appendChild(figCaption);
+        gallery.appendChild(figure);
+        figure.insertAdjacentHTML("beforeend", nomPhotos);
+      });
+    });
+});
+//   btnObjets.addEventListener("click", () => {
+//     const nomCategorieRecherche = "objets";
+//     const objetsFiltres = work.category.name.filter(
+//       (objet) => work.category.name === nomCategorieRecherche
+//     );
+//     objetsFiltres.forEach((objet) => {
+//       console.log(`id: ${objet.id}`);
+//  });
+
+//console.log(work.category.name);
+//   objets.addEventListener("click", () => {
+//     const projetsObjets = work.category;
+//     gallery.innerHTML = projetsObjets;
+//     console.log(work.category.name);
+//   });
+//console.log(work.category.name);
+//   });
+//   })
+// .catch((error) => console.error(error));
 /*
 
 //--------------------------------------------------
