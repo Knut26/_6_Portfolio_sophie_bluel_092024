@@ -21,31 +21,44 @@ fetch("http://localhost:5678/api/works")
       //--------------------------------------------------
       //--------------------------------------------------
       //intégration menu de catégories
-      function filterImages() {
-        for (i = 0; i < work.category.name; i++) {
-          const imagesContainer = document.querySelector(".gallery");
-          imagesContainer.innerHTML = ""; // vide le container des images
-          imagesContainer.forEach((image) => {
-            if (image.gallery.category.name === "objets") {
-              const imagesElements = document.createElement("img");
-              imagesElements.src = work.category.imageUrl;
-              imagesElements.alt = `work.category.name${filterImages}`;
-              imagesElements.classList.add("image-container");
-              imagesElements.style.display = "Block";
-              imagesContainer.appendChild(imagesElements);
-            }
-          });
-        }
-        filterImages(i);
-      }
+      const tous = document.getElementById("1");
+      const objets = document.getElementById("2");
+      const appartements = document.getElementById("3");
+      const hotelsEtAppartements = document.getElementById("4");
+
+      objets.addEventListener("click", () => {
+        const projetsObjets = work.category;
+        gallery.innerHTML = projetsObjets;
+        console.log(work.category.name);
+      });
       //console.log(work.category.name);
     });
   })
   .catch((error) => console.error(error));
+/*
+
 //--------------------------------------------------
 //--------------------------------------------------
 //--------------------------------------------------
 // tentative de bouton de tri
+
+//   function filterImages() {
+//     for (i = 0; i < work.category.name; i++) {
+//       const imagesContainer = document.querySelector(".gallery");
+//       imagesContainer.innerHTML = ""; // vide le container des images
+//       imagesContainer.forEach((image) => {
+//         if (image.gallery.category.name === "objets") {
+//           const imagesElements = document.createElement("img");
+//           imagesElements.src = work.category.imageUrl;
+//           imagesElements.alt = `work.category.name${filterImages}`;
+//           imagesElements.classList.add("image-container");
+//           imagesElements.style.display = "Block";
+//           imagesContainer.appendChild(imagesElements);
+//         }
+//       });
+//     }
+//     filterImages(i);
+//   }
 //identifier les images pour accéder aux !==tes catégories
 
 /*

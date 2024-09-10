@@ -137,18 +137,18 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  margin: 50px 0;
+  margin: 50px 70px 50px 70px;
 }
+
 section {
   margin: 50px 0;
 }
 
 /* ajout CSS */
 
-.projets {
+#projets {
   display: flex;
   justify-content: center;
-  width: 100%;
 }
 
 .btn {
@@ -157,11 +157,18 @@ section {
   background-color: white;
   border-color: #1d6154;
   color: #1d6154;
-  font-family: "Work Sans";
+  font-family: "Syne";
   font-size: 15px;
-  font-weight: 700;
-  margin: 10px;
+  margin: 10px 3px 50px 3px;
   padding: 5px 20px 5px 20px;
+}
+
+.btn:hover {
+  color: white;
+  background-color: #1d6154;
+  transition: 500ms ease;
+  transform: scale(1.04);
+  cursor: pointer;
 }
 
 /* fin ajout CSS */
@@ -210,12 +217,18 @@ li:hover {
 #introduction img {
   display: block;
   margin: auto;
-  width: 80%;
+  width: 100%;
+  height: 100%;
+  /* width: 360px;
+  height: 310px; */
 }
 
 #introduction article {
   flex: 1;
+  margin-left: 60px;
+  padding-block: 50px;
 }
+
 #introduction h2 {
   margin-bottom: 1em;
 }
