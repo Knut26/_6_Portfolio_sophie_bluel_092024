@@ -36,8 +36,28 @@ async function getObjets() {
 }
 getObjets();
 
+async function afficherObjets() {
+  const arrayObjets = await getObjets();
+  //console.log(arrayObjets); //OK
+  arrayObjets.forEach((category) => {
+    const gallery = document.querySelector(".gallery");
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    const figCaption = document.createElement("figcaption");
+    img.src = category.name;
+    figCaption.textContent = category.id;
+    figure.appendChild(img);
+    figure.appendChild(figCaption);
+    gallery.appendChild(figure);
+  });
+}
+afficherObjets();
+/*
 btnObjets.addEventListener("click", () => {
-  getObjets();
+  const arrayObjets = getObjets();
+  for (i = 0; i < arrayObjets.lenght; i++) {
+    afficherObjets(i);
+  }
 });
 
 // btnObjets.addEventListener("click", () => {
