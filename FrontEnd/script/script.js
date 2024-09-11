@@ -28,7 +28,7 @@ const projets = document.getElementById("projets");
 const btnTous = document.getElementById("1");
 const btnObjets = document.getElementById("2");
 const btnAppartements = document.getElementById("3");
-const btnHotelsEtAppartements = document.getElementById("4");
+const btnHotelsEtRestaurants = document.getElementById("4");
 
 async function getObjets() {
   // création fonction asynchrone pour la démarrer en attendant le retour de la promesse qui retourne le tableau "category"
@@ -37,8 +37,33 @@ async function getObjets() {
 }
 getObjets();
 
+//-----------------------TOUS------------------------------------
+//ajouter transitions, autres photos, noms
+btnTous.addEventListener("click", () => {
+  gallery.innerHTML = "";
+  fetch("http://localhost:5678/api/works")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((works) => {
+        const listPhotos = works.imageUrl;
+        const nomPhotos = works.title;
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        const figCaption = document.createElement("figcaption");
+        img.src = listPhotos;
+        img.alt = "image";
+        figure.appendChild(img);
+        figure.appendChild(figCaption);
+        gallery.appendChild(figure);
+        figure.insertAdjacentHTML("beforeend", nomPhotos);
+      });
+    });
+});
+
+//-----------------------OBJETS------------------------------------
+
 btnObjets.addEventListener("click", (works) => {
-  async function afficherObjet() {
+  async function afficherObjets() {
     const arrayObjets = await getObjets();
     console.log(arrayObjets); //OK
     const figure = document.createElement("figure");
@@ -54,8 +79,56 @@ btnObjets.addEventListener("click", (works) => {
     gallery.appendChild(figure);
     console.log(figure);
   }
-  afficherObjet();
+  afficherObjets();
 });
+
+//-----------------------APPARTEMENTS---------------------------------
+
+btnAppartements.addEventListener("click", (works) => {
+  async function afficherAppartements() {
+    const arrayObjets = await getObjets();
+    console.log(arrayObjets); //OK
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    const figCaption = document.createElement("figcaption");
+    fetch("http://localhost:5678/api/works").then((response) => response.json);
+    figCaption.textContent = works.name;
+    gallery.innerHTML = "";
+    figure.classList.add("img");
+    img.src =
+      "http://localhost:5678/images/appartement-paris-v1651287270508.png";
+    figure.appendChild(img);
+    figure.appendChild(figCaption);
+    gallery.appendChild(figure);
+    console.log(figure);
+  }
+  afficherAppartements();
+});
+
+//-----------------------HOTEL ET RESTAURANTS---------------------------
+
+btnHotelsEtRestaurants.addEventListener("click", (works) => {
+  async function afficherHotelsEtRestaurants() {
+    const arrayObjets = await getObjets();
+    console.log(arrayObjets); //OK
+    const figure = document.createElement("figure");
+    const img = document.createElement("img");
+    const figCaption = document.createElement("figcaption");
+    fetch("http://localhost:5678/api/works").then((response) => response.json);
+    figCaption.textContent = works.name;
+    gallery.innerHTML = "";
+    figure.classList.add("img");
+    img.src =
+      "http://localhost:5678/images/restaurant-sushisen-londres1651287319271.png";
+    figure.appendChild(img);
+    figure.appendChild(figCaption);
+    gallery.appendChild(figure);
+    console.log(figure);
+  }
+  afficherHotelsEtRestaurants();
+});
+
+//----------------------------------------------------------------------
 
 /*
 btnObjets.addEventListener("click", () => {
