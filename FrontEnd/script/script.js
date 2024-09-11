@@ -1,10 +1,11 @@
+const gallery = document.querySelector(".gallery");
+
 fetch("http://localhost:5678/api/works")
   .then((response) => response.json())
   .then((data) => {
-    const gallery = document.querySelector(".gallery");
-    data.forEach((work) => {
-      const listPhotos = work.imageUrl;
-      const nomPhotos = work.title;
+    data.forEach((works) => {
+      const listPhotos = works.imageUrl;
+      const nomPhotos = works.title;
       const figure = document.createElement("figure");
       const img = document.createElement("img");
       const figCaption = document.createElement("figcaption");
@@ -36,22 +37,28 @@ async function getObjets() {
 }
 getObjets();
 
-async function afficherObjets() {
-  const arrayObjets = await getObjets();
-  //console.log(arrayObjets); //OK
-  arrayObjets.forEach((category) => {
-    const gallery = document.querySelector(".gallery");
-    const figure = document.createElement("figure");
-    const img = document.createElement("img");
-    const figCaption = document.createElement("figcaption");
-    img.src = category.name;
-    figCaption.textContent = category.id;
-    figure.appendChild(img);
-    figure.appendChild(figCaption);
-    gallery.appendChild(figure);
-  });
-}
-afficherObjets();
+btnObjets.addEventListener("click", () => {
+  async function afficherObjets() {
+    const arrayObjets = await getObjets();
+    console.log(arrayObjets); //OK
+    arrayObjets.forEach((works) => {
+      const listPhotos = works.imageUrl;
+      const figure = document.createElement("figure");
+      const img = document.createElement("img");
+      const figCaption = document.createElement("figcaption");
+      fetch("http://localhost:5678/api/works").then(
+        (response) => response.json
+      );
+      img.src = listPhotos;
+      figCaption.textContent = arrayObjets.name;
+      figure.appendChild(img);
+      figure.appendChild(figCaption);
+      gallery.appendChild(figure);
+      console.log(img);
+    });
+  }
+  afficherObjets();
+});
 /*
 btnObjets.addEventListener("click", () => {
   const arrayObjets = getObjets();
