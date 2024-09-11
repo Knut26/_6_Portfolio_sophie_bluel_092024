@@ -52,6 +52,19 @@ btnObjets.addEventListener("click", () => {
       console.log(works);
       img.src = listPhotos;
       figCaption.textContent = works.name;
+      //
+      //code ci-dessous pas bon
+      //
+      figure.classList.add("img");
+      img.src = "http://localhost:5678/images/abajour-tahina1651286843956.png";
+      //
+      //code ci-dessus pas bon
+      //il faut un appel dynamique de l'image en fn du nom objet/restau/hôtel....
+      // genre if(category.name="objets") {img.src = (category.name`${works.category.imageUrl}`)}
+      // genre if(category.name="restaurants") {img.src = (category.name`${works.category.imageUrl}`)}
+      // genre if(category.name="hotels) {img.src = (category.name`${works.category.imageUrl}`)}
+      //
+      //
       figure.appendChild(img);
       figure.appendChild(figCaption);
       gallery.appendChild(figure);
