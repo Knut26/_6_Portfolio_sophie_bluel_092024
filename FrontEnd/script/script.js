@@ -50,11 +50,12 @@ btnObjets.addEventListener("click", () => {
         (response) => response.json
       );
       console.log(works);
-      img.src = listPhotos;
-      figCaption.textContent = works.name;
+      //img.src = listPhotos; // utile ?
+      figCaption.textContent = works.id;
       //
       //code ci-dessous pas bon
       //
+      gallery.innerHTML = "";
       figure.classList.add("img");
       img.src = "http://localhost:5678/images/abajour-tahina1651286843956.png";
       //
