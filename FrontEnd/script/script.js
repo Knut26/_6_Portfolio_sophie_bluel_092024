@@ -37,6 +37,31 @@ async function getObjets() {
 }
 getObjets();
 
+btnObjets.addEventListener("click", (works) => {
+  async function afficherObjet() {
+    const arrayObjets = await getObjets();
+    console.log(arrayObjets); //OK
+    for (i = 0; i < works.lenght; i++) {
+      const figure = document.createElement("figure");
+      const img = document.createElement("img");
+      const figCaption = document.createElement("figcaption");
+      fetch("http://localhost:5678/api/works").then(
+        (response) => response.json
+      );
+      figCaption.textContent = works.name;
+      gallery.innerHTML = "";
+      figure.classList.add("img");
+      img.src = "http://localhost:5678/images/" + i + ".png";
+      figure.appendChild(img);
+      figure.appendChild(figCaption);
+      gallery.appendChild(figure);
+      console.log(figure);
+    }
+  }
+  afficherObjet();
+});
+
+/*
 btnObjets.addEventListener("click", () => {
   async function afficherObjets() {
     const arrayObjets = await getObjets();
@@ -76,6 +101,23 @@ btnObjets.addEventListener("click", () => {
   }
   afficherObjets();
 });
+*/
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /*
 btnObjets.addEventListener("click", () => {
   const arrayObjets = getObjets();
