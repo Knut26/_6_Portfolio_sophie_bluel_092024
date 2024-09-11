@@ -49,12 +49,15 @@ btnObjets.addEventListener("click", () => {
       fetch("http://localhost:5678/api/works").then(
         (response) => response.json
       );
+      console.log(works);
       img.src = listPhotos;
-      figCaption.textContent = arrayObjets.name;
+      figCaption.textContent = works.name;
       figure.appendChild(img);
       figure.appendChild(figCaption);
       gallery.appendChild(figure);
-      console.log(img);
+      console.log(figure);
+      //console.log(img);
+      //console.log(figCaption);
     });
   }
   afficherObjets();
