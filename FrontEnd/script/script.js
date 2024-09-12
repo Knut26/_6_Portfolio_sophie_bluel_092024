@@ -20,10 +20,11 @@ fetch("http://localhost:5678/api/works")
 //console.log(work.imageUrl);
 //console.log(data);
 //console.table(work.category.name);
-//--------------------------------------------------
-//--------------------------------------------------
-//--------------------------------------------------
-//intégration menu de catégories
+
+//---------------------------------------------------------------
+//-----------intégration menu de catégories----------------------
+//---------------------------------------------------------------
+
 const projets = document.getElementById("projets");
 const btnTous = document.getElementById("1");
 const btnObjets = document.getElementById("2");
@@ -37,7 +38,10 @@ async function getObjets() {
 }
 getObjets();
 
+//---------------------------------------------------------------
 //-----------------------TOUS------------------------------------
+//---------------------------------------------------------------
+
 //ajouter transitions, autres photos, noms
 btnTous.addEventListener("click", () => {
   gallery.innerHTML = "";
@@ -59,13 +63,13 @@ btnTous.addEventListener("click", () => {
       });
     });
 });
-
-//-----------------------OBJETS------------------------------------
+//---------------------------------------------------------------
+//-----------------------OBJETS----------------------------------
+//---------------------------------------------------------------
 
 btnObjets.addEventListener("click", (works) => {
   async function afficherObjets() {
     const arrayObjets = await getObjets();
-    console.log(arrayObjets); //OK
     const figure = document.createElement("figure");
     const img = document.createElement("img");
     const figCaption = document.createElement("figcaption");
@@ -77,17 +81,17 @@ btnObjets.addEventListener("click", (works) => {
     figure.appendChild(img);
     figure.appendChild(figCaption);
     gallery.appendChild(figure);
-    console.log(figure);
+    //console.log(arrayObjets);
   }
   afficherObjets();
 });
-
-//-----------------------APPARTEMENTS---------------------------------
+//---------------------------------------------------------------
+//-----------------------APPARTEMENTS----------------------------
+//---------------------------------------------------------------
 
 btnAppartements.addEventListener("click", (works) => {
   async function afficherAppartements() {
     const arrayObjets = await getObjets();
-    console.log(arrayObjets); //OK
     const figure = document.createElement("figure");
     const img = document.createElement("img");
     const figCaption = document.createElement("figcaption");
@@ -100,17 +104,17 @@ btnAppartements.addEventListener("click", (works) => {
     figure.appendChild(img);
     figure.appendChild(figCaption);
     gallery.appendChild(figure);
-    console.log(figure);
+    // console.log(arrayObjets);
   }
   afficherAppartements();
 });
-
-//-----------------------HOTEL ET RESTAURANTS---------------------------
+//---------------------------------------------------------------
+//-----------------------HOTELS ET RESTAURANTS-------------------
+//---------------------------------------------------------------
 
 btnHotelsEtRestaurants.addEventListener("click", (works) => {
   async function afficherHotelsEtRestaurants() {
     const arrayObjets = await getObjets();
-    console.log(arrayObjets); //OK
     const figure = document.createElement("figure");
     const img = document.createElement("img");
     const figCaption = document.createElement("figcaption");
@@ -123,12 +127,14 @@ btnHotelsEtRestaurants.addEventListener("click", (works) => {
     figure.appendChild(img);
     figure.appendChild(figCaption);
     gallery.appendChild(figure);
-    console.log(figure);
+    //console.log(arrayObjets);
   }
   afficherHotelsEtRestaurants();
 });
 
-//----------------------------------------------------------------------
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//---------------------------------------------------------------
 
 /*
 btnObjets.addEventListener("click", () => {
