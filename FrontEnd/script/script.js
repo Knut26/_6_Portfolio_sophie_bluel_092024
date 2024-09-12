@@ -133,9 +133,11 @@ btnHotelsEtRestaurants.addEventListener("click", (works) => {
 });
 
 //---------------------------------------------------------------
+//--------------------------LOGIN--------------------------------
 //---------------------------------------------------------------
-//---------------------------------------------------------------
-
+document.getElementById("btn-login").addEventListener("click", () => {
+  window.location.href = "./LogIn/login.html";
+});
 /*
 btnObjets.addEventListener("click", () => {
   async function afficherObjets() {
