@@ -146,12 +146,12 @@ section {
 
 /* ajout CSS */
 
-#projets {
+#filters {
   display: flex;
   justify-content: center;
 }
 
-.btn {
+button {
   display: grid;
   border-radius: 50px;
   background-color: white;
@@ -163,7 +163,7 @@ section {
   padding: 5px 20px 5px 20px;
 }
 
-.btn:hover {
+button:hover {
   color: white;
   background-color: #1d6154;
   transition: 500ms ease;
