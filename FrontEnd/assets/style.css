@@ -219,8 +219,6 @@ li:hover {
   margin: auto;
   width: 100%;
   height: 100%;
-  /* width: 360px;
-  height: 310px; */
 }
 
 #introduction article {
@@ -297,4 +295,20 @@ footer nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 2em;
+}
+
+.body {
+}
+
+.log-in__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 200px;
+}
+
+.mentions-legales {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 100px;
 }

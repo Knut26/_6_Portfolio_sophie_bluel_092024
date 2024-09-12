@@ -38,6 +38,22 @@ async function getCategories() {
       const button = document.createElement("button");
       button.innerText = element.name;
       filters.appendChild(button);
+      button.addEventListener("click", () => {
+        fetch("http://localhost:5678/api/works");
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        const figCaption = document.createElement("figcaption");
+        gallery.innerHTML = "";
+        img.src =
+          "http://localhost:5678/images/abajour-tahina1651286843956.png";
+        figure.classList.add("img");
+        figCaption.textContent = element.name;
+        figure.appendChild(img);
+        figure.appendChild(figCaption);
+        gallery.appendChild(figure);
+        figure.insertAdjacentHTML("beforeend", nomPhotos);
+        console.log("ca marche");
+      });
     });
   } catch {}
 }

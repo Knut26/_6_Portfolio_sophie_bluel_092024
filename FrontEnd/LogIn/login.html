@@ -2,16 +2,41 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <title>Sophie Bluel - Log In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page de Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <script src="./script/script.js" defer></script>
   </head>
-  <body>
-    <h1>Log In</h1>
-    <div class="container">
-      <label for="e-mail">E-mail</label>
-      <input type="text" id="e-mail" name="e-mail" required />
-      <label for="e-mail">E-mail</label>
-      <input type="text" id="e-mail" name="e-mail" required />
+  <body class="body">
+        <header>
+      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+      <nav>
+        <ul>
+          <li>projets</li>
+          <li>contact</li>
+          <li id="btn-login">login</li>
+          <li><img src="../assets/icons/instagram.png" alt="Instagram" /></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="log-in__container">
+        <h2 class="log-in__titre">Log In</h1>
+        <label for="e-mail">E-mail</label>
+        <input type="text" id="e-mail" name="e-mail" required />
+        <label for="text">Mot de passe</label>
+        <input type="text" id="mot-de-passe" name="e-mail" required />
+        <button class="se-connecter">Se connecter</button>
+        <a href="#">Mot de passe oublié</a>
     </div>
   </body>
+  <footer>
+    <a href="#" class="mentions-legales">Mentions légales</a>
+  </footer>
 </html>
