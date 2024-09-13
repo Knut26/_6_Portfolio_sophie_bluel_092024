@@ -32,16 +32,38 @@ async function getCategories() {
   btnTous.innerText = "Tous";
   filters.appendChild(btnTous);
   try {
-    const response = await fetch("http://localhost:5678/api/categories");
+    const response = await fetch("http://localhost:5678/api/works");
     const data = await response.json();
-    data.forEach((element) => {
-      const button = document.createElement("button");
-      button.innerText = element.name;
-      filters.appendChild(button);
-      button.addEventListener("click", () => {
-        console.log(response);
-      });
+
+    //console.log(data.length);
+    for (i = 0; i < data.length; i++) {
+      //console.log(data[i].category.id);
+      const newData = data[i].category.id;
+      console.log(newData);
+      if (newData === 1) {
+        const button = document.createElement("button");
+        filters.appendChild(button);
+      }
+    }
+    newData.forEach((element) => {
+      if (element.categoryId !== 0) {
+        const button = document.createElement("button");
+        button.innerText = element.category.name;
+        filters.appendChild(button);
+        button.addEventListener("click", () => {
+          const img = document.createElement("img");
+          const figure = document.createElement("figure");
+          const figCaption = document.createElement("figcaption");
+          img.src = element.imageUrl;
+          figCaption.innerText = element.title;
+          gallery.innerHTML = "";
+          figure.appendChild(img);
+          figure.appendChild(figCaption);
+          gallery.appendChild(figure);
+        });
+      }
     });
+    //}
   } catch {}
 }
 getCategories();
@@ -162,3 +184,37 @@ document.getElementById("btn-login").addEventListener("click", () => {
 //   }
 //   afficherHotelsEtRestaurants();
 // });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//DON'T REMOVE BELLOWWWWWWWWWWWWWWWWWWWWWWWW
+//
+//
+/*
+let categories = []; // création d'un tableau vide qui se remplira dynamiquement
+
+async function getCategories() {
+  const btnTous = document.createElement("button");
+  btnTous.innerText = "Tous";
+  filters.appendChild(btnTous);
+  try {
+    const response = await fetch("http://localhost:5678/api/categories");
+    const data = await response.json();
+    data.forEach((element) => {
+      const button = document.createElement("button");
+      button.innerText = element.name;
+      filters.appendChild(button);
+      button.addEventListener("click", () => {
+        console.log(response);
+      });
+    });
+  } catch {}
+}
+getCategories();
+*/
