@@ -37,7 +37,6 @@ async function getCategories() {
 
     //console.log(data.length);
     for (i = 0; i < data.length; i++) {
-      //console.log(data[i].category.id);
       const newData = data[i].category.id;
       console.log(newData);
       if (newData === 1) {
@@ -45,6 +44,8 @@ async function getCategories() {
         filters.appendChild(button);
       }
     }
+    /*
+    //inutile
     newData.forEach((element) => {
       if (element.categoryId !== 0) {
         const button = document.createElement("button");
@@ -63,6 +64,8 @@ async function getCategories() {
         });
       }
     });
+    */
+    //inutile
     //}
   } catch {}
 }
