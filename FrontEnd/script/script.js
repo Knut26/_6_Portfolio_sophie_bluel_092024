@@ -81,9 +81,9 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
     const button = document.createElement("button");
     button.innerText = newElement.name;
     filters.appendChild(button);
-    //console.log(newElement);
+    // console.log(newElement);
     const imagesLen = images.length;
-    //console.log(imagesLen);
+    console.log(images);
     button.addEventListener("click", () => {
       for (i = 0; i < imagesLen; i++) {
         const img = document.createElement("img");
