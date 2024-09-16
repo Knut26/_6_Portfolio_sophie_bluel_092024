@@ -1,21 +1,25 @@
-const filters = document.getElementById("filters");
-const gallery = document.querySelector(".gallery");
+//---------------------------------------------------------------
+//---------------intégration des éléments -----------------------
+//---------------------------------------------------------------
 
-fetch("http://localhost:5678/api/works")
-  .then((response) => response.json())
+const filters = document.getElementById("filters"); //récup de l'ID filters du HTML
+const gallery = document.querySelector(".gallery"); //récup de la class gallery du HTML
+
+fetch("http://localhost:5678/api/works") //récup des infos de l'API
+  .then((response) => response.json()) //transformé en format JSON
   .then((data) => {
     data.forEach((works) => {
-      const listPhotos = works.imageUrl;
-      const nomPhotos = works.title;
-      const figure = document.createElement("figure");
-      const img = document.createElement("img");
-      const figCaption = document.createElement("figcaption");
-      img.src = listPhotos;
-      img.alt = "image";
-      figure.appendChild(img);
-      figure.appendChild(figCaption);
-      gallery.appendChild(figure);
-      figure.insertAdjacentHTML("beforeend", nomPhotos);
+      const listPhotos = works.imageUrl; //récup dans une const des chemins d'images
+      const nomPhotos = works.title; //récup dans une const des titles des photos
+      const figure = document.createElement("figure"); //création d'une figure pour chaque éléments
+      const img = document.createElement("img"); //création d'une image pour chaque éléments
+      const figCaption = document.createElement("figcaption"); //création d'une figcaption pour chaque éléments
+      img.src = listPhotos; //src des images
+      img.alt = "image"; //nom alternatif
+      figure.appendChild(img); //figure est le parent de img
+      figure.appendChild(figCaption); //figure est le parent de figcaption
+      gallery.appendChild(figure); //gallery est le parent de figure
+      figure.insertAdjacentHTML("beforeend", nomPhotos); //insertion nom sous l'image
     });
   });
 //console.log(work.imageUrl);
@@ -25,71 +29,51 @@ fetch("http://localhost:5678/api/works")
 //---------------------------------------------------------------
 //-----------intégration menu de catégories----------------------
 //---------------------------------------------------------------
-/*-------!!!
-async function getCategories() {
-  const btnTous = document.createElement("button");
-  btnTous.innerText = "Tous";
-  filters.appendChild(btnTous);
-
-  const response = await fetch("http://localhost:5678/api/categories");
-  const data = await response.json();
-  data.forEach((element) => {
-    const button = document.createElement("button");
-    button.innerText = element.name;
-    filters.appendChild(button);
-    //console.log(data);
-  });
-}
-getCategories();
-
-async function getImages() {
-  const newResponse = await fetch("http://localhost:5678/api/works");
-  const newData = await newResponse.json();
-  newData.forEach((newElement) => {
-    const newElementId = newElement.categoryId;
-    console.log(newElementId);
-  });
-}
-getImages();
-!!!!---------*/
 
 async function fetchCategoriesAndImages() {
+  //creation d'une function asynchrone
   const [categoriesResponse, imagesResponse] = await Promise.all([
-    fetch("http://localhost:5678/api/categories"),
-    fetch("http://localhost:5678/api/works"),
+    //qui attend une promesse de réponse
+    fetch("http://localhost:5678/api/categories"), //demande d'infos d'une 1ère API
+    fetch("http://localhost:5678/api/works"), //demande d'infos d'une 2nde API en même temps
   ]);
   const categories = await categoriesResponse.json();
   const images = await imagesResponse.json();
-  return { categories, images };
+  return { categories, images }; //on retourne les infos en format JSON
 }
 
 function getCategoriesWithImages(categories, images) {
   return categories.map((category) => {
+    //parcourt les éléments dans leur ordre d'insertion
     return {
-      ...category,
+      ...category, //on éclate l'array category pour récup les ID
       images: images.filter((image) => image.categoryId === category.id),
     };
   });
 }
 fetchCategoriesAndImages().then(({ categories, images }) => {
-  const btnTous = document.createElement("button");
-  btnTous.innerText = "Tous";
-  filters.appendChild(btnTous);
+  //appel de la fucntion créée
+  const btnTous = document.createElement("button"); //creation btnTous
+  btnTous.innerText = "Tous"; //on le nomme
+  filters.appendChild(btnTous); //filters est son parent
   btnTous.addEventListener("click", () => {
-    gallery.innerHTML = "";
+    //on crée un évènement à son clic
+    gallery.innerHTML = ""; //on efface toutes les images présentes précédemment
     for (i = 0; i < images.length; i++) {
-      const nomPhotos = images[i].title;
-      const figure = document.createElement("figure");
-      const img = document.createElement("img");
-      const figCaption = document.createElement("figcaption");
-      img.src = images[i].imageUrl;
-      img.alt = "image";
-      figure.appendChild(img);
-      figure.appendChild(figCaption);
-      gallery.appendChild(figure);
-      figure.insertAdjacentHTML("beforeend", nomPhotos);
+      //on crée une boucle pour parcourir tous les éléments
+      const nomPhotos = images[i].title; //création d'une const pour les titles
+      const figure = document.createElement("figure"); //création d'une figure pour chaque éléments
+      const img = document.createElement("img"); //création d'une image pour chaque éléments
+      const figCaption = document.createElement("figcaption"); //création d'une figcaption
+      img.src = images[i].imageUrl; //src des images
+      img.alt = "image"; //nom alternatif
+      figure.appendChild(img); //figure est le parent de img
+      figure.appendChild(figCaption); //figure est le parent de figcaption
+      gallery.appendChild(figure); //gallery est le parent de figure
+      figure.insertAdjacentHTML("beforeend", nomPhotos); //insertion nom sous l'image
     }
   });
+
   const categoriesWithImages = getCategoriesWithImages(categories, images);
   console.log(categoriesWithImages); // 3 noms de familles incluant les 11 images
   console.log(categories); //3 noms des familles
@@ -124,6 +108,34 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
 document.getElementById("btn-login").addEventListener("click", () => {
   window.location.href = "./LogIn/login.html";
 });
+
+/*-------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+async function getCategories() {
+  const btnTous = document.createElement("button");
+  btnTous.innerText = "Tous";
+  filters.appendChild(btnTous);
+
+  const response = await fetch("http://localhost:5678/api/categories");
+  const data = await response.json();
+  data.forEach((element) => {
+    const button = document.createElement("button");
+    button.innerText = element.name;
+    filters.appendChild(button);
+    //console.log(data);
+  });
+}
+getCategories();
+
+async function getImages() {
+  const newResponse = await fetch("http://localhost:5678/api/works");
+  const newData = await newResponse.json();
+  newData.forEach((newElement) => {
+    const newElementId = newElement.categoryId;
+    console.log(newElementId);
+  });
+}
+getImages();
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!---------*/
 /*
 async function getCategories() {
   const btnTous = document.createElement("button");
