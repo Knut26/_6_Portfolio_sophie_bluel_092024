@@ -32,6 +32,29 @@ async function getCategories() {
   btnTous.innerText = "Tous";
   filters.appendChild(btnTous);
   try {
+    const response = await fetch("http://localhost:5678/api/categories");
+    const data = await response.json();
+    data.forEach((element) => {
+      const button = document.createElement("button");
+      button.innerText = element.name;
+      filters.appendChild(button);
+    });
+  } catch {}
+}
+getCategories();
+
+//---------------------------------------------------------------
+//--------------------------LOGIN--------------------------------
+//---------------------------------------------------------------
+document.getElementById("btn-login").addEventListener("click", () => {
+  window.location.href = "./LogIn/login.html";
+});
+/*
+async function getCategories() {
+  const btnTous = document.createElement("button");
+  btnTous.innerText = "Tous";
+  filters.appendChild(btnTous);
+  try {
     const response = await fetch("http://localhost:5678/api/works");
     const data = await response.json();
 
@@ -39,8 +62,11 @@ async function getCategories() {
     for (i = 0; i < data.length; i++) {
       const newData = data[i].category.id;
       console.log(newData);
-    }
-    /*
+
+      const n = Object.keys(data);
+      console.log(n);
+    }*/
+/*
     //inutile
     newData.forEach((element) => {
       if (element.categoryId !== 0) {
@@ -61,18 +87,9 @@ async function getCategories() {
       }
     });
     */
-    //inutile
-    //}
-  } catch {}
-}
-getCategories();
+//inutile
+//}
 
-//---------------------------------------------------------------
-//--------------------------LOGIN--------------------------------
-//---------------------------------------------------------------
-document.getElementById("btn-login").addEventListener("click", () => {
-  window.location.href = "./LogIn/login.html";
-});
 //
 //
 //
