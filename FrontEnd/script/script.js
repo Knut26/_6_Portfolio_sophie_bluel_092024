@@ -81,7 +81,22 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
     const button = document.createElement("button");
     button.innerText = newElement.name;
     filters.appendChild(button);
-    console.log(newElement);
+    //console.log(newElement);
+    const imagesLen = images.length;
+    //console.log(imagesLen);
+    button.addEventListener("click", () => {
+      for (i = 0; i < imagesLen; i++) {
+        const img = document.createElement("img");
+        const figure = document.createElement("figure");
+        const figCaption = document.createElement("figcaption");
+        img.src = images[i].imageUrl;
+        figCaption.innerText = newElement.name;
+        gallery.innerHTML = "";
+        figure.appendChild(img);
+        figure.appendChild(figCaption);
+        gallery.appendChild(figure);
+      }
+    });
   });
 });
 
