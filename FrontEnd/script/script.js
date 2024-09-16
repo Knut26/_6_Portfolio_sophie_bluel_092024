@@ -31,18 +31,27 @@ async function getCategories() {
   const btnTous = document.createElement("button");
   btnTous.innerText = "Tous";
   filters.appendChild(btnTous);
-  try {
-    const response = await fetch("http://localhost:5678/api/categories");
-    const data = await response.json();
-    data.forEach((element) => {
-      const button = document.createElement("button");
-      button.innerText = element.name;
-      filters.appendChild(button);
-    });
-  } catch {}
+
+  const response = await fetch("http://localhost:5678/api/categories");
+  const data = await response.json();
+  data.forEach((element) => {
+    const button = document.createElement("button");
+    button.innerText = element.name;
+    filters.appendChild(button);
+    //console.log(data);
+  });
 }
 getCategories();
 
+async function getImages() {
+  const newResponse = await fetch("http://localhost:5678/api/works");
+  const newData = await newResponse.json();
+  newData.forEach((newElement) => {
+    const newElementId = newElement.categoryId;
+    console.log(newElementId);
+  });
+}
+getImages();
 //---------------------------------------------------------------
 //--------------------------LOGIN--------------------------------
 //---------------------------------------------------------------
