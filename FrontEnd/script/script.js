@@ -75,6 +75,21 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
   const btnTous = document.createElement("button");
   btnTous.innerText = "Tous";
   filters.appendChild(btnTous);
+  btnTous.addEventListener("click", () => {
+    gallery.innerHTML = "";
+    for (i = 0; i < images.length; i++) {
+      const nomPhotos = images[i].title;
+      const figure = document.createElement("figure");
+      const img = document.createElement("img");
+      const figCaption = document.createElement("figcaption");
+      img.src = images[i].imageUrl;
+      img.alt = "image";
+      figure.appendChild(img);
+      figure.appendChild(figCaption);
+      gallery.appendChild(figure);
+      figure.insertAdjacentHTML("beforeend", nomPhotos);
+    }
+  });
   const categoriesWithImages = getCategoriesWithImages(categories, images);
   console.log(categoriesWithImages); // 3 noms de familles incluant les 11 images
   console.log(categories); //3 noms des familles
