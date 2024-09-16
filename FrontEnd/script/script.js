@@ -25,8 +25,7 @@ fetch("http://localhost:5678/api/works")
 //---------------------------------------------------------------
 //-----------intégration menu de catégories----------------------
 //---------------------------------------------------------------
-let categories = []; // création d'un tableau vide qui se remplira dynamiquement
-
+/*-------!!!
 async function getCategories() {
   const btnTous = document.createElement("button");
   btnTous.innerText = "Tous";
@@ -52,6 +51,40 @@ async function getImages() {
   });
 }
 getImages();
+!!!!---------*/
+
+async function fetchCategoriesAndImages() {
+  const [categoriesResponse, imagesResponse] = await Promise.all([
+    fetch("http://localhost:5678/api/categories"),
+    fetch("http://localhost:5678/api/works"),
+  ]);
+  const categories = await categoriesResponse.json();
+  const images = await imagesResponse.json();
+  return { categories, images };
+}
+
+function getCategoriesWithImages(categories, images) {
+  return categories.map((category) => {
+    return {
+      ...category,
+      images: images.filter((image) => image.categoryId === category.id),
+    };
+  });
+}
+fetchCategoriesAndImages().then(({ categories, images }) => {
+  const btnTous = document.createElement("button");
+  btnTous.innerText = "Tous";
+  filters.appendChild(btnTous);
+  const categoriesWithImages = getCategoriesWithImages(categories, images);
+  console.log(categoriesWithImages);
+  categoriesWithImages.forEach((newElement) => {
+    const button = document.createElement("button");
+    button.innerText = newElement.name;
+    filters.appendChild(button);
+    console.log(newElement);
+  });
+});
+
 //---------------------------------------------------------------
 //--------------------------LOGIN--------------------------------
 //---------------------------------------------------------------
