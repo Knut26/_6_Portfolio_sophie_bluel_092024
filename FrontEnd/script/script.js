@@ -87,13 +87,13 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
     console.log(images);
     button.addEventListener("click", () => {
       for (i = 0; i < imagesLen; i++) {
-        if (categories[i].id === images[i].categoryId) {
+        if (images[i].categoryId === images[i].categoryId) {
           gallery.innerHTML = "";
           const img = document.createElement("img");
           const figure = document.createElement("figure");
           const figCaption = document.createElement("figcaption");
           img.src = images[i].imageUrl;
-          figCaption.innerText = newElement.name;
+          figCaption.innerText = images[i].title;
           figure.appendChild(img);
           figure.appendChild(figCaption);
           gallery.appendChild(figure);
