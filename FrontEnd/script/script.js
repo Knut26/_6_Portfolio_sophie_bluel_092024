@@ -39,10 +39,6 @@ async function getCategories() {
     for (i = 0; i < data.length; i++) {
       const newData = data[i].category.id;
       console.log(newData);
-      if (newData === 1) {
-        const button = document.createElement("button");
-        filters.appendChild(button);
-      }
     }
     /*
     //inutile
