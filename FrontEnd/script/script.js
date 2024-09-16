@@ -76,7 +76,8 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
   btnTous.innerText = "Tous";
   filters.appendChild(btnTous);
   const categoriesWithImages = getCategoriesWithImages(categories, images);
-  console.log(categoriesWithImages);
+  console.log(categoriesWithImages); // 3 noms de familles incluant les 11 images
+  console.log(categories); //3 noms des familles
   categoriesWithImages.forEach((newElement) => {
     const button = document.createElement("button");
     button.innerText = newElement.name;
@@ -86,15 +87,17 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
     console.log(images);
     button.addEventListener("click", () => {
       for (i = 0; i < imagesLen; i++) {
-        const img = document.createElement("img");
-        const figure = document.createElement("figure");
-        const figCaption = document.createElement("figcaption");
-        img.src = images[i].imageUrl;
-        figCaption.innerText = newElement.name;
-        gallery.innerHTML = "";
-        figure.appendChild(img);
-        figure.appendChild(figCaption);
-        gallery.appendChild(figure);
+        if (categories[i].id === images[i].categoryId) {
+          gallery.innerHTML = "";
+          const img = document.createElement("img");
+          const figure = document.createElement("figure");
+          const figCaption = document.createElement("figcaption");
+          img.src = images[i].imageUrl;
+          figCaption.innerText = newElement.name;
+          figure.appendChild(img);
+          figure.appendChild(figCaption);
+          gallery.appendChild(figure);
+        }
       }
     });
   });
