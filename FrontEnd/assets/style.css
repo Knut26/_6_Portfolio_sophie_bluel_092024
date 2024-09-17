@@ -173,6 +173,18 @@ button:hover {
 
 .no-underline {
   text-decoration: none;
+  color: black;
+}
+
+.mentions {
+  color: black;
+}
+
+#email,
+#mot-de-passe {
+  width: 500px;
+  border-radius: 50px;
+  margin: 30px;
 }
 
 /* fin ajout CSS */
