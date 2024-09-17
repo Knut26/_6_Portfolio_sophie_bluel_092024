@@ -82,20 +82,20 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
     button.innerText = newElement.name;
     filters.appendChild(button);
     // console.log(newElement);
-    const imagesLen = images.length;
     console.log(images);
     button.addEventListener("click", () => {
-      for (i = 0; i < imagesLen; i++) {
-        if (images[i].categoryId === images[i].categoryId) {
-          gallery.innerHTML = "";
+      gallery.innerHTML = "";
+      for (i = 0; i < images.length; i++) {
+        if (categories[i].id === images[i].categoryId) {
+          const nomPhotos = images[i].title; //création d'une const pour les titles
           const img = document.createElement("img");
           const figure = document.createElement("figure");
           const figCaption = document.createElement("figcaption");
           img.src = images[i].imageUrl;
-          figCaption.innerText = images[i].title;
           figure.appendChild(img);
           figure.appendChild(figCaption);
           gallery.appendChild(figure);
+          figure.insertAdjacentHTML("beforeend", nomPhotos); //insertion nom sous l'image
         }
       }
     });
