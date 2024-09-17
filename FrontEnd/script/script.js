@@ -75,15 +75,15 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
   });
 
   const categoriesWithImages = getCategoriesWithImages(categories, images);
-  console.log(categoriesWithImages); // 3 noms de familles incluant les 11 images
-  console.log(categories); //3 noms des familles
+  //console.log(categoriesWithImages); // 3 noms de familles incluant les 11 images
+  //console.log(categories); //3 noms des familles
   categoriesWithImages.forEach((newElement) => {
     //pour chaque élément des 3 familles...
     const button = document.createElement("button"); //...je crée un bouton...
     button.innerText = newElement.name; //...avec le nom de la photo...
     filters.appendChild(button); //...filters est le parent des 3 boutons
     // console.log(newElement);
-    console.log(images);
+    //console.log(images);
     // console.log(newElement.id);
     // console.log(images[0].categoryId);
     button.addEventListener("click", () => {
@@ -111,9 +111,109 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
 //---------------------------------------------------------------
 //--------------------------LOGIN--------------------------------
 //---------------------------------------------------------------
-document.getElementById("btn-login").addEventListener("click", () => {
-  window.location.href = "./LogIn/login.html";
+btnSeConnecter = document.querySelector(".se-connecter");
+
+btnSeConnecter.addEventListener("click", () => {
+  function confirmConnection() {
+    let email = document.getElementById("email").value;
+    let mdp = document.getElementById("password").value;
+    console.log(email, mdp);
+
+    if (email !== "sophie.bluel@test.tld") {
+      alert("Merci de rentrer une adresse mail correcte");
+    } else{
+    if (mdp !== "S0phie") {
+      alert("Mauvais mot de passe")
+    } else {
+      alert("connection réussie");
+    }
+  }
+  confirmConnection();
 });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /*-------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 async function getCategories() {

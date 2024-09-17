@@ -185,11 +185,12 @@ button:hover {
 }
 
 #email,
-#mot-de-passe {
+#password {
   border: none;
   width: 380px;
   height: 50px;
   box-shadow: 5px 5px 5px rgb(234, 233, 233);
+  font-size: 25px;
 }
 
 .email,
@@ -237,6 +238,7 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .connection {
@@ -245,6 +247,10 @@ button:hover {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+#btn-login {
+  cursor: pointer;
 }
 /* ---------------------fin ajout CSS -----------------------*/
 
