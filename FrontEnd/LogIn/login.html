@@ -37,7 +37,7 @@
     <div class="log-in__container">
       <h2 class="log-in__titre">Log In</h2>
 
-      <form>
+      <form id="logIn-form">
       <div class="email">
         <label for="email" class="label">Email</label>
         <input type="email" name="email" id="email" required />
@@ -49,8 +49,9 @@
       </div>
 
       <div class="connection">
-      <input type="button" value="se connecter" class="se-connecter" onclick="confirmConnection()"/>
-      <a href="#" class="mentions">Mot de passe oublié</a>
+        <input type="submit" value="se connecter" class="se-connecter" />
+        <!-- onclick="confirmConnection()" -->
+        <a href="#" class="mentions">Mot de passe oublié</a>
       </div>
     </div>
     </form>
