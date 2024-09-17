@@ -187,19 +187,27 @@ button:hover {
 #email,
 #mot-de-passe {
   border: none;
+  width: 400px;
+  height: 40px;
+  box-shadow: 5px 5px 5px rgb(234, 233, 233);
 }
 
-.log-in__container {
+.email,
+.mdp {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 200px;
+  margin-top: 40px;
+}
+
+.label {
+  margin-bottom: 10px;
 }
 
 .mentions-legales {
   display: flex;
   flex-direction: row-reverse;
   margin-right: 100px;
+  margin-bottom: 30px;
 }
 
 .formulaire {
@@ -208,6 +216,26 @@ button:hover {
   width: 100%;
 }
 
+.log-in__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: 200px;
+  height: 700px;
+}
+
+.se-connecter {
+  margin-top: 35px;
+  margin-bottom: 25px;
+  background-color: #1d6154;
+  font-size: 15px;
+  color: #f5f6ed;
+  border: none;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* ---------------------fin ajout CSS -----------------------*/
 
 h1 {
