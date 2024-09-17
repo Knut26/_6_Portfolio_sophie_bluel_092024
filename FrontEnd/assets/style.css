@@ -252,6 +252,10 @@ button:hover {
 #btn-login {
   cursor: pointer;
 }
+
+input {
+  outline: none;
+}
 /* ---------------------fin ajout CSS -----------------------*/
 
 h1 {
