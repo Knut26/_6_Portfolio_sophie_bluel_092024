@@ -83,10 +83,12 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
     filters.appendChild(button);
     // console.log(newElement);
     console.log(images);
+    // console.log(newElement.id);
+    // console.log(images[0].categoryId);
     button.addEventListener("click", () => {
       gallery.innerHTML = "";
       for (i = 0; i < images.length; i++) {
-        if (categories[i].id === images[i].categoryId) {
+        if (newElement.id === images[i].categoryId) {
           const nomPhotos = images[i].title; //création d'une const pour les titles
           const img = document.createElement("img");
           const figure = document.createElement("figure");
