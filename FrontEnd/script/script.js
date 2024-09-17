@@ -121,14 +121,15 @@ btnSeConnecter.addEventListener("click", () => {
 
     if (email !== "sophie.bluel@test.tld") {
       alert("Merci de rentrer une adresse mail correcte");
-    } else{
-    if (mdp !== "S0phie") {
-      alert("Mauvais mot de passe")
     } else {
-      alert("connection réussie");
+      if (mdp !== "S0phie") {
+        alert("Mauvais mot de passe");
+      } else {
+        alert("connection réussie");
+      }
     }
+    confirmConnection();
   }
-  confirmConnection();
 });
 //
 //
