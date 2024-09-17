@@ -187,8 +187,8 @@ button:hover {
 #email,
 #mot-de-passe {
   border: none;
-  width: 400px;
-  height: 40px;
+  width: 380px;
+  height: 50px;
   box-shadow: 5px 5px 5px rgb(234, 233, 233);
 }
 
@@ -227,7 +227,9 @@ button:hover {
 .se-connecter {
   margin-top: 35px;
   margin-bottom: 25px;
+  padding-inline: 40px;
   background-color: #1d6154;
+  border-radius: 45px;
   font-size: 15px;
   color: #f5f6ed;
   border: none;
@@ -235,6 +237,14 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.connection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 /* ---------------------fin ajout CSS -----------------------*/
 
