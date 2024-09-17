@@ -78,25 +78,29 @@ fetchCategoriesAndImages().then(({ categories, images }) => {
   console.log(categoriesWithImages); // 3 noms de familles incluant les 11 images
   console.log(categories); //3 noms des familles
   categoriesWithImages.forEach((newElement) => {
-    const button = document.createElement("button");
-    button.innerText = newElement.name;
-    filters.appendChild(button);
+    //pour chaque élément des 3 familles...
+    const button = document.createElement("button"); //...je crée un bouton...
+    button.innerText = newElement.name; //...avec le nom de la photo...
+    filters.appendChild(button); //...filters est le parent des 3 boutons
     // console.log(newElement);
     console.log(images);
     // console.log(newElement.id);
     // console.log(images[0].categoryId);
     button.addEventListener("click", () => {
-      gallery.innerHTML = "";
+      //création d'un évènement
+      gallery.innerHTML = ""; //on enlève toutes les images
       for (i = 0; i < images.length; i++) {
+        //création d'une boucle "for"
         if (newElement.id === images[i].categoryId) {
+          //si l'ID de l'élément de la liste catégories === ID d'une image de la liste des 11 images
           const nomPhotos = images[i].title; //création d'une const pour les titles
-          const img = document.createElement("img");
-          const figure = document.createElement("figure");
-          const figCaption = document.createElement("figcaption");
-          img.src = images[i].imageUrl;
-          figure.appendChild(img);
-          figure.appendChild(figCaption);
-          gallery.appendChild(figure);
+          const img = document.createElement("img"); //création d'une const pour les img
+          const figure = document.createElement("figure"); //création d'une const pour les figures
+          const figCaption = document.createElement("figcaption"); //création d'une const pour les figcaptions
+          img.src = images[i].imageUrl; //src de l'image "i"
+          figure.appendChild(img); //figure est le parent de img
+          figure.appendChild(figCaption); //figure est le parent de figcaption
+          gallery.appendChild(figure); //gallery est le parent de figure
           figure.insertAdjacentHTML("beforeend", nomPhotos); //insertion nom sous l'image
         }
       }
