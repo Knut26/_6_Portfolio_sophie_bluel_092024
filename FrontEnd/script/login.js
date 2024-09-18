@@ -15,12 +15,18 @@ logInForm.addEventListener("submit", (event) => {
   const validPassword = "S0phie"; //const password valide
 
   if (email === validEmail && password === validPassword) {
-    //condition si l'ensemble des 2 const sont valides...
+    //condition : si l'ensemble des 2 const sont valides...
     alert(
       "Bienvenue admin, vous allez être redirigé vers la page d'accueil..." //message popup "ok"
     );
     window.location.href = "../index.html"; //et redirection vers page index.html
+    localStorage.setItem("isLoggedIn"); //stock un indicateur de connexion dans le localstorage
   } else {
     alert("Veuillez rentrer des identifiants valides"); //sinon popup message d'erreur
+  }
+
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  if (isLoggedIn === "true") {
+    document.getElementById("btn-login").textContent = "logout";
   }
 });

@@ -241,6 +241,10 @@ button:hover {
   cursor: pointer;
 }
 
+.se-connecter:hover {
+  transition: scale (1.4);
+}
+
 .connection {
   display: flex;
   flex-direction: column;
@@ -257,6 +261,9 @@ input {
   outline: none;
 }
 
+/* .fontweight-login {
+  font-weight: 700;
+} */
 /* ---------------------fin ajout CSS -----------------------*/
 
 h1 {
