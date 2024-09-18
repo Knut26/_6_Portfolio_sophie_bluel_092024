@@ -8,6 +8,8 @@ logInForm.addEventListener("submit", (event) => {
 
   const email = document.getElementById("email").value; //création const email avec une valeur entrée par l'utilisateur
   const password = document.getElementById("password").value; //création const password avec une valeur entrée par l'utilisateur
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4";
 
   const validEmail = "sophie.bluel@test.tld"; //const email valide
   const validPassword = "S0phie"; //const password valide
