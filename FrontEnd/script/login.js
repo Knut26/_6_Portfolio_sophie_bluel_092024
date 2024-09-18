@@ -19,17 +19,27 @@ document.addEventListener("DOMContentLoaded", () => {
     if (email === validEmail && password === validPassword) {
       //condition : si l'ensemble des 2 const sont valides...
       alert(
-        "Bienvenue, Madame Bluel" //message popup "ok"
+        "✅ Bienvenue, Madame Bluel ✅" //message popup "ok"
       );
       localStorage.setItem("isLoggedIn", "true"); //stock un indicateur de connexion dans le localstorage
       const isLoggedIn = localStorage.getItem("isLoggedIn");
       if (isLoggedIn === "true") {
         btnLogin.textContent = "logout";
-        //btnLogin.className.remove("login");
+        btnLogin.className.remove("login");
+        console.log("redirection");
+
         window.location.href = "../index.html"; //et redirection vers page index.html
       }
     } else {
-      alert("Veuillez rentrer des identifiants valides"); //sinon popup message d'erreur
+      alert("🔴 Merci de rentrer des identifiants valides 🔴"); //sinon popup message d'erreur
     }
   });
+
+  /*
+  function deco() {
+    btnLogin.addEventListener("click", () => {
+      alert("Déconnexion");
+    });
+  }
+  deco();*/
 });
