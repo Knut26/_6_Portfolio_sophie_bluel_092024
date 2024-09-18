@@ -20,12 +20,12 @@ logInForm.addEventListener("submit", (event) => {
       "Bienvenue, Madame Bluel" //message popup "ok"
     );
     window.location.href = "../index.html"; //et redirection vers page index.html
-    localStorage.setItem("isLoggedIn"); //stock un indicateur de connexion dans le localstorage
+    localStorage.setItem("isLoggedIn", "true"); //stock un indicateur de connexion dans le localstorage
   } else {
     alert("Veuillez rentrer des identifiants valides"); //sinon popup message d'erreur
   }
 
-  const isLoggedIn = localStorage.getItem("isLoggedIn", "true");
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
   if (isLoggedIn === "true") {
     document.getElementById("btn-login").textContent = "logout";
   }
