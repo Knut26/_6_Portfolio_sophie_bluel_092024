@@ -17,7 +17,7 @@ logInForm.addEventListener("submit", (event) => {
   if (email === validEmail && password === validPassword) {
     //condition : si l'ensemble des 2 const sont valides...
     alert(
-      "Bienvenue admin, vous allez être redirigé vers la page d'accueil..." //message popup "ok"
+      "Bienvenue, Madame Bluel" //message popup "ok"
     );
     window.location.href = "../index.html"; //et redirection vers page index.html
     localStorage.setItem("isLoggedIn"); //stock un indicateur de connexion dans le localstorage
@@ -25,7 +25,7 @@ logInForm.addEventListener("submit", (event) => {
     alert("Veuillez rentrer des identifiants valides"); //sinon popup message d'erreur
   }
 
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const isLoggedIn = localStorage.getItem("isLoggedIn", "true");
   if (isLoggedIn === "true") {
     document.getElementById("btn-login").textContent = "logout";
   }

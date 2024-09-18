@@ -260,10 +260,10 @@ button:hover {
 input {
   outline: none;
 }
-
-/* .fontweight-login {
+/* pourquoi font-weight ne fonctionne pas ? */
+.font-weight-login {
   font-weight: 700;
-} */
+}
 /* ---------------------fin ajout CSS -----------------------*/
 
 h1 {
