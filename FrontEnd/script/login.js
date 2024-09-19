@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (email === validEmail && password === validPassword) {
       //condition : si l'ensemble des 2 const sont valides...
       alert(
-        "✅ Bienvenue, Madame Bluel ✅" //message popup "ok"
+        "✅ Bienvenue à vous administrateur ✅" //message popup "ok"
       );
       localStorage.setItem("isLoggedIn", "true"); //stock un indicateur de connexion dans le localstorage
       const isLoggedIn = localStorage.getItem("isLoggedIn");
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "../index.html"; //et redirection vers page index.html
       }
     } else {
-      alert("🔴 Merci de rentrer des identifiants valides 🔴"); //sinon popup message d'erreur
+      alert("🔴 Erreur dans l’identifiant ou le mot de passe 🔴"); //sinon popup message d'erreur
     }
   });
 
