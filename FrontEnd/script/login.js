@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   //---------------------------------------------------------------
-  //--------------------------LOGIN--------------------------------
+  //--------------------------LOGIN / LOGOUT--------------------------------
   //---------------------------------------------------------------
   const logInForm = document.getElementById("logIn-form"); //récup du formulaire complet
   logInForm.addEventListener("submit", (event) => {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isLoggedIn === "true") {
         btnLogin.textContent = "logout";
         window.location.href = "../index.html"; //et redirection vers page index.html
-        const modeEdition = document.querySelector(".mode-edition");
+        const modeEdition = document.querySelectorAll(".hidden");
         modeEdition.style.display = block;
       }
     } else {
