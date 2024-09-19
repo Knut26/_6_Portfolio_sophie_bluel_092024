@@ -133,7 +133,7 @@ table {
   border-spacing: 0;
 }
 /** end reset css**/
-body {
+.body-div {
   max-width: 1140px;
   margin: auto;
   font-family: "Work Sans";
@@ -163,9 +163,11 @@ html {
   align-items: center;
   width: 100%;
   height: 50px;
-  font-size: 13px;
   background-color: black;
   color: #f5f6ed;
+
+  font-family: "Work Sans";
+  font-size: 14px;
 }
 
 .hidden {
@@ -177,9 +179,9 @@ html {
   padding-right: 10px;
 }
 
-/* .instagram {
-  font-size: 0px;
-} */
+.instagram {
+  width: 18px;
+}
 
 #filters {
   display: flex;
