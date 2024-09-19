@@ -19,16 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (email === validEmail && password === validPassword) {
       //condition : si l'ensemble des 2 const sont valides...
       alert(
-        "✅ Bienvenue à vous administrateur ✅" //message popup "ok"
+        "✅ Mode administrateur ✅" //message popup "ok"
       );
       localStorage.setItem("isLoggedIn", "true"); //stock un indicateur de connexion dans le localstorage
       const isLoggedIn = localStorage.getItem("isLoggedIn");
       if (isLoggedIn === "true") {
         btnLogin.textContent = "logout";
-        btnLogin.className.remove("login");
-        console.log("redirection");
-
         window.location.href = "../index.html"; //et redirection vers page index.html
+        const modeEdition = document.querySelector(".mode-edition");
+        modeEdition.style.display = block;
       }
     } else {
       alert("🔴 Erreur dans l’identifiant ou le mot de passe 🔴"); //sinon popup message d'erreur
