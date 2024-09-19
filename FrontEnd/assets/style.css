@@ -177,7 +177,7 @@ html {
 
 .modifier {
   margin-bottom: 25px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .hidden {
@@ -192,7 +192,7 @@ html {
 .icone2 {
   color: black;
   padding-left: 30px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .instagram {
@@ -205,9 +205,8 @@ html {
 }
 
 button {
-  display: grid;
   border-radius: 50px;
-  background-color: #f5f6ed;
+  background: #f5f6ed;
   border-color: #1d6154;
   color: #1d6154;
   font-family: "Syne";

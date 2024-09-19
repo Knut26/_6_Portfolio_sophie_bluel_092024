@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         btnLogin.textContent = "logout";
         window.location.href = "../index.html"; //et redirection vers page index.html
         const modeEdition = document.querySelectorAll(".hidden");
-        modeEdition.style.display = block;
+        modeEdition.style.display = "block";
       }
     } else {
       alert("🔴 Erreur dans l’identifiant ou le mot de passe 🔴"); //sinon popup message d'erreur
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /*
-  
+
   function deco() {
     btnLogin.addEventListener("click", () => {
       alert("Déconnexion");
