@@ -1,7 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
   //---------------------------------------------------------------
-  //--------------------------LOGIN / LOGOUT--------------------------------
+  //--------------------------LOGIN / LOGOUT-----------------------
   //---------------------------------------------------------------
+
+  async function submit() {
+    let user = {
+      email: "sophie.bluel@test.tld",
+      password: "S0phie",
+    };
+
+    const loginApi = "http://localhost:5678/api/users/login";
+
+    let response = await fetch(loginApi, {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    let result = await response.json();
+    console.log(result);
+
+    alert(result.message);
+  }
+  submit();
+  /*
+  //
+  //
   const logInForm = document.getElementById("logIn-form"); //récup du formulaire complet
   logInForm.addEventListener("submit", (event) => {
     //création d'un event
@@ -10,9 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email").value; //création const email avec une valeur entrée par l'utilisateur
     const password = document.getElementById("password").value; //création const password avec une valeur entrée par l'utilisateur
     const btnLogin = document.getElementById("btn-login");
-    const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4";
-
+    
     const validEmail = "sophie.bluel@test.tld"; //const email valide
     const validPassword = "S0phie"; //const password valide
 
@@ -32,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       alert("🔴 Erreur dans l’identifiant ou le mot de passe 🔴"); //sinon popup message d'erreur
     }
-  });
+  });*/
 
   /*
 
