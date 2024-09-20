@@ -2,7 +2,31 @@ document.addEventListener("DOMContentLoaded", () => {
   //---------------------------------------------------------------
   //--------------------------LOGIN / LOGOUT-----------------------
   //---------------------------------------------------------------
+  //PARTIE FONCTIONNELLE DE RECUPERATION DES IDENTIFIANTS ET DU TOKEN
+  async function submit() {
+    let user = {
+      email: "sophie.bluel@test.tld",
+      password: "S0phie",
+    };
 
+    const loginApi = "http://localhost:5678/api/users/login";
+
+    let response = await fetch(loginApi, {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    let result = await response.json();
+    console.log(result);
+
+    alert(result.message);
+  }
+  submit();
+  /*
   async function submit() {
     //création d'une fonction async
     let email = document.getElementById("email").value; //création const email avec une valeur entrée par l'utilisateur
@@ -51,40 +75,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   submit();
-});
-//
-//
-//
-//
-//
-//
-//
-//
-/* PARTIE FONCTIONNELLE DE RECUPERATION DES IDENTIFIANTS ET DU TOKEN
-  async function submit() {
-    let user = {
-      email: "sophie.bluel@test.tld",
-      password: "S0phie",
-    };
-
-    const loginApi = "http://localhost:5678/api/users/login";
-
-    let response = await fetch(loginApi, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
-
-    let result = await response.json();
-    console.log(result);
-
-    alert(result.message);
-  }
-  submit();
   */
+});
+
+//
+//
+//
+//
+//
+//
+//
+//
+
 //
 //
 //
