@@ -4,6 +4,64 @@ document.addEventListener("DOMContentLoaded", () => {
   //---------------------------------------------------------------
 
   async function submit() {
+    //création d'une fonction async
+    let email = document.getElementById("email").value; //création const email avec une valeur entrée par l'utilisateur
+    let password = document.getElementById("password").value; //création const password avec une valeur entrée par l'utilisateur
+
+    const validEmail = "sophie.bluel@test.tld"; //const email valide
+    const validPassword = "S0phie"; //const password valide
+
+    let user = {
+      //avec les identifiants rentrés par l'utilisateur
+      email: email.value,
+      password: password.value,
+    };
+
+    const logInForm = document.getElementById("logIn-form"); //récup du formulaire complet
+    logInForm.addEventListener("submit", (event) => {
+      //création d'un event
+      event.preventDefault(); //empêche l'envoi du formulaire
+
+      const loginApi = "http://localhost:5678/api/users/login"; //const de l'adresse api
+
+      let response = fetch(loginApi, {
+        //fetch de cette const
+        method: "POST", //on post les identifiants de l'utilisateur
+        headers: {
+          //permet d'effectuer !== actions sur les en-têtes de requête et de réponse HTTP
+          accept: "application/json", //format mime que le client pourra interpréter
+          "Content-Type": "application/json", //nom de l'extension mime (.json)
+        },
+        body: JSON.stringify(user), //convertit les données en valeur .JSON
+      });
+
+      let result = response.json();
+      console.log(user);
+      console.log(result);
+
+      if (email === validEmail && password === validPassword) {
+        //condition : si l'ensemble des 2 const sont valides...
+        alert(
+          "✅ Mode administrateur ✅" //message popup "ok"
+        );
+        window.location.href = "../index.html"; //et redirection vers page index.html
+      } else {
+        alert("🔴 Erreur dans l’identifiant ou le mot de passe 🔴"); //sinon popup message d'erreur
+      }
+    });
+  }
+  submit();
+});
+//
+//
+//
+//
+//
+//
+//
+//
+/* PARTIE FONCTIONNELLE DE RECUPERATION DES IDENTIFIANTS ET DU TOKEN
+  async function submit() {
     let user = {
       email: "sophie.bluel@test.tld",
       password: "S0phie",
@@ -26,7 +84,18 @@ document.addEventListener("DOMContentLoaded", () => {
     alert(result.message);
   }
   submit();
-  /*
+  */
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/*
   //
   //
   const logInForm = document.getElementById("logIn-form"); //récup du formulaire complet
@@ -59,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });*/
 
-  /*
+/*
 
   function deco() {
     btnLogin.addEventListener("click", () => {
@@ -67,4 +136,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   deco();*/
-});
