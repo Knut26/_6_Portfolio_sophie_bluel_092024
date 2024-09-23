@@ -31,9 +31,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (response.status !== 200) {
-      alert("🔴 Erreur dans l’identifiant ou le mot de passe 🔴");
+      //alert("🔴 Erreur dans l’identifiant ou le mot de passe 🔴");
+      const errorBox = document.createElement("div");
+      errorBox.innerHTML = "Erreur dans l’identifiant ou le mot de passe";
+      errorBox.style.fontSize = "15px";
+      const loginContainer = document.querySelector(".log-in__container");
+      loginContainer.style.color = "orangered";
+      const mdp = document.querySelector(".mdp");
+      mdp.appendChild(errorBox);
     } else {
       window.location.href = "../index.html";
+
+      const btnLogin = document.querySelector(".p-login");
+      btnLogin.classList.remove("block");
+      btnLogin.classList.add("none");
+      const btnLogout = document.querySelector(".p-logout");
+      btnLogout.classList.remove("none");
+      btnLogout.classList.add("block");
     }
 
     let result = await response.json();
