@@ -30,7 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
       body: JSON.stringify(user), //convertit les données en valeur .JSON
     });
 
+    if (response.status !== 200) {
+      alert("🔴 Erreur dans l’identifiant ou le mot de passe 🔴");
+    } else {
+      window.location.href = "../index.html";
+    }
+
     let result = await response.json();
+    console.log(response);
     console.log(result);
     console.log(user);
 
