@@ -6,24 +6,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginApi = "http://localhost:5678/api/users/login";
   const logInForm = document.getElementById("logIn-form"); //récup du formulaire complet
 
-  logInForm.addEventListener("submit", validSubmit);
-  //création d'un event
+  logInForm.addEventListener("submit", validSubmit); //crée un évènement au remplissage du formulaire avec en
+  //paramètres la fonction "validSubmit"
 
   async function validSubmit(event) {
+    //crée function validSubmit
     event.preventDefault(); //empêche l'envoi du formulaire
 
     let user = {
-      email: document.getElementById("email").value,
-      password: document.getElementById("password").value,
+      //crée un "user" avec la valeur récupérée dans les input email et password
+      email: document.getElementById("email").value, //valeur de l'email rentrée par le user
+      password: document.getElementById("password").value, //valeur du password rentrée par le user
     };
 
     let response = await fetch(loginApi, {
-      method: "POST",
+      //on crée un fetch pour login
+      method: "POST", // pour envoyer les infos de connexion email et password à l'API
       headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
+        //permet d'effectuer !== actions sur les en-têtes de requête et de réponse HTTP
+        accept: "application/json", //format mime que le client pourra interpréter
+        "Content-Type": "application/json", //nom de l'extension mime (.json)
       },
-      body: JSON.stringify(user),
+      body: JSON.stringify(user), //convertit les données en valeur .JSON
     });
 
     let result = await response.json();
