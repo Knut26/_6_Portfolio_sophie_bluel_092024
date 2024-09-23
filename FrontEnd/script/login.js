@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let result = await response.json();
     console.log(result);
 
-    alert(result.message);
+    //alert(result.message);
   }
   submit();
   /*
