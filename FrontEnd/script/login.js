@@ -40,8 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
       mdp.appendChild(errorBox);
     } else {
       window.location.href = "../index.html";
-      //const hidden = document.querySelector(".hidden");
-      //hidden.style.display = "block";
     }
 
     let result = await response.json();

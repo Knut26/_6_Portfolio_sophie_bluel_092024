@@ -110,6 +110,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function adminMode() {
+  if (sessionStorage.authToken) {
+    console.log("oké");
+    const hidden = document.createElement("div");
+    hidden.className = "hidden-banner";
+    hidden.style.display = "block";
+    console.log(hidden);
+  }
+}
+
+adminMode();
 /*
 btnSeConnecter = document.querySelector(".se-connecter");
 
