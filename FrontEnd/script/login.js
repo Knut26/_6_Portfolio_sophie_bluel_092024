@@ -31,35 +31,59 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (response.status !== 200) {
-      //alert("🔴 Erreur dans l’identifiant ou le mot de passe 🔴");
       const errorBox = document.createElement("div");
+      errorBox.className = "error-box";
       errorBox.innerHTML = "Erreur dans l’identifiant ou le mot de passe";
-      errorBox.style.fontSize = "15px";
       const loginContainer = document.querySelector(".log-in__container");
       loginContainer.style.color = "orangered";
       const mdp = document.querySelector(".mdp");
       mdp.appendChild(errorBox);
     } else {
       window.location.href = "../index.html";
-
-      const btnLogin = document.querySelector(".p-login");
-      btnLogin.classList.remove("block");
-      btnLogin.classList.add("none");
-      const btnLogout = document.querySelector(".p-logout");
-      btnLogout.classList.remove("none");
-      btnLogout.classList.add("block");
+      //const hidden = document.querySelector(".hidden");
+      //hidden.style.display = "block";
     }
 
     let result = await response.json();
-    console.log(response);
-    console.log(result);
-    console.log(user);
 
-    //alert(result.message);
+    const validToken = result.token;
+    sessionStorage.setItem("authToken", validToken);
+
+    console.log(response);
+    console.log(sessionStorage.getItem("authToken"));
+    console.log(user);
   }
   validSubmit();
 });
 /*
+//
+//
+//
+//      /*
+      let btnLogin = document.getElementById("btn-login");
+
+      function handleLogin() {
+        let isLoggedIn = true;
+
+        if (isLoggedIn) {
+          btnLogin.innerText = "lougout";
+          btnLogin.onclick = handleLogout;
+        }
+      }
+
+      function handleLogout() {
+        let isLoggedIn = false;
+
+        if (!isLoggedIn) {
+          btnLogin.innerText = "login";
+          btnLogin.onclick = handleLogin;
+        }
+      }
+        //
+        //
+        //
+        //
+
   async function submit() {
     //création d'une fonction async
     let email = document.getElementById("email").value; //création const email avec une valeur entrée par l'utilisateur
