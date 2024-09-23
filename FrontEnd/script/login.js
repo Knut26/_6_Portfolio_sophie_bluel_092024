@@ -3,13 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
   //--------------------------LOGIN / LOGOUT-----------------------
   //---------------------------------------------------------------
   //PARTIE FONCTIONNELLE DE RECUPERATION DES IDENTIFIANTS ET DU TOKEN
-  async function submit() {
-    let user = {
-      email: "sophie.bluel@test.tld",
-      password: "S0phie",
-    };
+  const loginApi = "http://localhost:5678/api/users/login";
+  const logInForm = document.getElementById("logIn-form"); //récup du formulaire complet
 
-    const loginApi = "http://localhost:5678/api/users/login";
+  logInForm.addEventListener("submit", validSubmit);
+  //création d'un event
+
+  async function validSubmit(event) {
+    event.preventDefault(); //empêche l'envoi du formulaire
+
+    let user = {
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value,
+    };
 
     let response = await fetch(loginApi, {
       method: "POST",
@@ -22,11 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let result = await response.json();
     console.log(result);
+    console.log(user);
 
     //alert(result.message);
   }
-  submit();
-  /*
+  validSubmit();
+});
+/*
   async function submit() {
     //création d'une fonction async
     let email = document.getElementById("email").value; //création const email avec une valeur entrée par l'utilisateur
@@ -76,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   submit();
   */
-});
 
 //
 //
