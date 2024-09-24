@@ -62,6 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnTous = document.createElement("button"); //creation btnTous
     btnTous.innerText = "Tous"; //on le nomme
     filters.appendChild(btnTous); //filters est son parent
+    if (sessionStorage.authToken) {
+      //si session admin ...
+      btnTous.style.visibility = "hidden"; //...btn invisible
+    }
     btnTous.addEventListener("click", () => {
       //on crée un évènement à son clic
       gallery.innerHTML = ""; //on efface toutes les images présentes précédemment
@@ -88,6 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const button = document.createElement("button"); //...je crée un bouton...
       button.innerText = newElement.name; //...avec le nom de la photo...
       filters.appendChild(button); //...filters est le parent des 3 boutons
+      if (sessionStorage.authToken) {
+        //si session admin ...
+        button.style.visibility = "hidden"; //...btn invisible
+      }
       // console.log(newElement);
       // console.log(button);
       // console.log(images);
