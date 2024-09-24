@@ -131,19 +131,24 @@ document.addEventListener("DOMContentLoaded", () => {
 //
 //
 function adminMode() {
+  //crée function en cas de validation des identifiants de connexion
   if (sessionStorage.authToken) {
-    const editBanner = document.createElement("div");
+    //si le token est valide et donc enregistré en session temporaire
+    const editBanner = document.createElement("div"); //crée une div bannière (sticky)
     editBanner.className = "edit-banner";
     editBanner.innerHTML =
       '<p><i class="fa-regular fa-pen-to-square icone"></i>Mode édition</p>';
-    document.body.prepend(editBanner);
+    const bodyIndex = document.querySelector(".body-index");
+    bodyIndex.prepend(editBanner); //qu'on affiche avant le body
 
-    const editBanner2 = document.createElement("div");
+    const editBanner2 = document.createElement("div"); //crée une div "modifier"
     editBanner2.className = "edit-banner2";
     editBanner2.innerHTML =
       '<p><i class="fa-regular fa-pen-to-square icone2"></i>modifier</p>';
     titreProjets = document.querySelector(".titre-projets");
-    titreProjets.appendChild(editBanner2);
+    titreProjets.appendChild(editBanner2); //qu'on affiche après le titre "Projets"
+
+    document.getElementById("btn-login").innerHTML = "logout"; //on change login en logout
   }
 }
 
