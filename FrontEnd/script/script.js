@@ -145,6 +145,7 @@ function adminMode() {
   //crée function en cas de validation des identifiants de connexion
   if (sessionStorage.authToken) {
     //si le token est valide et donc enregistré en session temporaire
+    //------------------BANNIERE-----------------------------------------
     const editBanner = document.createElement("div"); //crée une div bannière (sticky)
     editBanner.className = "edit-banner";
     editBanner.innerHTML =
@@ -152,12 +153,19 @@ function adminMode() {
     const bodyIndex = document.querySelector(".body-index");
     bodyIndex.prepend(editBanner); //qu'on affiche avant le body
 
-    const editBanner2 = document.createElement("div"); //crée une div "modifier"
+    //---------------BOUTON MODIF AVEC MODALE----------------------------
+    const editBanner2 = document.createElement("div"); //crée une div "modifier"...
     editBanner2.className = "edit-banner2";
     editBanner2.innerHTML =
-      '<p><i class="fa-regular fa-pen-to-square icone2"></i>modifier</p>';
+      '<a href="#modale" id="link-modale" aria-hidden="true"><i class="fa-regular fa-pen-to-square icone2"></i>modifier</a>';
     titreProjets = document.querySelector(".titre-projets");
-    titreProjets.appendChild(editBanner2); //qu'on affiche après le titre "Projets"
+    titreProjets.appendChild(editBanner2); //...qu'on affiche après le titre "Projets"
+    // const modale = document.createElement("div");
+    // modale.className = "modale";
+    // modale.style.display = "none";
+    // //modale.classList = 'aria-hidden="true"';
+    // modale.innerHTML = "Galerie photo";
+    // editBanner2.appendChild(modale);
 
     document.getElementById("btn-login").innerHTML = "logout"; //on change login en logout
   }
@@ -165,6 +173,17 @@ function adminMode() {
 }
 
 adminMode(); //appel fonction mode édition
-
-// régler problème de boutons qui ne disparaient pas quand on
+//
+// 1
+// boutons qui ne disparaient pas quand on
 // entre en mode édition à cause de la fonction checkCurrentPage()
+//
+// 2
+// banière mode édition qui ne fait plus toute la largeur de index.html
+//
+// 3
+// centrer lien modale "modifier" sur index.html
+//
+// 4
+//
+//
