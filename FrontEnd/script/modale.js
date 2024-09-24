@@ -10,4 +10,10 @@ const linkModale = document.getElementById("link-modale");
 
 linkModale.forEach((a) => {
   a.addEventListener("click", openModal);
+  //création div test
+  const test = document.createElement("div");
+  test.className("test");
+  test.innerHTML = "ceci est un test";
+  linkModale.appendChild(test);
+  //création div test
 });
