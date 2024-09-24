@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  //
+  //
   //---------------------------------------------------------------
-  //---------------intégration des éléments -----------------------
+  //---------------intégration des 11 éléments---------------------
   //---------------------------------------------------------------
-
+  //
+  //
   const filters = document.getElementById("filters"); //récup de l'ID filters du HTML
   const gallery = document.getElementById("gallery"); //récup de la class gallery du HTML
 
@@ -26,11 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
   //console.log(work.imageUrl);
   //console.log(data);
   //console.table(work.category.name);
-
+  //
+  //
   //---------------------------------------------------------------
   //-----------intégration menu de catégories----------------------
   //---------------------------------------------------------------
-
+  //
+  //
   async function fetchCategoriesAndImages() {
     //creation d'une function asynchrone
     const [categoriesResponse, imagesResponse] = await Promise.all([
@@ -84,7 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
       button.innerText = newElement.name; //...avec le nom de la photo...
       filters.appendChild(button); //...filters est le parent des 3 boutons
       // console.log(newElement);
-      //console.log(images);
+      // console.log(button);
+      // console.log(images);
       // console.log(newElement.id);
       // console.log(images[0].categoryId);
       button.addEventListener("click", () => {
@@ -109,10 +115,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
+//
+//
+//---------------------------------------------------------------
+//----------------mode administrateur----------------------------
+//---------------------------------------------------------------
+//
+//
 function adminMode() {
   if (sessionStorage.authToken) {
-    console.log("oké");
     const editBanner = document.createElement("div");
     editBanner.className = "edit-banner";
     editBanner.innerHTML =
