@@ -130,6 +130,17 @@ document.addEventListener("DOMContentLoaded", () => {
 //---------------------------------------------------------------
 //
 //
+function checkCurrentPage() {
+  //crée function si on quitte index.html...
+  const currentPage = window.location.pathname;
+  const ExpectedPage = "index.html";
+
+  if (currentPage !== ExpectedPage) {
+    sessionStorage.removeItem("authToken"); //... on déco et efface le token de sessionStorage
+    //window.location.href = "./login.html";
+  }
+}
+
 function adminMode() {
   //crée function en cas de validation des identifiants de connexion
   if (sessionStorage.authToken) {
@@ -150,9 +161,11 @@ function adminMode() {
 
     document.getElementById("btn-login").innerHTML = "logout"; //on change login en logout
   }
+  checkCurrentPage(); //appel de la fonction déco si on quitte index.html
 }
 
-adminMode();
+adminMode(); //appel fonction mode édition
+
 /*
 btnSeConnecter = document.querySelector(".se-connecter");
 

@@ -42,8 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
       let result = await response.json();
       const validToken = result.token;
       sessionStorage.setItem("authToken", validToken);
+      //function login() {
+      //localStorage.setItem("isLoggedIn", "true");
       window.location.href = "../index.html";
+      //}
     }
+    login();
 
     console.log(response);
     console.log(sessionStorage.getItem("authToken"));
@@ -55,29 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //
 //
 //
-//      /*
-      let btnLogin = document.getElementById("btn-login");
 
-      function handleLogin() {
-        let isLoggedIn = true;
-
-        if (isLoggedIn) {
-          btnLogin.innerText = "lougout";
-          btnLogin.onclick = handleLogout;
-        }
-      }
-
-      function handleLogout() {
-        let isLoggedIn = false;
-
-        if (!isLoggedIn) {
-          btnLogin.innerText = "login";
-          btnLogin.onclick = handleLogin;
-        }
-      }
-        //
-        //
-        //
         //
 
   async function submit() {
