@@ -31,8 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (response.status !== 200) {
-      const errorBox = document.createElement("div");
+      //suppr error si déjà existante
+      let errorBox = document.getElementById("errorBox");
+      if (errorBox) {
+        errorBox.remove();
+      }
+      errorBox = document.createElement("div");
       errorBox.className = "error-box";
+      errorBox.id = "errorBox";
       errorBox.innerHTML = "Erreur dans l’identifiant ou le mot de passe";
       const loginContainer = document.querySelector(".log-in__container");
       loginContainer.style.color = "orangered";
@@ -46,14 +52,13 @@ document.addEventListener("DOMContentLoaded", () => {
       //localStorage.setItem("isLoggedIn", "true");
       window.location.href = "../index.html";
       //}
+      login();
     }
-    login();
 
     console.log(response);
     console.log(sessionStorage.getItem("authToken"));
     console.log(user);
   }
-  validSubmit();
 });
 /*
 //

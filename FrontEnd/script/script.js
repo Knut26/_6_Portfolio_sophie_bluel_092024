@@ -130,15 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
 //---------------------------------------------------------------
 //
 //
-function checkCurrentPage() {
-  //crée function si on quitte index.html...
-  const currentPage = window.location.pathname;
-  const ExpectedPage = "index.html";
-
-  if (currentPage !== ExpectedPage) {
-    sessionStorage.removeItem("authToken"); //... on déco et efface le token de sessionStorage
-    //window.location.href = "./login.html";
-  }
+function logout() {
+  sessionStorage.removeItem("authToken"); //... on déco et efface le token de sessionStorage
+  window.location.href = "./login.html";
 }
 
 function adminMode() {
@@ -167,9 +161,11 @@ function adminMode() {
     // modale.innerHTML = "Galerie photo";
     // editBanner2.appendChild(modale);
 
-    document.getElementById("btn-login").innerHTML = "logout"; //on change login en logout
+    const btnLogout = document.getElementById("btn-login"); //on change login en logout
+    btnLogout.innerHTML = "logout";
+    btnLogout.addEventListener("click", logout);
   }
-  checkCurrentPage(); //appel de la fonction déco si on quitte index.html
+  // checkCurrentPage(); //appel de la fonction déco si on quitte index.html
 }
 
 adminMode(); //appel fonction mode édition
