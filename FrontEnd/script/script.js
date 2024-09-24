@@ -170,16 +170,14 @@ function adminMode() {
 
 adminMode(); //appel fonction mode édition
 //
-// 1
-// boutons qui ne disparaient pas quand on
-// entre en mode édition à cause de la fonction checkCurrentPage()
 //
-// 2
+//
+// 1
 // banière mode édition qui ne fait plus toute la largeur de index.html
 //
-// 3
+// 2
 // centrer lien modale "modifier" sur index.html
 //
-// 4
+// 3
 //
 //
