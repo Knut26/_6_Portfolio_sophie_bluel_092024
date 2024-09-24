@@ -39,13 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const mdp = document.querySelector(".mdp");
       mdp.appendChild(errorBox);
     } else {
+      let result = await response.json();
+      const validToken = result.token;
+      sessionStorage.setItem("authToken", validToken);
       window.location.href = "../index.html";
     }
-
-    let result = await response.json();
-
-    const validToken = result.token;
-    sessionStorage.setItem("authToken", validToken);
 
     console.log(response);
     console.log(sessionStorage.getItem("authToken"));

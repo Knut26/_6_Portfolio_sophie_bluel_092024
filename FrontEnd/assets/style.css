@@ -155,7 +155,7 @@ html {
   background-color: #f5f6ed;
 }
 
-.mode-edition {
+.edit-banner {
   position: sticky;
   top: 0;
   display: flex;
@@ -186,10 +186,6 @@ html {
 .modifier {
   margin-bottom: 25px;
   font-size: 14px;
-}
-
-.hidden-banner {
-  display: none;
 }
 
 .icone {

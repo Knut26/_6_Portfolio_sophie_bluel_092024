@@ -113,10 +113,18 @@ document.addEventListener("DOMContentLoaded", () => {
 function adminMode() {
   if (sessionStorage.authToken) {
     console.log("oké");
-    const hidden = document.createElement("div");
-    hidden.className = "hidden-banner";
-    hidden.style.display = "block";
-    console.log(hidden);
+    const editBanner = document.createElement("div");
+    editBanner.className = "edit-banner";
+    editBanner.innerHTML =
+      '<p><i class="fa-regular fa-pen-to-square icone"></i>Mode édition</p>';
+    document.body.prepend(editBanner);
+
+    const editBanner2 = document.createElement("div");
+    editBanner2.className = "edit-banner2";
+    editBanner2.innerHTML =
+      '<p><i class="fa-regular fa-pen-to-square icone2"></i>modifier</p>';
+    titreProjets = document.querySelector(".titre-projets");
+    titreProjets.appendChild(editBanner2);
   }
 }
 
