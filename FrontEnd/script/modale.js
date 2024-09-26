@@ -37,7 +37,7 @@ fetch("http://localhost:5678/api/works")
       img.src = imageUrl;
       const divP = document.createElement("div");
       divP.innerHTML = '<p><i class="fa-regular fa-trash-can trash"></i></p>';
-      divP.className = "trash";
+      //divP.className = "trash";
       img.appendChild(divP);
       //modale1.appendChild(divP);
       modale1.appendChild(img);
