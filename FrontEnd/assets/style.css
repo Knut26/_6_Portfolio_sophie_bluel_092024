@@ -198,8 +198,11 @@ html {
   color: black;
 }
 
-.modale {
+.modale-visible {
   display: none;
+}
+
+.modale {
   display: flex;
   justify-content: center;
   position: fixed;
