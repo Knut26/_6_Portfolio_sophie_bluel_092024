@@ -28,11 +28,12 @@ fetch("http://localhost:5678/api/works")
       img.className = "modale-img";
       const imageUrl = data[i].imageUrl;
       img.src = imageUrl;
-      modale1.appendChild(img);
       const divP = document.createElement("div");
-      divP.innerHTML = '<p><i class="fa-solid fa-trash-can trash"></i></p>';
+      divP.innerHTML = '<p><i class="fa-regular fa-trash-can trash"></i></p>';
       divP.className = "trash";
       img.appendChild(divP);
+      modale1.appendChild(divP);
+      modale1.appendChild(img);
 
       //test ajout trash can
       //   data.forEach(displayTrash);
