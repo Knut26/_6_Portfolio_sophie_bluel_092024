@@ -29,15 +29,20 @@ fetch("http://localhost:5678/api/works")
       const imageUrl = data[i].imageUrl;
       img.src = imageUrl;
       modale1.appendChild(img);
-      //test ajout trash can
-      data.forEach(displayTrash);
+      const divP = document.createElement("div");
+      divP.innerHTML = '<p><i class="fa-solid fa-trash-can trash"></i></p>';
+      divP.className = "trash";
+      img.appendChild(divP);
 
-      function displayTrash() {
-        const p = document.createElement("p");
-        p.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
-        p.className = "trash";
-        img.appendChild(p);
-      }
+      //test ajout trash can
+      //   data.forEach(displayTrash);
+
+      //   function displayTrash() {
+      //    const p = document.createElement("p");
+      //    p.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
+      //    p.className = "trash";
+      //    img.appendChild(p);
+      //   }
     }
   })
 
