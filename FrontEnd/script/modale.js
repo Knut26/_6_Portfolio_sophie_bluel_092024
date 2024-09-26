@@ -17,6 +17,13 @@
 //   linkModale.appendChild(test);
 //   //création div test
 // });
+
+//
+//---------------------------------------------------------------
+//----------------------intégration modale-----------------------
+//---------------------------------------------------------------
+//
+//
 const modale1 = document.querySelector(".modale-photos");
 
 fetch("http://localhost:5678/api/works")
@@ -34,7 +41,12 @@ fetch("http://localhost:5678/api/works")
       img.appendChild(divP);
       //modale1.appendChild(divP);
       modale1.appendChild(img);
-
+      //
+      //---------------------------------------------------------------
+      //---------------------------------------------------------------
+      //---------------------------------------------------------------
+      //
+      //
       //test ajout trash can
       //   data.forEach(displayTrash);
 
