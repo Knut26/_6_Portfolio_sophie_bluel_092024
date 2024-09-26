@@ -32,7 +32,7 @@ fetch("http://localhost:5678/api/works")
       divP.innerHTML = '<p><i class="fa-regular fa-trash-can trash"></i></p>';
       divP.className = "trash";
       img.appendChild(divP);
-      modale1.appendChild(divP);
+      //modale1.appendChild(divP);
       modale1.appendChild(img);
 
       //test ajout trash can
