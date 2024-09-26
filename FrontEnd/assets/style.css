@@ -200,7 +200,7 @@ html {
 
 .modale {
   display: none;
-  /* display: flex; */
+  display: flex;
   justify-content: center;
   position: fixed;
   top: 50%;
@@ -217,6 +217,28 @@ html {
 
 .modal-wrapper {
   display: flex;
+}
+
+.modale-img {
+  width: 80px;
+  height: 100px;
+}
+
+img {
+  position: relative;
+  z-index: -1;
+}
+
+.trash {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  color: white;
+  z-index: 2;
 }
 
 .fa-xmark {
