@@ -212,7 +212,7 @@ html {
   font-family: "Work Sans";
   font-size: 25px;
   width: 680px;
-  height: 690px;
+  height: 670px;
   background-color: white;
   border-radius: 15px;
   padding: 40px;
@@ -270,20 +270,45 @@ img {
 .add-photo-picture-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   background-color: rgb(225, 237, 241);
   width: 450px;
   height: 200px;
+  border-radius: 3px;
 }
 
 .add-photo-picture {
   font-size: 80px;
   margin-top: 20px;
-  color: rgb(203, 201, 201);
+  color: rgb(188, 199, 208);
 }
 
 .text-photo {
-  color: blue;
+  color: gray;
+  font-size: 10px;
+}
+
+.add-photo-picture-button {
+  background-color: rgb(188, 199, 208);
+  font-size: 14px;
+  border: none;
+  color: rgb(77, 116, 129);
+  margin-bottom: 10px;
+  padding: 10px 40px;
+}
+
+.form1,
+.form2 {
+  font-size: 13px;
+  width: 450px;
+  height: 50px;
+}
+
+.input-nom1,
+.input-nom2 {
+  border: none;
+  box-shadow: 1px 1px 1px;
 }
 
 .fa-xmark {
@@ -307,6 +332,16 @@ img {
   position: absolute;
   bottom: 0;
   margin-top: 40px;
+  border-radius: 50px;
+  background: #1d6154;
+  border-color: none;
+  color: #f5f6ed;
+  font-family: "Syne";
+  font-size: 15px;
+  margin: 10px 3px 50px 3px;
+  padding: 5px 20px 5px 20px;
+  box-shadow: none;
+  border: none;
 }
 
 .icone {
@@ -327,19 +362,6 @@ img {
 #filters {
   display: flex;
   justify-content: center;
-}
-
-.ajout-photo {
-  border-radius: 50px;
-  background: #1d6154;
-  border-color: none;
-  color: #f5f6ed;
-  font-family: "Syne";
-  font-size: 15px;
-  margin: 10px 3px 50px 3px;
-  padding: 5px 20px 5px 20px;
-  box-shadow: none;
-  border: none;
 }
 
 button {
