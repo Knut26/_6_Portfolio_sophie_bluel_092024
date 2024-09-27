@@ -139,18 +139,38 @@ ajoutPhoto.addEventListener("click", function (event) {
   formNom2.method = "post";
   form2.appendChild(formNom2);
 
-  const labelNom2 = document.createElement("label");
+  const labelNom2 = document.createElement("options");
   labelNom2.className = "label-nom2";
+  labelNom2.htmlFor = "options";
   labelNom2.innerHTML = "Catégorie";
-  labelNom2.for = "name";
+  labelNom2.for = "options";
   form2.appendChild(labelNom2);
 
-  const inputNom2 = document.createElement("input");
-  inputNom2.className = "input-nom2";
-  inputNom2.type = "text";
-  inputNom2.name = "name";
-  inputNom2.id = "name";
-  form2.appendChild(inputNom2);
+  //   const inputNom2 = document.createElement("select");
+  //   inputNom2.className = "input-nom2";
+  //   inputNom2.type = "text";
+  //   inputNom2.name = "options";
+  //   inputNom2.id = "options";
+  //   form2.appendChild(inputNom2);
+
+  //------------------formulaire déroulant-------------------------
+  const select = document.createElement("select");
+  select.className = "select";
+  select.id = "options";
+  select.name = "options";
+  form2.appendChild(select);
+
+  function ajoutOption(selectElement, value, text) {
+    let option = document.createElement("option");
+    option.value = value;
+    option.textContent = text;
+    selectElement.appendChild(option);
+  }
+  ajoutOption(select, "option1", "");
+  ajoutOption(select, "option2", "1");
+  ajoutOption(select, "option3", "2");
+  ajoutOption(select, "option4", "3");
+  ajoutOption(select, "option5", "4");
 
   modale1.appendChild(form2);
 
@@ -164,4 +184,6 @@ ajoutPhoto.addEventListener("click", function (event) {
   modalePhotos.style.display = "flex";
   modalePhotos.style.flexDirection = "column";
   modalePhotos.style.alignItems = "center";
+  modalePhotos.style.marginTop = "10px";
+  modalePhotos.style.marginBottom = "10px";
 });

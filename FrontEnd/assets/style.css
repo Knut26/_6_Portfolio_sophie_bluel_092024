@@ -265,6 +265,7 @@ img {
   position: absolute;
   top: 30px;
   left: 40px;
+  font-size: 25px;
 }
 
 .add-photo-picture-container {
@@ -274,13 +275,14 @@ img {
   flex-direction: column;
   background-color: rgb(225, 237, 241);
   width: 450px;
-  height: 200px;
+  height: 170px;
   border-radius: 3px;
+  margin-bottom: 20px;
 }
 
 .add-photo-picture {
-  font-size: 80px;
-  margin-top: 20px;
+  font-size: 70px;
+  margin-top: 0;
   color: rgb(188, 199, 208);
 }
 
@@ -297,24 +299,27 @@ img {
   margin-bottom: 10px;
   padding: 10px 40px;
 }
-
+.form1 {
+  margin-bottom: 0px;
+}
 .form1,
 .form2 {
   font-size: 13px;
   width: 450px;
-  height: 50px;
 }
 
 .input-nom1,
-.input-nom2 {
+.select {
   border: none;
-  box-shadow: 1px 1px 1px;
+  box-shadow: 1px 1px 4px lightgray;
+  height: 50px;
 }
 
 .fa-xmark {
   position: absolute;
   top: 30px;
   right: 40px;
+  font-size: 20px;
 }
 
 .ligne {
@@ -410,6 +415,11 @@ button:hover {
 
 .label {
   margin-bottom: 10px;
+}
+
+.label-nom1,
+.label-nom2 {
+  margin-bottom: 15px;
 }
 
 .mentions-legales {
