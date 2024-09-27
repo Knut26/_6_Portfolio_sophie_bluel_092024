@@ -403,7 +403,10 @@ button:hover {
   border: none;
   width: 380px;
   height: 50px;
-  box-shadow: 5px 5px 5px rgb(234, 233, 233);
+  box-shadow: 5px 5px 5px;
+  /* rectif ? */
+  color: rgb(234, 233, 233);
+  /* rectif ? */
   font-size: 25px;
 }
 
