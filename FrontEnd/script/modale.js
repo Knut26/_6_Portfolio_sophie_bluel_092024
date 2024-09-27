@@ -20,7 +20,7 @@
 
 //
 //---------------------------------------------------------------
-//----------------------intégration modale-----------------------
+//----------------------intégration modale1----------------------
 //---------------------------------------------------------------
 //
 //
@@ -47,22 +47,47 @@ fetch("http://localhost:5678/api/works")
       photoContainer.appendChild(img);
       photoContainer.appendChild(trashCan);
       modale1.appendChild(photoContainer);
-      //
-      //---------------------------------------------------------------
-      //---------------------------------------------------------------
-      //---------------------------------------------------------------
-      //
-      //
-      //test ajout trash can
-      //   data.forEach(displayTrash);
-
-      //   function displayTrash() {
-      //    const p = document.createElement("p");
-      //    p.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
-      //    p.className = "trash";
-      //    img.appendChild(p);
-      //   }
     }
   })
 
   .catch((error) => console.error(error));
+
+//
+//---------------------------------------------------------------
+//----------------------intégration modale2----------------------
+//---------------------------------------------------------------
+//
+//
+
+const ajoutPhoto = document.getElementById("ajout-photo");
+
+ajoutPhoto.addEventListener("click", function (event) {
+  event.preventDefault();
+  modale1.innerHTML = "";
+
+  const backArrow = document.createElement("p"); //flèche de back
+  backArrow.innerHTML = '<i class="fa-solid fa-arrow-left back-arrow"></i>';
+  modale1.appendChild(backArrow);
+
+  const modaleWrapper = document.querySelector(".modale-wrapper"); //changement titre
+  modaleWrapper.innerHTML = "Ajout photo";
+
+  const addPhotoPictureContainer = document.createElement("div"); //div container
+  addPhotoPictureContainer.className = "add-photo-picture-container";
+  modale1.appendChild(addPhotoPictureContainer);
+
+  const addPhotoPicture = document.createElement("p"); //fopnt awesome photo
+  addPhotoPicture.innerHTML =
+    '<i class="fa-regular fa-image add-photo-picture"></i>';
+  addPhotoPictureContainer.appendChild(addPhotoPicture);
+
+  const addPhotoPictureButton = document.createElement("button"); //ajout button
+  addPhotoPictureButton.className = "add-photo-picture-button";
+  addPhotoPictureButton.innerHTML = "+ Ajouter photo";
+  addPhotoPictureContainer.appendChild(addPhotoPictureButton);
+
+  const textPhoto = document.createElement("p");
+  textPhoto.className = "text-photo";
+  textPhoto.innerHTML = "jpg, png : 4mo max";
+  addPhotoPictureContainer.appendChild(textPhoto);
+});

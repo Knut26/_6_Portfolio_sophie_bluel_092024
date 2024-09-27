@@ -261,6 +261,31 @@ img {
   z-index: 2;
 }
 
+.back-arrow {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+}
+
+.add-photo-picture-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(225, 237, 241);
+  width: 450px;
+  height: 200px;
+}
+
+.add-photo-picture {
+  font-size: 80px;
+  margin-top: 20px;
+  color: rgb(203, 201, 201);
+}
+
+.text-photo {
+  color: blue;
+}
+
 .fa-xmark {
   position: absolute;
   top: 30px;
