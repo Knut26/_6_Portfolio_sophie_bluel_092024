@@ -31,16 +31,22 @@ fetch("http://localhost:5678/api/works")
   .then((data) => {
     console.log(data);
     for (i = 0; i < data.length; i++) {
+      const photoContainer = document.createElement("div"); //div qui contient photo et trashcan
+      photoContainer.className = "photo-container";
+
       const img = document.createElement("img");
       img.className = "modale-img";
+
       const imageUrl = data[i].imageUrl;
       img.src = imageUrl;
-      const divP = document.createElement("div");
-      divP.innerHTML = '<p><i class="fa-regular fa-trash-can trash"></i></p>';
-      //divP.className = "trash";
-      img.appendChild(divP);
-      //modale1.appendChild(divP);
-      modale1.appendChild(img);
+
+      const trashCan = document.createElement("p");
+      trashCan.innerHTML = '<i class="fa-regular fa-trash-can trash"></i>';
+      trashCan.className = "trash-can";
+
+      photoContainer.appendChild(img);
+      photoContainer.appendChild(trashCan);
+      modale1.appendChild(photoContainer);
       //
       //---------------------------------------------------------------
       //---------------------------------------------------------------
