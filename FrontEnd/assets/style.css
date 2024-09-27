@@ -313,6 +313,7 @@ img {
   border: none;
   box-shadow: 1px 1px 4px lightgray;
   height: 50px;
+  outline: none;
 }
 
 .fa-xmark {
