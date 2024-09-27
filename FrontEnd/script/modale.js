@@ -41,7 +41,7 @@ fetch("http://localhost:5678/api/works")
       img.src = imageUrl;
 
       const trashCan = document.createElement("p");
-      trashCan.innerHTML = '<i class="fa-regular fa-trash-can trash"></i>';
+      trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
       trashCan.className = "trash-can";
 
       photoContainer.appendChild(img);

@@ -252,11 +252,11 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: black;
   color: white;
-  font-size: 15px;
+  font-size: 11px;
   border-radius: 2px;
   z-index: 2;
 }
