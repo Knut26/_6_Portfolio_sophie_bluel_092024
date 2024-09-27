@@ -26,21 +26,21 @@
 //
 const modale1 = document.querySelector(".modale-photos");
 
-fetch("http://localhost:5678/api/works")
+fetch("http://localhost:5678/api/works") //fetch les 11 images
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
     for (i = 0; i < data.length; i++) {
       const photoContainer = document.createElement("div"); //div qui contient photo et trashcan
-      photoContainer.className = "photo-container";
+      photoContainer.className = "photo-container"; //nom de la div
 
-      const img = document.createElement("img");
+      const img = document.createElement("img"); //création d'images
       img.className = "modale-img";
 
-      const imageUrl = data[i].imageUrl;
+      const imageUrl = data[i].imageUrl; // url
       img.src = imageUrl;
 
-      const trashCan = document.createElement("p");
+      const trashCan = document.createElement("p"); // création de la trashcan
       trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
       trashCan.className = "trash-can";
 
@@ -62,10 +62,11 @@ fetch("http://localhost:5678/api/works")
 const ajoutPhoto = document.getElementById("ajout-photo");
 
 ajoutPhoto.addEventListener("click", function (event) {
+  //addevent au clic "ajouter une photo"
   event.preventDefault();
-  modale1.innerHTML = "";
+  modale1.innerHTML = ""; //on vide la modale1
 
-  //------------------flèche back-------------------------
+  //------------------flèche backpage-------------------------
   const backArrow = document.createElement("p");
   backArrow.innerHTML = '<i class="fa-solid fa-arrow-left back-arrow"></i>';
   modale1.appendChild(backArrow);
@@ -95,6 +96,14 @@ ajoutPhoto.addEventListener("click", function (event) {
   addPhotoPictureButton.className = "add-photo-picture-button";
   addPhotoPictureButton.innerHTML = "+ Ajouter photo";
   addPhotoPictureContainer.appendChild(addPhotoPictureButton);
+  //--------------addevent sur + ajouter photo--------------------
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  addPhotoPictureButton.addEventListener("click", () => {});
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
 
   //------------------ajout texte-------------------------
   const textPhoto = document.createElement("p");
@@ -146,14 +155,7 @@ ajoutPhoto.addEventListener("click", function (event) {
   labelNom2.for = "options";
   form2.appendChild(labelNom2);
 
-  //   const inputNom2 = document.createElement("select");
-  //   inputNom2.className = "input-nom2";
-  //   inputNom2.type = "text";
-  //   inputNom2.name = "options";
-  //   inputNom2.id = "options";
-  //   form2.appendChild(inputNom2);
-
-  //------------------formulaire déroulant-------------------------
+  //----------------avec partie déroulante---------------------
   const select = document.createElement("select");
   select.className = "select";
   select.id = "options";
@@ -166,11 +168,17 @@ ajoutPhoto.addEventListener("click", function (event) {
     option.textContent = text;
     selectElement.appendChild(option);
   }
-  ajoutOption(select, "option1", "");
-  ajoutOption(select, "option2", "1");
-  ajoutOption(select, "option3", "2");
-  ajoutOption(select, "option4", "3");
-  ajoutOption(select, "option5", "4");
+
+  fetch("http://localhost:5678/api/categories") //fetch les categoryId
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      for (i = 0; i < data.length; i++) {
+        const choice = data[i].name; //on récup les noms des catégories
+        ajoutOption(select, "options[i]", choice); //on créé les choix du menu déroulant
+      }
+    });
+  ajoutOption(select, "option1", ""); // avec un premier choix vide
 
   modale1.appendChild(form2);
 
