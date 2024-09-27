@@ -65,29 +65,103 @@ ajoutPhoto.addEventListener("click", function (event) {
   event.preventDefault();
   modale1.innerHTML = "";
 
-  const backArrow = document.createElement("p"); //flèche de back
+  //------------------flèche back-------------------------
+  const backArrow = document.createElement("p");
   backArrow.innerHTML = '<i class="fa-solid fa-arrow-left back-arrow"></i>';
   modale1.appendChild(backArrow);
 
-  const modaleWrapper = document.querySelector(".modale-wrapper"); //changement titre
+  //------------------croix fermeture modale-------------------------
+  const close = document.createElement("p");
+  close.innerHTML = '<i class="fas fa-regular fa-xmark"></i>';
+  modale1.appendChild(close);
+
+  //------------------changement titre-------------------------
+  const modaleWrapper = document.querySelector(".modale-wrapper");
   modaleWrapper.innerHTML = "Ajout photo";
 
-  const addPhotoPictureContainer = document.createElement("div"); //div container
+  //------------------div container-------------------------
+  const addPhotoPictureContainer = document.createElement("div");
   addPhotoPictureContainer.className = "add-photo-picture-container";
   modale1.appendChild(addPhotoPictureContainer);
 
-  const addPhotoPicture = document.createElement("p"); //fopnt awesome photo
+  //------------------font awesome photo-------------------------
+  const addPhotoPicture = document.createElement("p");
   addPhotoPicture.innerHTML =
     '<i class="fa-regular fa-image add-photo-picture"></i>';
   addPhotoPictureContainer.appendChild(addPhotoPicture);
 
-  const addPhotoPictureButton = document.createElement("button"); //ajout button
+  //------------------ajout button-------------------------
+  const addPhotoPictureButton = document.createElement("button");
   addPhotoPictureButton.className = "add-photo-picture-button";
   addPhotoPictureButton.innerHTML = "+ Ajouter photo";
   addPhotoPictureContainer.appendChild(addPhotoPictureButton);
 
+  //------------------ajout texte-------------------------
   const textPhoto = document.createElement("p");
   textPhoto.className = "text-photo";
   textPhoto.innerHTML = "jpg, png : 4mo max";
   addPhotoPictureContainer.appendChild(textPhoto);
+
+  //------------------formulaire 1-------------------------
+  const form1 = document.createElement("div");
+  form1.className = "form1";
+  form1.style.display = "flex";
+  form1.style.flexDirection = "column";
+
+  const formNom = document.createElement("form");
+  formNom.action = "#";
+  formNom.method = "post";
+  form1.appendChild(formNom);
+
+  const labelNom = document.createElement("label");
+  labelNom.className = "label-nom1";
+  labelNom.innerHTML = "Titre";
+  labelNom.for = "name";
+  form1.appendChild(labelNom);
+
+  const inputNom = document.createElement("input");
+  inputNom.className = "input-nom1";
+  inputNom.type = "text";
+  inputNom.name = "name";
+  inputNom.id = "name";
+  form1.appendChild(inputNom);
+
+  modale1.appendChild(form1);
+
+  //------------------formulaire 2-------------------------
+  const form2 = document.createElement("div");
+  form2.className = "form2";
+  form2.style.display = "flex";
+  form2.style.flexDirection = "column";
+
+  const formNom2 = document.createElement("form");
+  formNom2.action = "#";
+  formNom2.method = "post";
+  form2.appendChild(formNom2);
+
+  const labelNom2 = document.createElement("label");
+  labelNom2.className = "label-nom2";
+  labelNom2.innerHTML = "Catégorie";
+  labelNom2.for = "name";
+  form2.appendChild(labelNom2);
+
+  const inputNom2 = document.createElement("input");
+  inputNom2.className = "input-nom2";
+  inputNom2.type = "text";
+  inputNom2.name = "name";
+  inputNom2.id = "name";
+  form2.appendChild(inputNom2);
+
+  modale1.appendChild(form2);
+
+  //------------------bouton valider-------------------------
+
+  ajoutPhoto.innerHTML = "valider";
+  ajoutPhoto.style.backgroundColor = "rgb(145, 154, 157)";
+
+  //------------------modif div des formulaires-------------------------
+  const modalePhotos = document.querySelector(".modale-photos");
+  modalePhotos.style.display = "flex";
+  modalePhotos.style.flexDirection = "column";
+  modalePhotos.style.alignItems = "center";
 });
