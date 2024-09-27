@@ -148,10 +148,12 @@ function adminMode() {
     bodyIndex.prepend(editBanner); //qu'on affiche avant le body
 
     //---------------BOUTON MODIF AVEC MODALE----------------------------
-    const editBanner2 = document.createElement("div"); //crée une div "modifier"...
+    const editBanner2 = document.createElement("a"); //crée une div "modifier"...
     editBanner2.className = "edit-banner2";
+    editBanner2.href = "#";
+    editBanner2.id = "lienModale";
     editBanner2.innerHTML =
-      '<a href="#modale" id="link-modale" aria-hidden="true"><i class="fa-regular fa-pen-to-square icone2"></i>modifier</a>';
+      '<i class="fa-regular fa-pen-to-square icone2"></i>modifier';
     titreProjets = document.querySelector(".titre-projets");
     titreProjets.appendChild(editBanner2); //...qu'on affiche après le titre "Projets"
     // const modale = document.createElement("div");
@@ -169,6 +171,38 @@ function adminMode() {
 }
 
 adminMode(); //appel fonction mode édition
+
+//
+//
+//---------------------------------------------------------------
+//----------------apparition modale------------------------------
+//---------------------------------------------------------------
+//
+//WIP
+
+const visibleModale = document.querySelector("modale-visible");
+const lienModale = document.getElementById("lienModale");
+
+lienModale.addEventListener("click", function (event) {
+  event.preventDefault();
+  visibleModale.style.display = "flex";
+});
+
+//
+//
+//---------------------------------------------------------------
+//----------------disparition modale-----------------------------
+//---------------------------------------------------------------
+//
+//WIP
+
+const comeBackToIndex = document.getElementById("comeBackToIndex");
+
+comeBackToIndex.addEventListener("click", function (event) {
+  event.preventDefault();
+  visibleModale.style.display = "none";
+});
+
 //
 //FAIRE DISPARAITRE DE BASE LA MODALE
 //PUIS CREER UN ADDEVENT SUR LE "MODIFIER" ET ENLEVER LE DISPLAY NONE
