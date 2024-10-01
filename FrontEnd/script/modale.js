@@ -37,13 +37,14 @@ function fetchingModale1() {
 
         const img = document.createElement("img"); //création d'images
         img.className = "modale-img";
+        //img.id = "fetched-img";
 
         const imageUrl = data[i].imageUrl; // url
         img.src = imageUrl;
 
         const trashCan = document.createElement("p"); // création de la trashcan
         trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
-        trashCan.className = "trash-can";
+        trashCan.id = "trash-can";
 
         photoContainer.appendChild(img);
         photoContainer.appendChild(trashCan);
@@ -80,6 +81,24 @@ ajoutPhoto.addEventListener("click", function (event) {
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
   backArrow.addEventListener("click", () => {
+    modaleWrapper.innerHTML = "Galerie photo";
+    close.innerHTML = '<p><i class="fas fa-regular fa-xmark"></i></p>';
+    modalePhotos.innerHTML = "";
+    addPhotoPictureContainer.innerHTML = "";
+    addPhotoPicture.innerHTML = "";
+    addPhotoPictureButton.innerHTML = "";
+    textPhoto.innerHTML = "";
+    form1.innerHTML = "";
+    formNom.innerHTML = "";
+    labelNom.innerHTML = "";
+    inputNom.innerHTML = "";
+    form2.innerHTML = "";
+    formNom2.innerHTML = "";
+    labelNom2.innerHTML = "";
+    select.innerHTML = "";
+    ajoutPhoto.innerHTML = "Ajouter une photo";
+    ajoutPhoto.style.backgroundColor = "#1d6154";
+
     fetchingModale1();
   });
   //////////////////////////////WIP//////////////////////////////////

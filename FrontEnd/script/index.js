@@ -209,8 +209,8 @@ function adminMode() {
 
 adminMode(); //appel fonction mode édition
 
-//
-//PUIS ADDEVENT SUR LE "AJOUTER UNE PHOTO"
+//remettre la modale 1 en click de arrowBack
+//ADDEVENT SUR LE "AJOUTER UNE PHOTO"
 //ADDEVENT SUR LES TRASHS CANS
 //RENDRE REELLE LA SUPPRESSION DES PHOTOS EN FONCTIONS DES CLICS DE LA MODALE.../
 // 1

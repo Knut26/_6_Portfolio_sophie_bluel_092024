@@ -329,6 +329,11 @@ img {
   font-size: 20px;
 }
 
+/* #fetched-img {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+} */
+
 .ligne {
   width: 70%;
   height: 1.5px;
