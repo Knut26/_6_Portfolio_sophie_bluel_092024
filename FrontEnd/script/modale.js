@@ -74,6 +74,7 @@ ajoutPhoto.addEventListener("click", function (event) {
   //------------------croix fermeture modale-------------------------
   const close = document.createElement("p");
   close.innerHTML = '<i class="fas fa-regular fa-xmark"></i>';
+  close.id = "comeBackToIndex";
   modale1.appendChild(close);
 
   //------------------changement titre-------------------------
@@ -155,7 +156,7 @@ ajoutPhoto.addEventListener("click", function (event) {
   labelNom2.for = "options";
   form2.appendChild(labelNom2);
 
-  //----------------avec partie déroulante---------------------
+  //----------------avec menu déroulant---------------------
   const select = document.createElement("select");
   select.className = "select";
   select.id = "options";
@@ -194,4 +195,22 @@ ajoutPhoto.addEventListener("click", function (event) {
   modalePhotos.style.alignItems = "center";
   modalePhotos.style.marginTop = "10px";
   modalePhotos.style.marginBottom = "10px";
+
+  //------------------fermeture modale 2-------------------------
+
+  const visibleModale = document.querySelector(".modale-visible");
+  const overlay = document.getElementById("overlay");
+  const comeBackToIndex = document.getElementById("comeBackToIndex");
+
+  comeBackToIndex.addEventListener("click", function (event) {
+    event.preventDefault();
+    visibleModale.style.display = "none";
+  });
+
+  overlay.addEventListener("click", () => {
+    visibleModale.style.display = "none";
+    overlay.style.display = "none";
+  });
 });
+
+//-------------------------------------------
