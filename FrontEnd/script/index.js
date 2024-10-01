@@ -166,49 +166,51 @@ function adminMode() {
     const btnLogout = document.getElementById("btn-login"); //on change login en logout
     btnLogout.innerHTML = "logout";
     btnLogout.addEventListener("click", logout);
+
+    //
+    //
+    //---------------------------------------------------------------
+    //----------------apparition modale------------------------------
+    //---------------------------------------------------------------
+    //
+
+    const visibleModale = document.querySelector(".modale-visible");
+    const lienModale = document.getElementById("lienModale");
+    const overlay = document.getElementById("overlay");
+
+    lienModale.addEventListener("click", function (event) {
+      event.preventDefault();
+      visibleModale.style.display = "flex";
+      overlay.style.display = "block";
+    });
+
+    //
+    //
+    //---------------------------------------------------------------
+    //----------------disparition modale-----------------------------
+    //---------------------------------------------------------------
+    //
+
+    const comeBackToIndex = document.getElementById("comeBackToIndex");
+
+    comeBackToIndex.addEventListener("click", function (event) {
+      event.preventDefault();
+      visibleModale.style.display = "none";
+    });
+
+    overlay.addEventListener("click", () => {
+      visibleModale.style.display = "none";
+      overlay.style.display = "none";
+    });
   }
+
   // checkCurrentPage(); //appel de la fonction déco si on quitte index.html
 }
 
 adminMode(); //appel fonction mode édition
 
 //
-//
-//---------------------------------------------------------------
-//----------------apparition modale------------------------------
-//---------------------------------------------------------------
-//
-//WIP
-
-const visibleModale = document.querySelector("modale-visible");
-const lienModale = document.getElementById("lienModale");
-
-lienModale.addEventListener("click", function (event) {
-  event.preventDefault();
-  visibleModale.style.display = "flex";
-});
-
-//
-//
-//---------------------------------------------------------------
-//----------------disparition modale-----------------------------
-//---------------------------------------------------------------
-//
-//WIP
-
-const comeBackToIndex = document.getElementById("comeBackToIndex");
-
-comeBackToIndex.addEventListener("click", function (event) {
-  event.preventDefault();
-  visibleModale.style.display = "none";
-});
-
-//
-//FAIRE DISPARAITRE DE BASE LA MODALE
-//PUIS CREER UN ADDEVENT SUR LE "MODIFIER" ET ENLEVER LE DISPLAY NONE
-//PUIS ACTIVER LA FERMETURE DE LA MODALE AVEC LA CROIX
 //PUIS ADDEVENT SUR LE "AJOUTER UNE PHOTO"
-//BIEN PLACER LES TRASHS CANS
 //ADDEVENT SUR LES TRASHS CANS
 //RENDRE REELLE LA SUPPRESSION DES PHOTOS EN FONCTIONS DES CLICS DE LA MODALE.../
 // 1
@@ -218,5 +220,5 @@ comeBackToIndex.addEventListener("click", function (event) {
 // centrer lien modale "modifier" sur index.html
 //
 // 3
-//
+//refaire le css des boutons de la modale 1
 //
