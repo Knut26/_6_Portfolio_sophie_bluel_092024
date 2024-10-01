@@ -26,32 +26,34 @@
 //
 const modale1 = document.querySelector(".modale-photos");
 
-fetch("http://localhost:5678/api/works") //fetch les 11 images
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    for (i = 0; i < data.length; i++) {
-      const photoContainer = document.createElement("div"); //div qui contient photo et trashcan
-      photoContainer.className = "photo-container"; //nom de la div
+function fetchingModale1() {
+  fetch("http://localhost:5678/api/works") //fetch les 11 images
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      for (i = 0; i < data.length; i++) {
+        const photoContainer = document.createElement("div"); //div qui contient photo et trashcan
+        photoContainer.className = "photo-container"; //nom de la div
 
-      const img = document.createElement("img"); //création d'images
-      img.className = "modale-img";
+        const img = document.createElement("img"); //création d'images
+        img.className = "modale-img";
 
-      const imageUrl = data[i].imageUrl; // url
-      img.src = imageUrl;
+        const imageUrl = data[i].imageUrl; // url
+        img.src = imageUrl;
 
-      const trashCan = document.createElement("p"); // création de la trashcan
-      trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
-      trashCan.className = "trash-can";
+        const trashCan = document.createElement("p"); // création de la trashcan
+        trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
+        trashCan.className = "trash-can";
 
-      photoContainer.appendChild(img);
-      photoContainer.appendChild(trashCan);
-      modale1.appendChild(photoContainer);
-    }
-  })
+        photoContainer.appendChild(img);
+        photoContainer.appendChild(trashCan);
+        modale1.appendChild(photoContainer);
+      }
+    })
 
-  .catch((error) => console.error(error));
-
+    .catch((error) => console.error(error));
+}
+fetchingModale1();
 //
 //---------------------------------------------------------------
 //----------------------intégration modale2----------------------
@@ -67,13 +69,28 @@ ajoutPhoto.addEventListener("click", function (event) {
   modale1.innerHTML = ""; //on vide la modale1
 
   //------------------flèche backpage-------------------------
-  const backArrow = document.createElement("p");
-  backArrow.innerHTML = '<i class="fa-solid fa-arrow-left back-arrow"></i>';
+  const backArrow = document.createElement("a");
+  backArrow.href = "#"; /////////???????????????????????????????????
+  backArrow.innerHTML =
+    '<p><i class="fa-solid fa-arrow-left back-arrow"></i></p>';
+  backArrow.style.color = "black";
   modale1.appendChild(backArrow);
+  //--------------addevent sur backArrow--------------------
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  backArrow.addEventListener("click", () => {
+    fetchingModale1();
+  });
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
 
   //------------------croix fermeture modale-------------------------
-  const close = document.createElement("p");
-  close.innerHTML = '<i class="fas fa-regular fa-xmark"></i>';
+  const close = document.createElement("a");
+  close.href = "#";
+  close.innerHTML = '<p><i class="fas fa-regular fa-xmark"></i></p>';
+  close.style.color = "black";
   close.id = "comeBackToIndex";
   modale1.appendChild(close);
 
@@ -88,6 +105,7 @@ ajoutPhoto.addEventListener("click", function (event) {
 
   //------------------font awesome photo-------------------------
   const addPhotoPicture = document.createElement("p");
+  addPhotoPicture.href = "#";
   addPhotoPicture.innerHTML =
     '<i class="fa-regular fa-image add-photo-picture"></i>';
   addPhotoPictureContainer.appendChild(addPhotoPicture);
