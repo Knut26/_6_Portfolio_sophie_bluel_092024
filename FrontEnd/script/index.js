@@ -213,11 +213,6 @@ adminMode(); //appel fonction mode édition
 //ADDEVENT SUR LE "AJOUTER UNE PHOTO"
 //ADDEVENT SUR LES TRASHS CANS
 //RENDRE REELLE LA SUPPRESSION DES PHOTOS EN FONCTIONS DES CLICS DE LA MODALE.../
-// 1
-// banière mode édition qui ne fait plus toute la largeur de index.html
-//
-// 2
-// centrer lien modale "modifier" sur index.html
 //
 // 3
 //refaire le css des boutons de la modale 1

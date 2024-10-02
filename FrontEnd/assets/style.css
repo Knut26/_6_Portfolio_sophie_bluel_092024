@@ -133,7 +133,7 @@ table {
   border-spacing: 0;
 }
 /** end reset css**/
-.body-div {
+.body-div2 {
   max-width: 1140px;
   margin: auto;
   font-family: "Work Sans";
@@ -185,7 +185,6 @@ html {
 .titre-projets {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .modifier {
@@ -196,6 +195,8 @@ html {
 #lienModale {
   text-decoration: none;
   color: black;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
 .modale-visible {
