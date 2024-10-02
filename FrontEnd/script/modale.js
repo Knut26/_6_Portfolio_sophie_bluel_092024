@@ -84,6 +84,7 @@ ajoutPhoto.addEventListener("click", function (event) {
     modaleWrapper.innerHTML = "Galerie photo";
     close.innerHTML = '<p><i class="fas fa-regular fa-xmark"></i></p>';
     modalePhotos.innerHTML = "";
+    modalePhotos.style.display = "grid";
     addPhotoPictureContainer.innerHTML = "";
     addPhotoPicture.innerHTML = "";
     addPhotoPictureButton.innerHTML = "";
