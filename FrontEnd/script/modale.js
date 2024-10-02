@@ -27,7 +27,7 @@
 const modale1 = document.querySelector(".modale-photos");
 
 function fetchingModale1() {
-  fetch("http://localhost:5678/api/works") //fetch les 11 images
+  const fetching = fetch("http://localhost:5678/api/works") //fetch les 11 images
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -45,6 +45,15 @@ function fetchingModale1() {
         const trashCan = document.createElement("p"); // création de la trashcan
         trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
         trashCan.id = "trash-can";
+
+        trashCan.addEventListener("click", (e) => {
+          let options = {
+            method: "DELETE",
+          };
+          fetch(fetching, options).then((response) =>
+            console.log(response.status)
+          );
+        });
 
         photoContainer.appendChild(img);
         photoContainer.appendChild(trashCan);
