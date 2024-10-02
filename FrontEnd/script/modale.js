@@ -42,17 +42,27 @@ function fetchingModale1() {
         const imageUrl = data[i].imageUrl; // url
         img.src = imageUrl;
 
+        //--------------DELETE--------------------
+        //////////////////////////////WIP//////////////////////////////////
+        //////////////////////////////WIP//////////////////////////////////
+        //////////////////////////////WIP//////////////////////////////////
         const trashCan = document.createElement("p"); // création de la trashcan
         trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
         trashCan.id = "trash-can";
 
+        const authToken = sessionStorage.authToken;
         trashCan.addEventListener("click", (e) => {
           let options = {
             method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              authorization: `Bearer ${authToken}`,
+            },
           };
           fetch(fetching, options).then((response) =>
             console.log(response.status)
           );
+          console.log(authToken);
         });
 
         photoContainer.appendChild(img);
@@ -64,6 +74,7 @@ function fetchingModale1() {
     .catch((error) => console.error(error));
 }
 fetchingModale1();
+
 //
 //---------------------------------------------------------------
 //----------------------intégration modale2----------------------
