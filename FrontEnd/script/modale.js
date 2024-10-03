@@ -30,7 +30,6 @@ function fetchingModale1() {
   const fetching = fetch("http://localhost:5678/api/works") //fetch les 11 images
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       for (i = 0; i < data.length; i++) {
         const photoContainer = document.createElement("div"); //div qui contient photo et trashcan
         photoContainer.className = "photo-container"; //nom de la div
@@ -62,6 +61,7 @@ function fetchingModale1() {
           fetch(fetching, options).then((response) =>
             console.log(response.status)
           );
+          console.log(data);
           console.log(authToken);
         });
 
