@@ -3,6 +3,18 @@
 //----------------------intégration modale1----------------------
 //---------------------------------------------------------------
 //
+// //
+// const ajoutPhoto = document.getElementById("ajout-photo");
+// firstHandler() {
+//   console.log("1er event");
+//   ajoutPhoto.removeEventListener("click", firstHandler);
+//   ajoutPhoto.addEventListener("click", secondHandler);
+// }
+// function secondHandler() {
+//   console.log("2e event");
+// }
+// ajoutPhoto.addEventListener("click", firstHandler);
+//
 //
 const modale1 = document.querySelector(".modale-photos");
 const authToken = sessionStorage.authToken;
