@@ -325,6 +325,7 @@ img {
 
 .fa-xmark {
   position: absolute;
+  color: black;
   top: 30px;
   right: 40px;
   font-size: 20px;
@@ -487,7 +488,8 @@ button:hover {
   width: 100%;
 }
 
-.error-box {
+.error-box,
+.error-box2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -498,6 +500,24 @@ button:hover {
   color: white;
   padding: 7px;
 }
+/* //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP////////////////////////////////// */
+
+.valid-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgreen;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 30px;
+  color: green;
+  padding: 7px;
+}
+/* //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP////////////////////////////////// */
 
 #btn-login {
   cursor: pointer;

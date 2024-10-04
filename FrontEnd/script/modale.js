@@ -5,9 +5,11 @@
 //
 //
 const modale1 = document.querySelector(".modale-photos");
+const authToken = sessionStorage.authToken;
+const fetching = fetch("http://localhost:5678/api/works"); //fetch les 11 images
 
 function fetchingModale1() {
-  const fetching = fetch("http://localhost:5678/api/works") //fetch les 11 images
+  fetch("http://localhost:5678/api/works")
     .then((response) => response.json())
     .then((data) => {
       for (i = 0; i < data.length; i++) {
@@ -29,7 +31,6 @@ function fetchingModale1() {
         trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
         trashCan.id = "trash-can";
 
-        const authToken = sessionStorage.authToken;
         trashCan.addEventListener("click", (e) => {
           let options = {
             method: "DELETE",
@@ -55,6 +56,10 @@ function fetchingModale1() {
 }
 fetchingModale1();
 
+//////////////////////////////WIP//////////////////////////////////
+//////////////////////////////WIP//////////////////////////////////
+//////////////////////////////WIP//////////////////////////////////
+
 //
 //---------------------------------------------------------------
 //----------------------intégration modale2----------------------
@@ -68,7 +73,19 @@ ajoutPhoto.addEventListener("click", function (event) {
   //addevent au clic "ajouter une photo"
   event.preventDefault();
   modale1.innerHTML = ""; //on vide la modale1
-
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  ajoutPhoto.addEventListener("click", function (event) {
+    event.preventDefault();
+    const validBox = document.createElement("div");
+    validBox.className = "valid-box";
+    validBox.innerHTML = "photo validée !";
+    select.appendChild(validBox);
+  });
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
   //------------------flèche backpage-------------------------
   const backArrow = document.createElement("a");
   backArrow.href = "#"; /////////???????????????????????????????????
@@ -139,7 +156,18 @@ ajoutPhoto.addEventListener("click", function (event) {
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
-  addPhotoPictureButton.addEventListener("click", () => {});
+  addPhotoPictureButton.addEventListener("click", () => {
+    let options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: "Bearer " + authToken,
+      },
+    };
+    fetch(fetching, options).then((response) => console.log(response.status));
+    console.log(data);
+    console.log(authToken);
+  });
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
@@ -225,6 +253,45 @@ ajoutPhoto.addEventListener("click", function (event) {
 
   ajoutPhoto.innerHTML = "valider";
   ajoutPhoto.style.backgroundColor = "rgb(145, 154, 157)";
+  //--------------addevent sur valider--------------------
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  ajoutPhoto.addEventListener("click", () => {
+    let options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: "Bearer " + authToken,
+      },
+    };
+    fetch(fetching, options).then((response) => console.log(response.status));
+
+    //message erreur si les 2 champs ne sont pas remplis
+    if (form1 === "" || form2 === "") {
+      let errorBox2 = document.getElementById("errorBox2");
+      if (errorBox2) {
+        errorBox2.remove();
+      }
+      errorBox2 = document.createElement("div"); //crée une div
+      errorBox2.className = "error-box2"; //
+      errorBox2.id = "errorBox2";
+      errorBox2.innerHTML = "Veuillez remplir les 2 champs de saisie";
+      const loginContainer = document.querySelector(".log-in__container");
+      loginContainer.style.color = "red";
+      const select = document.querySelector(".select");
+      select.className = "select";
+      select.id = "options";
+      select.name = "options";
+      form2.appendChild(select);
+      select.appendChild(errorBox2);
+      modale1.appendChild(form2);
+      console.log("merde");
+    }
+  });
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
+  //////////////////////////////WIP//////////////////////////////////
 
   //------------------modif div des formulaires-------------------------
   const modalePhotos = document.querySelector(".modale-photos");
