@@ -385,7 +385,7 @@ img {
 button {
   border-radius: 50px;
   background: #f5f6ed;
-  border-color: #1d6154;
+  border: 2px solid #1d6154;
   color: #1d6154;
   font-family: "Syne";
   font-size: 15px;
