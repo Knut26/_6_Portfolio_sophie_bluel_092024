@@ -258,36 +258,34 @@ ajoutPhoto.addEventListener("click", function (event) {
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
   ajoutPhoto.addEventListener("click", () => {
-    let options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: "Bearer " + authToken,
-      },
-    };
-    fetch(fetching, options).then((response) => console.log(response.status));
+    // let options = {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     authorization: "Bearer " + authToken,
+    //   },
+    // };
+    // fetch(fetching, options).then((response) => console.log(response.status));
 
     //message erreur si les 2 champs ne sont pas remplis
     if (form1 === "" || form2 === "") {
       let errorBox2 = document.getElementById("errorBox2");
-      if (errorBox2) {
-        errorBox2.remove();
-      }
-      errorBox2 = document.createElement("div"); //crée une div
-      errorBox2.className = "error-box2"; //
-      errorBox2.id = "errorBox2";
-      errorBox2.innerHTML = "Veuillez remplir les 2 champs de saisie";
-      const loginContainer = document.querySelector(".log-in__container");
-      loginContainer.style.color = "red";
-      const select = document.querySelector(".select");
-      select.className = "select";
-      select.id = "options";
-      select.name = "options";
-      form2.appendChild(select);
-      select.appendChild(errorBox2);
-      modale1.appendChild(form2);
-      console.log("merde");
+      // if (errorBox2) {
+      errorBox2.remove();
     }
+    errorBox2 = document.createElement("div"); //crée une div
+    errorBox2.className = "error-box2"; //
+    errorBox2.id = "errorBox2";
+    errorBox2.innerHTML = "Veuillez remplir les 2 champs de saisie";
+    const select = document.querySelector(".select");
+    select.className = "select";
+    select.id = "options";
+    select.name = "options";
+    form2.appendChild(select);
+    select.appendChild(errorBox2);
+    modale1.appendChild(form2);
+    console.log(errorBox2);
+    // }
   });
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
