@@ -41,7 +41,8 @@ function fetchingModale1() {
         //////////////////////////////WIP//////////////////////////////////
         const trashCan = document.createElement("p"); // création de la trashcan
         trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
-        trashCan.id = "trash-can";
+        trashCan.className = "trash-can";
+        trashCan.id = data[i].id;
 
         trashCan.addEventListener("click", (e) => {
           let options = {
