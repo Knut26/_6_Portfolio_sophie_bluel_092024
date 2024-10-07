@@ -1,45 +1,30 @@
 //
-//---------------------------------------------------------------
-//----------------------intégration modale1----------------------
-//---------------------------------------------------------------
 //
-// //
-// const ajoutPhoto = document.getElementById("ajout-photo");
-// firstHandler() {
-//   console.log("1er event");
-//   ajoutPhoto.removeEventListener("click", firstHandler);
-//   ajoutPhoto.addEventListener("click", secondHandler);
-// }
-// function secondHandler() {
-//   console.log("2e event");
-// }
-// ajoutPhoto.addEventListener("click", firstHandler);
+//------------------------------------------------------
+//-------------intégration modale1----------------------
+//------------------------------------------------------
 //
 //
 const modale1 = document.querySelector(".modale-photos");
 const authToken = sessionStorage.authToken;
-const fetching = fetch("http://localhost:5678/api/works"); //fetch les 11 images
+const fetching = fetch("http://localhost:5678/api/works");
 
 function fetchingModale1() {
   fetch("http://localhost:5678/api/works")
     .then((response) => response.json())
     .then((data) => {
       for (i = 0; i < data.length; i++) {
-        const photoContainer = document.createElement("div"); //div qui contient photo et trashcan
-        photoContainer.className = "photo-container"; //nom de la div
+        const photoContainer = document.createElement("div");
+        photoContainer.className = "photo-container";
 
-        const img = document.createElement("img"); //création d'images
+        const img = document.createElement("img");
         img.className = "modale-img";
-        //img.id = "fetched-img";
-
-        const imageUrl = data[i].imageUrl; // url
+        const imageUrl = data[i].imageUrl;
         img.src = imageUrl;
 
-        //--------------DELETE--------------------
-        //////////////////////////////WIP//////////////////////////////////
-        //////////////////////////////WIP//////////////////////////////////
-        //////////////////////////////WIP//////////////////////////////////
-        const trashCan = document.createElement("p"); // création de la trashcan
+        //--------------MODALE1 : DELETE-----------------
+
+        const trashCan = document.createElement("p"); //
         trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
         trashCan.className = "trash-can";
         trashCan.id = data[i].id;
@@ -76,24 +61,19 @@ function fetchingModale1() {
 }
 
 fetchingModale1();
-
-//////////////////////////////WIP//////////////////////////////////
-//////////////////////////////WIP//////////////////////////////////
-//////////////////////////////WIP//////////////////////////////////
-
 //
-//---------------------------------------------------------------
-//----------------------intégration modale2----------------------
-//---------------------------------------------------------------
+//
+//---------------------------------------------------------
+//----------------intégration modale2----------------------
+//---------------------------------------------------------
 //
 //
 
 const ajoutPhoto = document.getElementById("ajout-photo");
 
 ajoutPhoto.addEventListener("click", function (event) {
-  //addevent au clic "ajouter une photo"
   event.preventDefault();
-  modale1.innerHTML = ""; //on vide la modale1
+  modale1.innerHTML = "";
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
