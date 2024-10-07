@@ -43,30 +43,41 @@ function fetchingModale1() {
         trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
         trashCan.className = "trash-can";
         trashCan.id = data[i].id;
+        const trashCanId = trashCan.id;
 
+        function deleteImg() {
+          const allTrashCans = document.querySelectorAll(".fa-trash-can");
+          console.log(allTrashCans);
+          console.log(trashCanId);
+        }
         trashCan.addEventListener("click", (e) => {
-          let options = {
+          const initialize = {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
-              authorization: "Bearer " + authToken,
+              authorization: "bearer" + authToken,
             },
           };
-          fetch(fetching, options).then((response) =>
-            console.log(response.status)
-          );
-          console.log(data);
-          console.log(authToken);
+          fetch("http://localhost:5678/api/works/" + trashCanId, initialize)
+            .then((response) => {
+              if (!response.ok) {
+                console.log("delete isn't working");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log("delete is a success, check it out : ", data);
+            });
         });
+        deleteImg();
 
         photoContainer.appendChild(img);
         photoContainer.appendChild(trashCan);
         modale1.appendChild(photoContainer);
       }
-    })
-
-    .catch((error) => console.error(error));
+    });
 }
+
 fetchingModale1();
 
 //////////////////////////////WIP//////////////////////////////////
