@@ -47,33 +47,30 @@ function fetchingModale1() {
 
         function deleteImg() {
           const allTrashCans = document.querySelectorAll(".fa-trash-can");
-          console.log(allTrashCans);
-          console.log(trashCanId);
+          //console.log(allTrashCans);
+          //console.log("id poubelle :", trashCanId);
         }
         trashCan.addEventListener("click", (e) => {
           const initialize = {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
-              authorization: "bearer" + authToken,
+              authorization: "bearer " + authToken,
             },
           };
-          fetch("http://localhost:5678/api/works/" + trashCanId, initialize)
-            .then((response) => {
-              if (!response.ok) {
-                console.log("delete isn't working");
-              }
-              return response.json();
-            })
-            .then((data) => {
-              console.log("delete is a success, check it out : ", data);
-            });
+          console.log("token valide :", authToken);
+          fetch(
+            "http://localhost:5678/api/works/" + trashCanId,
+            initialize
+          ).then((response) => {
+            return response.json();
+          });
         });
-        deleteImg();
 
         photoContainer.appendChild(img);
         photoContainer.appendChild(trashCan);
         modale1.appendChild(photoContainer);
+        deleteImg();
       }
     });
 }
