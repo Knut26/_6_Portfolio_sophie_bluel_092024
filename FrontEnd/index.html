@@ -83,19 +83,60 @@
             <div class="wrapperETphotos">
               <div class="modale-wrapper">
                 <h3>Galerie photo</h3>
+              </div>
+              <div class="container-modale2">
                 <a href="index.html" id="comeBackToIndex">
                   <i class="fas fa-regular fa-xmark"></i>
                 </a>
               </div>
               <div class="modale-photos"></div>
             </div>
-            <div class="ligne"></div>
-            <button id="ajout-photo" class="ajout-photo">
-              Ajouter une photo
-            </button>
+            <div class="centrage-btn">
+              <div class="ligne"></div>
+              <button id="ajout-photo" class="ajout-photo">
+                Ajouter une photo
+              </button>
+            </div>
           </aside>
           <!-------------- // -------------->
-          <!-------- fin modale ------------>
+          <!------ début modale2 ----------->
+          <!-------------- // -------------->
+          <aside id="modale2" class="modale2 modale2-visible">
+            <i class="fa-solid fa-arrow-left"></i>
+            <a href="index.html" id="comeBackToIndex">
+              <i class="fas fa-regular fa-xmark"></i>
+            </a>
+            <div class="modale-wrapper">
+              <h3 class="titre-ajout-photo">Ajout photo</h3>
+            </div>
+            <div class="add-photo-picture-container">
+              <i class="fa-regular fa-image add-photo-picture"></i>
+              <button class="add-photo-picture-button">+ Ajouter photo</button>
+              <p class="text-photo">jpg, png : 4mo max</p>
+            </div>
+            <div class="form">
+              <div class="form1">
+                <form action="#" method="post">
+                  <label for="name" class="label-nom1">Titre</label>
+                  <input type="text" class="input-nom1" name="name" id="name" />
+                </form>
+              </div>
+              <div class="form2">
+                <form action="#" method="post">
+                  <option class="label-nom2" for="options" htmlFor="options">
+                    Catégorie
+                  </option>
+                  <select name="select" id="options" class="select"></select>
+                </form>
+              </div>
+            </div>
+            <div class="centrage-btn">
+              <div class="ligne2"></div>
+              <button class="add-photo-picture-button2">Valider</button>
+            </div>
+          </aside>
+          <!-------------- // -------------->
+          <!-------- fin modales ----------->
           <!-------------- // -------------->
           <section id="portfolio">
             <div class="titre-projets">

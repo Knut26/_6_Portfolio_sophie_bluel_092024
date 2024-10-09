@@ -201,6 +201,7 @@ html {
 
 .modale-visible {
   display: none;
+  flex-direction: column;
   justify-content: center;
   position: fixed;
   top: 50%;
@@ -208,7 +209,24 @@ html {
   transform: translate(-50%, -50%);
   font-family: "Work Sans";
   font-size: 25px;
-  width: 680px;
+  width: 600px;
+  height: 670px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px;
+}
+
+.modale2-visible {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Work Sans";
+  font-size: 25px;
+  width: 600px;
   height: 670px;
   background-color: white;
   border-radius: 15px;
@@ -280,7 +298,7 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgb(225, 237, 241);
+  background-color: rgb(227, 237, 240);
   width: 450px;
   height: 170px;
   border-radius: 3px;
@@ -288,7 +306,7 @@ img {
 }
 
 .add-photo-picture {
-  font-size: 70px;
+  font-size: 65px;
   margin-top: 0;
   color: rgb(188, 199, 208);
 }
@@ -304,23 +322,62 @@ img {
   border: none;
   color: rgb(77, 116, 129);
   margin-bottom: 10px;
-  padding: 10px 40px;
+  padding: 12px 35px;
 }
+
+form2 {
+  position: relative;
+}
+
+.add-photo-picture-button2 {
+  background-color: rgb(165, 168, 170);
+  font-size: 14px;
+  border: none;
+  color: #f5f6ed;
+  margin-bottom: 10px;
+  padding: 12px 35px;
+  position: absolute;
+  bottom: 35px;
+  width: 260px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
 .form1 {
-  margin-bottom: 0px;
-}
-.form1,
-.form2 {
+  margin-top: 0;
   font-size: 13px;
-  width: 450px;
+}
+
+.form2 {
+  margin-bottom: 0px;
+  font-size: 13px;
 }
 
 .input-nom1,
 .select {
+  display: flex;
+  justify-content: center;
   border: none;
   box-shadow: 1px 1px 4px lightgray;
   height: 50px;
   outline: none;
+  width: 450px;
+}
+
+/* .select::after {
+  padding-right: 30px;
+} */
+
+.fa-arrow-left {
+  position: absolute;
+  color: black;
+  top: 30px;
+  left: 40px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .fa-xmark {
@@ -329,6 +386,10 @@ img {
   top: 30px;
   right: 40px;
   font-size: 20px;
+}
+
+.titre-ajout-photo {
+  margin-bottom: 40px;
 }
 
 /* #fetched-img {
@@ -345,22 +406,31 @@ img {
   bottom: 100px;
 }
 
-.ajout-photo {
-  width: 280px;
-  height: 40px;
+.ligne2 {
+  width: 450px;
+  height: 1.5px;
+  background-color: lightgrey;
+  margin: 30px 0;
   position: absolute;
-  bottom: 0;
-  margin-top: 40px;
+  bottom: 90px;
+}
+
+.centrage-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.ajout-photo {
   border-radius: 50px;
   background: #1d6154;
-  border-color: none;
+  border: none;
+  width: 230px;
   color: #f5f6ed;
   font-family: "Syne";
   font-size: 15px;
   margin: 10px 3px 50px 3px;
-  padding: 5px 20px 5px 20px;
-  box-shadow: none;
-  border: none;
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 30px;
 }
 
 .icone {
@@ -436,7 +506,7 @@ button:hover {
 
 .label-nom1,
 .label-nom2 {
-  margin-bottom: 15px;
+  margin-block: 25px 15px;
 }
 
 .mentions-legales {
