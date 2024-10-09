@@ -5,6 +5,7 @@
 //--------------------------------------------------
 //
 //
+
 const modale1 = document.querySelector(".modale-photos");
 const authToken = sessionStorage.authToken;
 const fetching = fetch("http://localhost:5678/api/works");
@@ -22,7 +23,13 @@ function fetchingModale1() {
         const imageUrl = data[i].imageUrl;
         img.src = imageUrl;
 
-        //-----------MODALE1 : DELETE-----------------
+        //
+        //
+        //--------------------------------------------
+        //-----------modale1 : DELETE-----------------
+        //--------------------------------------------
+        //
+        //
 
         const trashCan = document.createElement("p"); //
         trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
@@ -67,6 +74,7 @@ function fetchingModale1() {
 //-----------------------------------------------------
 //
 //
+
 fetchingModale1();
 
 const ajoutPhoto = document.getElementById("ajout-photo");
@@ -103,7 +111,12 @@ fetch("http://localhost:5678/api/categories") //fetch les categoryId
   });
 ajoutOption(select, "option1", "");
 
-//---------fermeture modale 2------------------
+//
+//-----------------------------------------------------
+//------------fermeture modale 2-----------------------
+//-----------------------------------------------------
+//
+//
 
 const visibleModale = document.querySelector(".modale-visible");
 const overlay = document.getElementById("overlay");
@@ -120,4 +133,34 @@ overlay.addEventListener("click", () => {
   overlay.style.display = "none";
 });
 
-//-------------------------------------------
+//
+//
+//------------------------------------------------
+//-----------pré-upload image modale2-------------
+//------------------------------------------------
+//
+
+const previewImg = document.querySelector(".add-photo-picture-container img");
+const inputFile = document.querySelector(".file-input");
+const labelFile = document.querySelector(".add-photo-picture-button");
+const iconeFile = document.querySelector(".add-photo-picture");
+const pFile = document.querySelector(".text-photo");
+
+inputFile.addEventListener("change", () => {
+  const file = inputFile.files[0];
+  console.log(file);
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      previewImg.src = e.target.result;
+      previewImg.style.display = "flex";
+      labelFile.style.display = "none";
+      iconeFile.style.display = "none";
+      pFile.style.display = "none";
+      console.log(reader);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+//--------

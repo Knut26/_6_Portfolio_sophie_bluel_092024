@@ -256,8 +256,12 @@ html {
   margin-top: 25px;
 }
 
-img {
+/* img {
   z-index: -1;
+} */
+
+.image-importee {
+  display: none;
 }
 
 .photo-container {
@@ -305,6 +309,11 @@ img {
   margin-bottom: 20px;
 }
 
+.file-input {
+  display: none;
+  cursor: pointer;
+}
+
 .add-photo-picture {
   font-size: 65px;
   margin-top: 0;
@@ -321,8 +330,10 @@ img {
   font-size: 14px;
   border: none;
   color: rgb(77, 116, 129);
+  margin-top: 10px;
   margin-bottom: 10px;
   padding: 12px 35px;
+  border-radius: 25px;
 }
 
 form2 {

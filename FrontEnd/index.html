@@ -98,9 +98,9 @@
               </button>
             </div>
           </aside>
-          <!-------------- // -------------->
+          <!-------------------------------->
           <!------ début modale2 ----------->
-          <!-------------- // -------------->
+          <!-------------------------------->
           <aside id="modale2" class="modale2 modale2-visible">
             <i class="fa-solid fa-arrow-left"></i>
             <a href="index.html" id="comeBackToIndex">
@@ -111,7 +111,16 @@
             </div>
             <div class="add-photo-picture-container">
               <i class="fa-regular fa-image add-photo-picture"></i>
-              <button class="add-photo-picture-button">+ Ajouter photo</button>
+              <label for="file-upload" class="add-photo-picture-button"
+                >+ Ajouter photo</label
+              >
+              <input
+                type="file"
+                id="file-upload"
+                class="file-input"
+                name="image"
+              />
+              <img src="#" class="image-importee" />
               <p class="text-photo">jpg, png : 4mo max</p>
             </div>
             <div class="form">
@@ -135,9 +144,9 @@
               <button class="add-photo-picture-button2">Valider</button>
             </div>
           </aside>
-          <!-------------- // -------------->
-          <!-------- fin modales ----------->
-          <!-------------- // -------------->
+          <!-------------------------------->
+          <!----- fin modales 1 & 2 -------->
+          <!-------------------------------->
           <section id="portfolio">
             <div class="titre-projets">
               <h2>Mes Projets</h2>
