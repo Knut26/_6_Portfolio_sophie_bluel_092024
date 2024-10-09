@@ -107,6 +107,7 @@ fetch("http://localhost:5678/api/categories") //fetch les categoryId
     for (i = 0; i < data.length; i++) {
       const choice = data[i].name; //on récup les noms des catégories
       ajoutOption(select, "options[i]", choice); //on créé les choix du menu déroulant
+      console.log(choice);
     }
   });
 ajoutOption(select, "option1", "");
@@ -176,3 +177,14 @@ inputFile.addEventListener("change", () => {
 //MàJ des !== styles CSS
 
 //Appel de la méthode "readAsDataURL" de l'objet "FilerReader" en lui passant le fichier sélectionné en tant que paramètre. Cela déclenche la lecture du fichier et l'appel de la fn "onload" quand la lecture est achevée.
+
+//
+//
+//------------------------------------------------
+//-------------post image modale2-----------------
+//------------------------------------------------
+//
+
+const form = document.querySelector(".form form1 form2");
+const name = document.getElementById("name");
+const category = document.getElementById("options");
