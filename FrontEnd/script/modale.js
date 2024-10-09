@@ -100,6 +100,7 @@ ajoutPhoto.addEventListener("click", function (event) {
   //////////////////////////////WIP//////////////////////////////////
   backArrow.addEventListener("click", () => {
     modaleWrapper.innerHTML = "Galerie photo";
+    close.style.display = "block";
     close.innerHTML = '<p><i class="fas fa-regular fa-xmark"></i></p>';
     modalePhotos.innerHTML = "";
     modalePhotos.style.display = "grid";
@@ -157,18 +158,18 @@ ajoutPhoto.addEventListener("click", function (event) {
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
-  addPhotoPictureButton.addEventListener("click", () => {
-    let options = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: "Bearer " + authToken,
-      },
-    };
-    fetch(fetching, options).then((response) => console.log(response.status));
-    console.log(data);
-    console.log(authToken);
-  });
+  // addPhotoPictureButton.addEventListener("click", () => {
+  //   let options = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       authorization: "Bearer " + authToken,
+  //     },
+  //   };
+  //   fetch(fetching, options).then((response) => console.log(response.status));
+  //   console.log(data);
+  //   console.log(authToken);
+  // });
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
@@ -258,36 +259,36 @@ ajoutPhoto.addEventListener("click", function (event) {
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
-  ajoutPhoto.addEventListener("click", () => {
-    // let options = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     authorization: "Bearer " + authToken,
-    //   },
-    // };
-    // fetch(fetching, options).then((response) => console.log(response.status));
+  // ajoutPhoto.addEventListener("click", () => {
+  // let options = {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     authorization: "Bearer " + authToken,
+  //   },
+  // };
+  // fetch(fetching, options).then((response) => console.log(response.status));
 
-    //message erreur si les 2 champs ne sont pas remplis
-    if (form1 === "" || form2 === "") {
-      let errorBox2 = document.getElementById("errorBox2");
-      // if (errorBox2) {
-      errorBox2.remove();
-    }
-    errorBox2 = document.createElement("div"); //crée une div
-    errorBox2.className = "error-box2"; //
-    errorBox2.id = "errorBox2";
-    errorBox2.innerHTML = "Veuillez remplir les 2 champs de saisie";
-    const select = document.querySelector(".select");
-    select.className = "select";
-    select.id = "options";
-    select.name = "options";
-    form2.appendChild(select);
-    select.appendChild(errorBox2);
-    modale1.appendChild(form2);
-    console.log(errorBox2);
-    // }
-  });
+  //message erreur si les 2 champs ne sont pas remplis
+  //   if (form1 === "" || form2 === "") {
+  //     let errorBox2 = document.getElementById("errorBox2");
+  //     // if (errorBox2) {
+  //     errorBox2.remove();
+  //   }
+  //   errorBox2 = document.createElement("div"); //crée une div
+  //   errorBox2.className = "error-box2"; //
+  //   errorBox2.id = "errorBox2";
+  //   errorBox2.innerHTML = "Veuillez remplir les 2 champs de saisie";
+  //   const select = document.querySelector(".select");
+  //   select.className = "select";
+  //   select.id = "options";
+  //   select.name = "options";
+  //   form2.appendChild(select);
+  //   select.appendChild(errorBox2);
+  //   modale1.appendChild(form2);
+  //   console.log(errorBox2);
+  //   // }
+  // });
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
   //////////////////////////////WIP//////////////////////////////////
