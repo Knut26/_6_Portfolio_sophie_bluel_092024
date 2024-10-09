@@ -185,6 +185,35 @@ inputFile.addEventListener("change", () => {
 //------------------------------------------------
 //
 
-const form = document.querySelector(".form form1 form2");
-const name = document.getElementById("name");
-const category = document.getElementById("options");
+const form = document.querySelector(".modale2 form");
+const title = document.querySelector(".modale2 #title");
+const category = document.querySelector(".modale2 .label-nom2");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = {
+    //id: id.value,
+    title: title.value,
+    categoryId: category.value,
+    imageUrl: previewImg.src,
+    //userId: userId.value,
+    category: {
+      id: category.value,
+      name: category.options[category.selectedIndex].textContent,
+    },
+  };
+  fetch("http://localhost:5678/api/works"),
+    {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+        authorization: "bearer " + authToken,
+      },
+    }
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        fetchingModale1();
+      });
+});
