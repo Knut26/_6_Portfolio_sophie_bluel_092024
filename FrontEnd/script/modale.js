@@ -162,5 +162,17 @@ inputFile.addEventListener("change", () => {
     reader.readAsDataURL(file);
   }
 });
+//A l'évènement "change" la fn récupèrele fichier sélectionné en utilisant la propriété "files[0]" de l'élément inputFile.
 
-//--------
+//La propriété "files" est un array des fichiers sélectionnés, nous utiliserons le 1er donc [0].
+
+//Si "file" est !== de null, création d'un instance FileReader qui est un objet intégré dans JS pour lire le contenu des fichiers.
+
+//On définit la fn "onload" de l'objet FileReader, elle sera appelée
+//lorsque la lecture du fichier sera achevée.
+
+//On utilise la propriété "target.result" de l'objet "Event" pour obtenir l'URL du fichier en tant que chaîne de caractères, elle peut être utilisée pour afficher l'image.
+
+//MàJ des !== styles CSS
+
+//Appel de la méthode "readAsDataURL" de l'objet "FilerReader" en lui passant le fichier sélectionné en tant que paramètre. Cela déclenche la lecture du fichier et l'appel de la fn "onload" quand la lecture est achevée.
