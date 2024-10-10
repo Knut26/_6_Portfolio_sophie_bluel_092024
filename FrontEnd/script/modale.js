@@ -217,3 +217,51 @@ form.addEventListener("submit", async (e) => {
         fetchingModale1();
       });
 });
+/*
+const submitButton = document.getElementById("submit-button");
+let uploadedFile;
+
+submitButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (uploadedFile && form1 !== "" && form2 !== "") {
+    const formData = {
+      title: title.value,
+      categoryId: category.value,
+      imageUrl: previewImg.src,
+      category: {
+        id: category.value,
+        name: category.options[category.selectedIndex].textContent,
+      },
+    };
+    // const formData = new formData();
+    // formData.append("file", uploadedFile);
+
+    fetch("http://localhost:5678/api/works", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+        authorization: "bearer " + authToken,
+      },
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  } else {
+    let errorBox3 = document.getElementById("errorBox3");
+    if (errorBox3) {
+      errorBox3.remove();
+    }
+    errorBox3 = document.createElement("div");
+    errorBox3.className = "error-box3";
+    errorBox3.id = "errorBox3";
+    errorBox3.innerHTML = "Erreur dans le titre ou la catégorie";
+    const form = document.querySelector(".form");
+    form.style.color = "red";
+    const form2 = document.querySelector(".form2");
+    form2.appendChild(errorBox3);
+  }
+});
+*/
