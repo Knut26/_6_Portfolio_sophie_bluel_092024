@@ -185,38 +185,54 @@ inputFile.addEventListener("change", () => {
 //------------------------------------------------
 //
 
-const form = document.querySelector(".modale2 form");
-const title = document.querySelector(".modale2 #title");
-const category = document.querySelector(".modale2 .label-nom2");
+const formEl = document.querySelector(".form1");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const formData = {
-    //id: id.value,
-    title: title.value,
-    categoryId: category.value,
-    imageUrl: previewImg.src,
-    //userId: userId.value,
-    category: {
-      id: category.value,
-      name: category.options[category.selectedIndex].textContent,
-    },
-  };
-  fetch("http://localhost:5678/api/works"),
-    {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-        authorization: "bearer " + authToken,
-      },
-    }
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        fetchingModale1();
-      });
+formEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new formData(formEl);
+  console.log(formData.get("name"));
 });
+
+// const form = document.querySelector(".modale2 form");
+// const title = document.querySelector(".modale2 #title");
+// const category = document.querySelector(".modale2 .label-nom2");
+
+// form.addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   const formData = {
+//     //id: id.value,
+//     title: title.value,
+//     categoryId: category.value,
+//     imageUrl: previewImg.src,
+//     //userId: userId.value,
+//     category: {
+//       id: category.value,
+//       name: category.options[category.selectedIndex].textContent,
+//     },
+//   };
+//   fetch("http://localhost:5678/api/works"),
+//     {
+//       method: "POST",
+//       body: JSON.stringify(formData),
+//       headers: {
+//         "Content-Type": "application/json",
+//         authorization: "bearer " + authToken,
+//       },
+//     }
+//       .then((response) => response.json())
+//       .then((data) => {
+//         console.log(data);
+//         fetchingModale1();
+//       });
+// });
+
+// const formEl = document.querySelector(".F1");
+
+// formEl.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   const formData = new formData(formEl);
+//   console.log(formData.get("name"));
+// });
 /*
 const submitButton = document.getElementById("submit-button");
 let uploadedFile;
