@@ -146,23 +146,27 @@ const inputFile = document.querySelector(".file-input");
 const labelFile = document.querySelector(".add-photo-picture-button");
 const iconeFile = document.querySelector(".add-photo-picture");
 const pFile = document.querySelector(".text-photo");
+let uploadedFile;
 
-inputFile.addEventListener("change", () => {
+inputFile.addEventListener("change", (event) => {
+  event.preventDefault();
   const file = inputFile.files[0];
+  uploadedFile = file;
   console.log(file);
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    previewImg.src = e.target.result;
+    previewImg.style.display = "flex";
+    labelFile.style.display = "none";
+    iconeFile.style.display = "none";
+    pFile.style.display = "none";
+    console.log(reader);
+  };
   if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      previewImg.src = e.target.result;
-      previewImg.style.display = "flex";
-      labelFile.style.display = "none";
-      iconeFile.style.display = "none";
-      pFile.style.display = "none";
-      console.log(reader);
-    };
     reader.readAsDataURL(file);
   }
 });
+
 //A l'évènement "change" la fn récupèrele fichier sélectionné en utilisant la propriété "files[0]" de l'élément inputFile.
 
 //La propriété "files" est un array des fichiers sélectionnés, nous utiliserons le 1er donc [0].
@@ -184,14 +188,38 @@ inputFile.addEventListener("change", () => {
 //-------------post image modale2-----------------
 //------------------------------------------------
 //
-
-const formEl = document.querySelector(".form1");
-
-formEl.addEventListener("submit", (event) => {
+const submitButton = document.getElementById("submit-button");
+submitButton.addEventListener("click", (event) => {
   event.preventDefault();
-  const formData = new formData(formEl);
-  console.log(formData.get("name"));
+  if (uploadedFile) {
+    const formData = new formData();
+    formData.append("file", uploadedFile);
+    fetch("http://localhost:5678/api/works/", {
+      method: "POST",
+      headers: {
+        authorization: "bearer " + authToken,
+      },
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("fichier téléchargé avec succès");
+      })
+      .catch((error) => {
+        console.error("erreur lors du téléchargement");
+      });
+  } else {
+    console.log("aucun fichier sélectionné");
+  }
 });
+
+// const formEl = document.querySelector(".form1");
+
+// formEl.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   const formData = new formData(formEl);
+//   console.log(formData.get("name"));
+// });
 
 // const form = document.querySelector(".modale2 form");
 // const title = document.querySelector(".modale2 #title");
