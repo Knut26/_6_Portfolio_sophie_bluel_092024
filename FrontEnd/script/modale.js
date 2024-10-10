@@ -192,7 +192,7 @@ const submitButton = document.getElementById("submit-button");
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
   if (uploadedFile) {
-    const formData = new formData();
+    const formData = new FormData();
     formData.append("file", uploadedFile);
     fetch("http://localhost:5678/api/works/", {
       method: "POST",
