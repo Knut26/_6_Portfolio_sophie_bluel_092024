@@ -8,7 +8,7 @@
 
 const modale1 = document.querySelector(".modale-photos");
 const authToken = sessionStorage.authToken;
-const fetching = fetch("http://localhost:5678/api/works");
+// const fetching = fetch("http://localhost:5678/api/works");
 
 function fetchingModale1() {
   fetch("http://localhost:5678/api/works")
@@ -23,6 +23,12 @@ function fetchingModale1() {
         const imageUrl = data[i].imageUrl;
         img.src = imageUrl;
 
+        const trashCan = document.createElement("p"); //
+        trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
+        trashCan.className = "trash-can";
+        trashCan.id = data[i].id;
+        const trashCanId = trashCan.id;
+
         //
         //
         //--------------------------------------------
@@ -31,18 +37,13 @@ function fetchingModale1() {
         //
         //
 
-        const trashCan = document.createElement("p"); //
-        trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
-        trashCan.className = "trash-can";
-        trashCan.id = data[i].id;
-        const trashCanId = trashCan.id;
-
-        function deleteImg() {
-          const allTrashCans = document.querySelectorAll(".fa-trash-can");
-          //console.log(allTrashCans);
-          //console.log("id poubelle :", trashCanId);
-        }
+        // function deleteImg() {
+        //   //const allTrashCans = document.querySelectorAll(".fa-trash-can");
+        //   //console.log(allTrashCans);
+        //   //console.log("id poubelle :", trashCanId);
+        // }
         trashCan.addEventListener("click", (e) => {
+          e.preventDefault(); // Prevent default page refresh
           const initialize = {
             method: "DELETE",
             headers: {
@@ -50,19 +51,29 @@ function fetchingModale1() {
               authorization: "bearer " + authToken,
             },
           };
-          console.log("token valide :", authToken);
-          fetch(
-            "http://localhost:5678/api/works/" + trashCanId,
-            initialize
-          ).then((response) => {
-            return response.json();
-          });
+          console.log("Token valid:", authToken);
+          fetch("http://localhost:5678/api/works/" + trashCanId, initialize)
+            .then((response) => {
+              if (response.status === 204) {
+                console.log("Delete successful, no content returned");
+                // You can remove the deleted element from the DOM here
+                const photoContainer = e.target.closest(".photo-container");
+                if (photoContainer) {
+                  photoContainer.remove(); // Remove the photo container from the DOM
+                }
+              } else if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+            })
+            .catch((error) => {
+              console.error("Error during deletion:", error); // Log any errors
+            });
         });
 
         photoContainer.appendChild(img);
         photoContainer.appendChild(trashCan);
         modale1.appendChild(photoContainer);
-        deleteImg();
+        //deleteImg();
       }
     });
 }
@@ -106,11 +117,10 @@ fetch("http://localhost:5678/api/categories") //fetch les categoryId
     //console.log(data);
     for (i = 0; i < data.length; i++) {
       const choice = data[i].name; //on récup les noms des catégories
-      ajoutOption(select, "options[i]", choice); //on créé les choix du menu déroulant
+      ajoutOption(select, data[i].id, choice);
       //console.log(choice);
     }
   });
-ajoutOption(select, "option1", "");
 
 //
 //-----------------------------------------------------
@@ -151,10 +161,10 @@ let uploadedFile;
 inputFile.addEventListener("change", (event) => {
   event.preventDefault();
   const file = inputFile.files[0];
-  uploadedFile = file;
   console.log(file);
   const reader = new FileReader();
   reader.onload = function (e) {
+    uploadedFile = e.target.result.split(",")[1];
     previewImg.src = e.target.result;
     previewImg.style.display = "flex";
     labelFile.style.display = "none";
@@ -195,7 +205,7 @@ btn.addEventListener("click", (event) => {
   event.preventDefault();
   if (uploadedFile) {
     const formData = new FormData(form);
-    formData.append("file", uploadedFile);
+    formData.append("image", uploadedFile);
 
     for (item of formData) {
       console.log(item[0], item[1]);
