@@ -103,11 +103,11 @@ const form2 = document.querySelector(".form2");
 fetch("http://localhost:5678/api/categories") //fetch les categoryId
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
+    //console.log(data);
     for (i = 0; i < data.length; i++) {
       const choice = data[i].name; //on récup les noms des catégories
       ajoutOption(select, "options[i]", choice); //on créé les choix du menu déroulant
-      console.log(choice);
+      //console.log(choice);
     }
   });
 ajoutOption(select, "option1", "");
@@ -210,6 +210,18 @@ submitButton.addEventListener("click", (event) => {
       });
   } else {
     console.log("aucun fichier sélectionné");
+    let errorBox3 = document.getElementById("errorBox3");
+    if (errorBox3) {
+      errorBox3.remove();
+    }
+    errorBox3 = document.createElement("div");
+    errorBox3.className = "error-box3";
+    errorBox3.id = "errorBox3";
+    errorBox3.innerHTML = "Erreur dans le titre ou la catégorie";
+    const form = document.querySelector(".form");
+    form.style.color = "red";
+    const form1 = document.querySelector(".form1");
+    form1.appendChild(errorBox3);
   }
 });
 

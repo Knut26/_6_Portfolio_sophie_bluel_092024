@@ -567,7 +567,8 @@ button:hover {
 }
 
 .error-box,
-.error-box2 {
+.error-box2,
+.error-box3 {
   display: flex;
   justify-content: center;
   align-items: center;
