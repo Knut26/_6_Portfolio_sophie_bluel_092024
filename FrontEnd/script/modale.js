@@ -190,25 +190,23 @@ inputFile.addEventListener("change", (event) => {
 //
 const form = document.querySelector("form");
 const btn = document.querySelector(".add-photo-picture-button2");
-const labelNom = document.querySelector("label-nom1");
 
 btn.addEventListener("click", (event) => {
   event.preventDefault();
+  if (uploadedFile) {
+    const formData = new FormData(form);
+    formData.append("file", uploadedFile);
 
-  const formData = new FormData(form);
-  formData.append("file", form);
-
-  for (item of formData) {
-    console.log(item[0], item[1]);
-  }
-  fetch("http://localhost:5678/api/works", {
-    method: "POST",
-    body: formData,
-  })
-    .then((response) => response.json())
-    .then((response) => console.log(response));
-
-  if (item[0] === "") {
+    for (item of formData) {
+      console.log(item[0], item[1]);
+    }
+    fetch("http://localhost:5678/api/works", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((response) => console.log(response));
+  } else {
     console.log("aucun fichier sélectionné");
     let errorBox3 = document.getElementById("errorBox3");
     if (errorBox3) {
@@ -221,7 +219,7 @@ btn.addEventListener("click", (event) => {
     const form = document.querySelector(".form");
     form.style.color = "red";
     const form1 = document.querySelector(".form1");
-    form1.appendChild(errorBox3);
+    form.appendChild(errorBox3);
   }
 });
 /*

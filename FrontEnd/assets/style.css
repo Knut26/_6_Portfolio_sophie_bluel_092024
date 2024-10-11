@@ -515,6 +515,7 @@ button:hover {
 .label-nom1,
 .label-nom2 {
   margin-block: 25px 15px;
+  font-size: 15px;
 }
 
 .mentions-legales {
@@ -576,6 +577,7 @@ button:hover {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   height: 30px;
+  font-size: 15px;
   color: white;
   padding: 7px;
 }
