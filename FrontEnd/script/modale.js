@@ -225,6 +225,8 @@ btn.addEventListener("click", (event) => {
     form.appendChild(errorBox3);
   }
 });
+
+//formData est un objet intégré en JS qui permet d'envoyer des données de formulaire via des requêtes HTTP notamment avec "fetch", il permet de contruire un ensemble de paire "clef/valeur" représentant les champs du formulaire et leurs valeurs respectives.
 /*
 const form = document.getElementById("form");
 form.addEventListener("click", (event) => {
