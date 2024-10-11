@@ -115,6 +115,8 @@ fetch("http://localhost:5678/api/categories") //fetch les categoryId
   .then((response) => response.json())
   .then((data) => {
     //console.log(data);
+    ajoutOption(select, "");
+
     for (i = 0; i < data.length; i++) {
       const choice = data[i].name; //on récup les noms des catégories
       ajoutOption(select, data[i].id, choice);
