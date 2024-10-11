@@ -188,11 +188,48 @@ inputFile.addEventListener("change", (event) => {
 //-------------post image modale2-----------------
 //------------------------------------------------
 //
-const submitButton = document.getElementById("submit-button");
-submitButton.addEventListener("click", (event) => {
+const form = document.querySelector("form");
+const btn = document.querySelector(".add-photo-picture-button2");
+const labelNom = document.querySelector("label-nom1");
+
+btn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(form);
+  formData.append("file", form);
+
+  for (item of formData) {
+    console.log(item[0], item[1]);
+  }
+  fetch("http://localhost:5678/api/works", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((response) => console.log(response));
+
+  if (item[0] === "") {
+    console.log("aucun fichier sélectionné");
+    let errorBox3 = document.getElementById("errorBox3");
+    if (errorBox3) {
+      errorBox3.remove();
+    }
+    errorBox3 = document.createElement("div");
+    errorBox3.className = "error-box3";
+    errorBox3.id = "errorBox3";
+    errorBox3.innerHTML = "Erreur dans le titre ou la catégorie";
+    const form = document.querySelector(".form");
+    form.style.color = "red";
+    const form1 = document.querySelector(".form1");
+    form1.appendChild(errorBox3);
+  }
+});
+/*
+const form = document.getElementById("form");
+form.addEventListener("click", (event) => {
   event.preventDefault();
   if (uploadedFile) {
-    const formData = new FormData();
+    const formData = new FormData(form);
     formData.append("file", uploadedFile);
     fetch("http://localhost:5678/api/works/", {
       method: "POST",
@@ -224,6 +261,16 @@ submitButton.addEventListener("click", (event) => {
     form1.appendChild(errorBox3);
   }
 });
+*/
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 // const formEl = document.querySelector(".form1");
 
