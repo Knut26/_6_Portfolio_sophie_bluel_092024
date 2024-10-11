@@ -202,7 +202,10 @@ btn.addEventListener("click", (event) => {
     }
     fetch("http://localhost:5678/api/works", {
       method: "POST",
-      body: formData,
+      headers: {
+        authorization: "bearer " + authToken,
+      },
+      body: JSON.stringify(formData),
     })
       .then((response) => response.json())
       .then((response) => console.log(response));
