@@ -233,7 +233,7 @@ btn.addEventListener("click", (event) => {
     errorBox3.innerHTML = "Erreur dans le titre ou la catégorie";
     const form = document.querySelector(".form");
     form.style.color = "red";
-    const form1 = document.querySelector(".form1");
+    //const form1 = document.querySelector(".form1");
     form.appendChild(errorBox3);
   }
 });
