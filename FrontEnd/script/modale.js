@@ -215,7 +215,7 @@ form.addEventListener("submit", async (event) => {
   fetch("http://localhost:5678/api/works", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${localStorage.getItem(authToken)}`,
+      Authorization: `Bearer ${sessionStorage.getItem(authToken)}`,
     },
     body: data,
   });
