@@ -200,43 +200,53 @@ inputFile.addEventListener("change", (event) => {
 //-------------post image modale2-----------------
 //------------------------------------------------
 //
-const form = document.querySelector("form");
-const btn = document.querySelector(".add-photo-picture-button2");
+const form = document.querySelector(".form-modale2");
+const newTitle = document.querySelector(".new-title");
+const newCategory = document.querySelector(".new-category");
 
-btn.addEventListener("click", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  if (uploadedFile) {
-    const formData = new FormData(form);
-    formData.append("image", uploadedFile);
-
-    for (item of formData) {
-      console.log(item[0], item[1]);
-    }
-    fetch("http://localhost:5678/api/works", {
-      method: "POST",
-      headers: {
-        authorization: "bearer " + authToken,
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((response) => console.log(response));
-  } else {
-    console.log("aucun fichier sélectionné");
-    let errorBox3 = document.getElementById("errorBox3");
-    if (errorBox3) {
-      errorBox3.remove();
-    }
-    errorBox3 = document.createElement("div");
-    errorBox3.className = "error-box3";
-    errorBox3.id = "errorBox3";
-    errorBox3.innerHTML = "Erreur dans le titre ou la catégorie";
-    const form = document.querySelector(".form");
-    form.style.color = "red";
-    //const form1 = document.querySelector(".form1");
-    form.appendChild(errorBox3);
-  }
+  const formData = new FormData(form);
+  formData.append("image", uploadedFile);
+  const data = Object.fromEntries(formData);
+  fetch("http://localhost:5678/api/works", {
+    method: "POST",
+    headers: {
+      "content-type": "application/JSON",
+      authorization: "bearer " + authToken,
+    },
+    body: JSON.stringify(data),
+  });
 });
+/*
+  formData.append("title", newTitle.value);
+  formData.append("category", newCategory.value);
+  formData.append("image", uploadedFile.src);
+
+  const response = await fetch("http://localhost:5678/api/works", {
+    method: "POST",
+    headers: {
+      "content-type": "application/JSON",
+      authorization: "bearer " + authToken,
+    }, */
+/*
+    if (response.ok) {
+      const importedImg = await response.json();
+      fetchingModale1(importedImg);
+    } else {
+      console.log("aucun fichier sélectionné");
+      let errorBox3 = document.getElementById("errorBox3");
+      if (errorBox3) {
+        errorBox3.remove();
+      }
+      errorBox3 = document.createElement("div");
+      errorBox3.className = "error-box3";
+      errorBox3.id = "errorBox3";
+      errorBox3.innerHTML = "Erreur dans le titre ou la catégorie";
+      const form = document.querySelector(".form");
+      form.style.color = "red";
+      form.appendChild(errorBox3);
+    }*/
 
 //formData est un objet intégré en JS qui permet d'envoyer des données de formulaire via des requêtes HTTP notamment avec "fetch", il permet de contruire un ensemble de paire "clef/valeur" représentant les champs du formulaire et leurs valeurs respectives.
 /*
