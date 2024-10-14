@@ -208,14 +208,16 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(form);
   formData.append("image", uploadedFile);
+  formData.append("title", newTitle.value);
+  formData.append("category", newCategory.value);
   const data = Object.fromEntries(formData);
+  console.log(data);
   fetch("http://localhost:5678/api/works", {
     method: "POST",
     headers: {
-      "content-type": "application/JSON",
-      authorization: "bearer " + authToken,
+      Authorization: `Bearer ${localStorage.getItem(authToken)}`,
     },
-    body: JSON.stringify(data),
+    body: data,
   });
 });
 /*
