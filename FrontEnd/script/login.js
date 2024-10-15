@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+  //
+  //
   //---------------------------------------------------------------
   //--------------------------LOGIN / LOGOUT-----------------------
   //---------------------------------------------------------------
+  //
+  //
+
   //PARTIE FONCTIONNELLE DE RECUPERATION DES IDENTIFIANTS ET DU TOKEN
   const loginApi = "http://localhost:5678/api/users/login";
   const logInForm = document.getElementById("logIn-form"); //récup du formulaire complet

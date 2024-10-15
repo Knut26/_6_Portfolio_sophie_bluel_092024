@@ -91,6 +91,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -113,14 +114,17 @@ html {
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -128,10 +132,12 @@ q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 /** end reset css**/
 .body-div2 {
   max-width: 1140px;
@@ -139,6 +145,7 @@ table {
   font-family: "Work Sans";
   font-size: 14px;
 }
+
 header {
   display: flex;
   justify-content: space-between;
@@ -150,8 +157,6 @@ section {
 }
 
 /* --------------------ajout CSS -------------------------*/
-
-/* pour que le padding soit pris en compte dans le calcul des largeurs */
 * {
   box-sizing: border-box;
 }
@@ -255,10 +260,6 @@ html {
   justify-content: center;
   margin-top: 25px;
 }
-
-/* img {
-  z-index: -1;
-} */
 
 .image-importee {
   display: none;
@@ -375,10 +376,6 @@ form2 {
   width: 450px;
 }
 
-/* .select::after {
-  padding-right: 30px;
-} */
-
 .fa-arrow-left {
   position: absolute;
   color: black;
@@ -399,11 +396,6 @@ form2 {
 .titre-ajout-photo {
   margin-bottom: 40px;
 }
-
-/* #fetched-img {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-} */
 
 .ligne {
   width: 70%;
@@ -581,9 +573,6 @@ button:hover {
   color: white;
   padding: 7px;
 }
-/* //////////////////////////////WIP//////////////////////////////////
-  //////////////////////////////WIP//////////////////////////////////
-  //////////////////////////////WIP////////////////////////////////// */
 
 .valid-box {
   display: flex;
@@ -596,9 +585,6 @@ button:hover {
   color: green;
   padding: 7px;
 }
-/* //////////////////////////////WIP//////////////////////////////////
-  //////////////////////////////WIP//////////////////////////////////
-  //////////////////////////////WIP////////////////////////////////// */
 
 #btn-login {
   cursor: pointer;
@@ -607,7 +593,7 @@ button:hover {
 input {
   outline: none;
 }
-/* pourquoi font-weight ne fonctionne pas ? */
+
 .font-weight-login {
   font-weight: 700;
 }
@@ -634,11 +620,13 @@ h2 {
   font-size: 30px;
   color: #1d6154;
 }
+
 nav ul {
   display: flex;
   align-items: center;
   list-style-type: none;
 }
+
 nav li {
   padding: 0 10px;
   font-size: 1.2em;
@@ -647,13 +635,16 @@ nav li {
 li:hover {
   color: #b1663c;
 }
+
 #introduction {
   display: flex;
   align-items: center;
 }
+
 #introduction figure {
   flex: 1;
 }
+
 #introduction img {
   display: block;
   margin: auto;
@@ -674,10 +665,12 @@ li:hover {
 #introduction p {
   margin-bottom: 0.5em;
 }
+
 #portfolio h2 {
   text-align: center;
   margin-bottom: 1em;
 }
+
 .gallery {
   width: 100%;
   display: grid;
@@ -689,16 +682,20 @@ li:hover {
 .gallery img {
   width: 100%;
 }
+
 #contact {
   width: 50%;
   margin: auto;
 }
+
 #contact > * {
   text-align: center;
 }
+
 #contact h2 {
   margin-bottom: 20px;
 }
+
 #contact form {
   text-align: left;
   margin-top: 30px;
@@ -712,9 +709,11 @@ li:hover {
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 #contact label {
   margin: 2em 0 1em 0;
 }
+
 #contact textarea {
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
