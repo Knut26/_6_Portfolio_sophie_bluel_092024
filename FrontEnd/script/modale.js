@@ -206,18 +206,24 @@ const newCategory = document.querySelector(".new-category");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const formData = new FormData(form);
-  formData.append("image", uploadedFile);
-  formData.append("title", newTitle.value);
-  formData.append("category", newCategory.value);
-  const data = Object.fromEntries(formData);
-  console.log(data);
+  // const formData = new FormData(form);
+  // formData.append("image", uploadedFile);
+  // formData.append("title", newTitle.value);
+  // formData.append("category", newCategory.value);
+  // const data = Object.fromEntries(formData);
+  // console.log(data);
   fetch("http://localhost:5678/api/works", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
     },
-    body: data,
+    body: JSON.stringify({
+      id: 0,
+      title: newTitle.value,
+      imageUrl: uploadedFile,
+      categoryId: newCategory.value,
+      userId: 0,
+    }),
   });
 });
 /*
