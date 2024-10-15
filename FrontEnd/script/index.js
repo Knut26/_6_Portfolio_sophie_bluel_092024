@@ -156,12 +156,6 @@ function adminMode() {
       '<i class="fa-regular fa-pen-to-square icone2"></i>modifier';
     titreProjets = document.querySelector(".titre-projets");
     titreProjets.appendChild(editBanner2); //...qu'on affiche après le titre "Projets"
-    // const modale = document.createElement("div");
-    // modale.className = "modale";
-    // modale.style.display = "none";
-    // //modale.classList = 'aria-hidden="true"';
-    // modale.innerHTML = "Galerie photo";
-    // editBanner2.appendChild(modale);
 
     const btnLogout = document.getElementById("btn-login"); //on change login en logout
     btnLogout.innerHTML = "logout";
@@ -203,17 +197,6 @@ function adminMode() {
       overlay.style.display = "none";
     });
   }
-
-  // checkCurrentPage(); //appel de la fonction déco si on quitte index.html
 }
 
 adminMode(); //appel fonction mode édition
-
-//remettre la modale 1 en click de arrowBack
-//ADDEVENT SUR LE "AJOUTER UNE PHOTO"
-//ADDEVENT SUR LES TRASHS CANS
-//RENDRE REELLE LA SUPPRESSION DES PHOTOS EN FONCTIONS DES CLICS DE LA MODALE.../
-//
-// 3
-//refaire le css des boutons de la modale 1
-//

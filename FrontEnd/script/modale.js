@@ -8,7 +8,6 @@
 
 const modale1 = document.querySelector(".modale-photos");
 const authToken = sessionStorage.authToken;
-// const fetching = fetch("http://localhost:5678/api/works");
 
 function fetchingModale1() {
   fetch("http://localhost:5678/api/works")
@@ -23,7 +22,7 @@ function fetchingModale1() {
         const imageUrl = data[i].imageUrl;
         img.src = imageUrl;
 
-        const trashCan = document.createElement("p"); //
+        const trashCan = document.createElement("p");
         trashCan.innerHTML = '<i class="fa-solid fa-trash-can trash"></i>';
         trashCan.className = "trash-can";
         trashCan.id = data[i].id;
@@ -37,13 +36,8 @@ function fetchingModale1() {
         //
         //
 
-        // function deleteImg() {
-        //   //const allTrashCans = document.querySelectorAll(".fa-trash-can");
-        //   //console.log(allTrashCans);
-        //   //console.log("id poubelle :", trashCanId);
-        // }
         trashCan.addEventListener("click", (e) => {
-          e.preventDefault(); // Prevent default page refresh
+          e.preventDefault();
           const initialize = {
             method: "DELETE",
             headers: {
@@ -56,24 +50,23 @@ function fetchingModale1() {
             .then((response) => {
               if (response.status === 204) {
                 console.log("Delete successful, no content returned");
-                // You can remove the deleted element from the DOM here
+
                 const photoContainer = e.target.closest(".photo-container");
                 if (photoContainer) {
-                  photoContainer.remove(); // Remove the photo container from the DOM
+                  photoContainer.remove();
                 }
               } else if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
               }
             })
             .catch((error) => {
-              console.error("Error during deletion:", error); // Log any errors
+              console.error("Error during deletion:", error);
             });
         });
 
         photoContainer.appendChild(img);
         photoContainer.appendChild(trashCan);
         modale1.appendChild(photoContainer);
-        //deleteImg();
       }
     });
 }
@@ -111,16 +104,15 @@ function ajoutOption(selectElement, value, text) {
 const select = document.getElementById("options");
 const form2 = document.querySelector(".form2");
 
-fetch("http://localhost:5678/api/categories") //fetch les categoryId
+fetch("http://localhost:5678/api/categories")
   .then((response) => response.json())
   .then((data) => {
     //console.log(data);
     ajoutOption(select, "");
 
     for (i = 0; i < data.length; i++) {
-      const choice = data[i].name; //on récup les noms des catégories
+      const choice = data[i].name;
       ajoutOption(select, data[i].id, choice);
-      //console.log(choice);
     }
   });
 
@@ -209,10 +201,10 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const formData = new FormData();
-  formData.append("image", inputImage.files[0]); // Add the raw image file
+  formData.append("image", inputImage.files[0]);
   formData.append("title", newTitle.value);
   formData.append("category", newCategory.value);
-  // Debugging: Check the contents of formData before sending
+  // Debugging: Checker le contenu de formData avant envoi
   for (let [key, value] of formData.entries()) {
     console.log(`${key}: ${value}`);
   }
@@ -221,215 +213,19 @@ form.addEventListener("submit", async (event) => {
     const response = await fetch("http://localhost:5678/api/works", {
       method: "POST",
       headers: {
-        Authorization: "bearer " + authToken, // Send the auth token
+        Authorization: "bearer " + authToken,
       },
-      body: formData, // Pass the form data directly
+      body: formData,
     });
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    //const data = await response.json();
-    //console.log("Success: data", data);
-    fetchingModale1(); // Refresh the modal with the new images
+    fetchingModale1(); // Refresh la modale avec la nouvelle image
   } catch (error) {
     console.error(error);
   }
 });
-
-/*
 
 //formData est un objet intégré en JS qui permet d'envoyer des données de formulaire via des requêtes HTTP notamment avec "fetch", il permet de contruire un ensemble de paire "clef/valeur" représentant les champs du formulaire et leurs valeurs respectives.
-/*
-const form = document.getElementById("form");
-form.addEventListener("click", (event) => {
-  event.preventDefault();
-  if (uploadedFile) {
-    const formData = new FormData(form);
-    formData.append("file", uploadedFile);
-    fetch("http://localhost:5678/api/works/", {
-      method: "POST",
-      headers: {
-        authorization: "bearer " + authToken,
-      },
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("fichier téléchargé avec succès");
-      })
-      .catch((error) => {
-        console.error("erreur lors du téléchargement");
-      });
-  } else {
-    console.log("aucun fichier sélectionné");
-    let errorBox3 = document.getElementById("errorBox3");
-    if (errorBox3) {
-      errorBox3.remove();
-    }
-    errorBox3 = document.createElement("div");
-    errorBox3.className = "error-box3";
-    errorBox3.id = "errorBox3";
-    errorBox3.innerHTML = "Erreur dans le titre ou la catégorie";
-    const form = document.querySelector(".form");
-    form.style.color = "red";
-    const form1 = document.querySelector(".form1");
-    form1.appendChild(errorBox3);
-  }
-});
-*/
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-// const formEl = document.querySelector(".form1");
-
-// formEl.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   const formData = new formData(formEl);
-//   console.log(formData.get("name"));
-// });
-
-// const form = document.querySelector(".modale2 form");
-// const title = document.querySelector(".modale2 #title");
-// const category = document.querySelector(".modale2 .label-nom2");
-
-// form.addEventListener("submit", async (e) => {
-//   e.preventDefault();
-//   const formData = {
-//     //id: id.value,
-//     title: title.value,
-//     categoryId: category.value,
-//     imageUrl: previewImg.src,
-//     //userId: userId.value,
-//     category: {
-//       id: category.value,
-//       name: category.options[category.selectedIndex].textContent,
-//     },
-//   };
-//   fetch("http://localhost:5678/api/works"),
-//     {
-//       method: "POST",
-//       body: JSON.stringify(formData),
-//       headers: {
-//         "Content-Type": "application/json",
-//         authorization: "bearer " + authToken,
-//       },
-//     }
-//       .then((response) => response.json())
-//       .then((data) => {
-//         console.log(data);
-//         fetchingModale1();
-//       });
-// });
-
-// const formEl = document.querySelector(".F1");
-
-// formEl.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   const formData = new formData(formEl);
-//   console.log(formData.get("name"));
-// });
-/*
-const submitButton = document.getElementById("submit-button");
-let uploadedFile;
-
-submitButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (uploadedFile && form1 !== "" && form2 !== "") {
-    const formData = {
-      title: title.value,
-      categoryId: category.value,
-      imageUrl: previewImg.src,
-      category: {
-        id: category.value,
-        name: category.options[category.selectedIndex].textContent,
-      },
-    };
-    // const formData = new formData();
-    // formData.append("file", uploadedFile);
-
-    fetch("http://localhost:5678/api/works", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-        authorization: "bearer " + authToken,
-      },
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
-  } else {
-    let errorBox3 = document.getElementById("errorBox3");
-    if (errorBox3) {
-      errorBox3.remove();
-    }
-    errorBox3 = document.createElement("div");
-    errorBox3.className = "error-box3";
-    errorBox3.id = "errorBox3";
-    errorBox3.innerHTML = "Erreur dans le titre ou la catégorie";
-    const form = document.querySelector(".form");
-    form.style.color = "red";
-    const form2 = document.querySelector(".form2");
-    form2.appendChild(errorBox3);
-  }
-});
-function formulaire () {
-//   if (inputTitle.value && photo.files[0] && category.value) {
-//     btn.style.backgroundColor = "#1D6154";
-//     } else {
-//         btn.style.backgroundColor = "";
-//     }
-// }
----
----
----
-
-const btn = document.getElementById("submit-button");
-const inputTitle = document.getElementById("input-title");
-const category = document.getElementById("options");
-const photo = document.getElementById("file-upload");
-
-btn.addEventListener("click", async function (event) {
-  event.preventDefault();
-  if (!inputTitle.value || !uploadedFile || !photo.value) {
-    prompt("erreur dans le remplissage des données");
-    return;
-  }
-  const catId = category.value;
-
-  const formData = new FormData();
-  formData.append("title", inputTitle.value);
-  formData.append("category", catId);
-  formData.append("image", uploadedFile);
-
-  try {
-    const res = await fetch("http://localhost:5678/api/works", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
-      },
-      body: formData,
-    });
-    if (res.ok) {
-      alert("Import ok");
-      const data = await res.json();
-      fetchingModale1();
-    } else {
-      console.log("erreur pendant le post");
-    }
-  } catch (error) {
-    console.error(error);
-  }
-});
-*/
