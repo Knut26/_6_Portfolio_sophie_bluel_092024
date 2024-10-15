@@ -212,49 +212,31 @@ form.addEventListener("submit", async (event) => {
   // formData.append("category", newCategory.value);
   // const data = Object.fromEntries(formData);
   // console.log(data);
-  fetch("http://localhost:5678/api/works", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
-    },
-    body: JSON.stringify({
-      id: 0,
-      title: newTitle.value,
-      imageUrl: uploadedFile,
-      categoryId: newCategory.value,
-      userId: 0,
-    }),
-  });
+  try {
+    const response = await fetch("http://localhost:5678/api/works", {
+      method: "POST",
+      headers: {
+        Authorization: "bearer " + authToken,
+      },
+      body: JSON.stringify({
+        id: 0,
+        title: newTitle.value,
+        imageUrl: uploadedFile,
+        categoryId: newCategory.value,
+        userId: 0,
+      }),
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log("Success: data", data);
+    fetchingModale1();
+  } catch (error) {
+    console.error(error);
+  }
 });
 /*
-  formData.append("title", newTitle.value);
-  formData.append("category", newCategory.value);
-  formData.append("image", uploadedFile.src);
-
-  const response = await fetch("http://localhost:5678/api/works", {
-    method: "POST",
-    headers: {
-      "content-type": "application/JSON",
-      authorization: "bearer " + authToken,
-    }, */
-/*
-    if (response.ok) {
-      const importedImg = await response.json();
-      fetchingModale1(importedImg);
-    } else {
-      console.log("aucun fichier sélectionné");
-      let errorBox3 = document.getElementById("errorBox3");
-      if (errorBox3) {
-        errorBox3.remove();
-      }
-      errorBox3 = document.createElement("div");
-      errorBox3.className = "error-box3";
-      errorBox3.id = "errorBox3";
-      errorBox3.innerHTML = "Erreur dans le titre ou la catégorie";
-      const form = document.querySelector(".form");
-      form.style.color = "red";
-      form.appendChild(errorBox3);
-    }*/
 
 //formData est un objet intégré en JS qui permet d'envoyer des données de formulaire via des requêtes HTTP notamment avec "fetch", il permet de contruire un ensemble de paire "clef/valeur" représentant les champs du formulaire et leurs valeurs respectives.
 /*
@@ -398,6 +380,54 @@ submitButton.addEventListener("click", (e) => {
     form.style.color = "red";
     const form2 = document.querySelector(".form2");
     form2.appendChild(errorBox3);
+  }
+});
+function formulaire () {
+//   if (inputTitle.value && photo.files[0] && category.value) {
+//     btn.style.backgroundColor = "#1D6154";
+//     } else {
+//         btn.style.backgroundColor = "";
+//     }
+// }
+---
+---
+---
+
+const btn = document.getElementById("submit-button");
+const inputTitle = document.getElementById("input-title");
+const category = document.getElementById("options");
+const photo = document.getElementById("file-upload");
+
+btn.addEventListener("click", async function (event) {
+  event.preventDefault();
+  if (!inputTitle.value || !uploadedFile || !photo.value) {
+    prompt("erreur dans le remplissage des données");
+    return;
+  }
+  const catId = category.value;
+
+  const formData = new FormData();
+  formData.append("title", inputTitle.value);
+  formData.append("category", catId);
+  formData.append("image", uploadedFile);
+
+  try {
+    const res = await fetch("http://localhost:5678/api/works", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
+      },
+      body: formData,
+    });
+    if (res.ok) {
+      alert("Import ok");
+      const data = await res.json();
+      fetchingModale1();
+    } else {
+      console.log("erreur pendant le post");
+    }
+  } catch (error) {
+    console.error(error);
   }
 });
 */
