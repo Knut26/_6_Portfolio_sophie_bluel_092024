@@ -10,9 +10,11 @@ const modale1 = document.querySelector(".modale-photos");
 const authToken = sessionStorage.authToken;
 
 function fetchingModale1() {
+  console.log("fetchingModale1 called");
   fetch("http://localhost:5678/api/works")
     .then((response) => response.json())
     .then((data) => {
+      console.log("data ok : ", data);
       for (i = 0; i < data.length; i++) {
         const photoContainer = document.createElement("div");
         photoContainer.className = "photo-container";
@@ -45,7 +47,7 @@ function fetchingModale1() {
               authorization: "bearer " + authToken,
             },
           };
-          console.log("Token valid:", authToken);
+          console.log("Token valid : ", authToken);
           fetch("http://localhost:5678/api/works/" + trashCanId, initialize)
             .then((response) => {
               if (response.status === 204) {
