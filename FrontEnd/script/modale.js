@@ -203,39 +203,41 @@ inputFile.addEventListener("change", (event) => {
 const form = document.querySelector(".form-modale2");
 const newTitle = document.querySelector(".new-title");
 const newCategory = document.querySelector(".new-category");
+const inputImage = document.querySelector(".file-input");
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  // const formData = new FormData(form);
-  // formData.append("image", uploadedFile);
-  // formData.append("title", newTitle.value);
-  // formData.append("category", newCategory.value);
-  // const data = Object.fromEntries(formData);
-  // console.log(data);
+
+  const formData = new FormData();
+  formData.append("image", inputImage.files[0]); // Add the raw image file
+  formData.append("title", newTitle.value);
+  formData.append("category", newCategory.value);
+  // Debugging: Check the contents of formData before sending
+  for (let [key, value] of formData.entries()) {
+    console.log(`${key}: ${value}`);
+  }
+
   try {
     const response = await fetch("http://localhost:5678/api/works", {
       method: "POST",
       headers: {
-        Authorization: "bearer " + authToken,
+        Authorization: "bearer " + authToken, // Send the auth token
       },
-      body: JSON.stringify({
-        id: 0,
-        title: newTitle.value,
-        imageUrl: uploadedFile,
-        categoryId: newCategory.value,
-        userId: 0,
-      }),
+      body: formData, // Pass the form data directly
     });
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const data = await response.json();
-    console.log("Success: data", data);
-    fetchingModale1();
+
+    //const data = await response.json();
+    //console.log("Success: data", data);
+    fetchingModale1(); // Refresh the modal with the new images
   } catch (error) {
     console.error(error);
   }
 });
+
 /*
 
 //formData est un objet intégré en JS qui permet d'envoyer des données de formulaire via des requêtes HTTP notamment avec "fetch", il permet de contruire un ensemble de paire "clef/valeur" représentant les champs du formulaire et leurs valeurs respectives.
