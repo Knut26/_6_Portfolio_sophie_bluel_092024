@@ -127,7 +127,7 @@ fetch("http://localhost:5678/api/categories")
 
 const visibleModale = document.querySelector(".modale-visible");
 const overlay = document.getElementById("overlay");
-const comeBackToIndex = document.getElementById("comeBackToIndex");
+const comeBackToIndex = document.getElementById("comeBackToIndex2");
 
 comeBackToIndex.addEventListener("click", () => {
   visibleModale.style.display = "none";
