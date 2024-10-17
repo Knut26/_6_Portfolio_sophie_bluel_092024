@@ -545,11 +545,6 @@ button:hover {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 300ms ease;
-}
-
-.se-connecter:hover {
-  transform: scale (1.4);
 }
 
 .connection {
